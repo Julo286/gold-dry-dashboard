@@ -275,7 +275,10 @@ def _top_products(orders, limit=10):
             sku_stats[sku]["name"] = item["name"]
             sku_stats[sku]["units"] += item["quantity"]
             sku_stats[sku]["revenue"] += item["revenue_ex"]
-    top = sorted(sku_stats.values(), key=lambda x: x["revenue"], reverse=True)[:limit]
+    # Filter statiegeld-producten uit de top producten lijst
+    filtered = {k: v for k, v in sku_stats.items()
+                if "statiegeld" not in v["name"].lower() and "statiegeld" not in v["sku"].lower()}
+    top = sorted(filtered.values(), key=lambda x: x["revenue"], reverse=True)[:limit]
     return [{"name": p["name"], "sku": p["sku"], "units": p["units"], "revenue": round(p["revenue"], 2)}
             for p in top]
 
