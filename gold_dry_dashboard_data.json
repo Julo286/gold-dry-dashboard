@@ -1,21 +1,21 @@
 {
-  "lastUpdated": "2026-04-05T16:02:19.904578",
+  "lastUpdated": "2026-04-05T16:41:42.422004",
   "mtd": {
-    "total": 25902.9,
+    "total": 25962.91,
     "b2b": 23473.5,
-    "b2c": 2429.4,
+    "b2c": 2489.41,
     "b2bOrders": 17,
-    "b2cOrders": 38,
+    "b2cOrders": 39,
     "prevTotal": 24641.35,
     "prevB2B": 0,
     "prevB2C": 24641.35
   },
   "ytd": {
-    "total": 421457.93,
+    "total": 421517.94,
     "b2b": 383651.91,
-    "b2c": 37806.02,
+    "b2c": 37866.03,
     "b2bOrders": 219,
-    "b2cOrders": 534,
+    "b2cOrders": 535,
     "prevTotal": 69863.0,
     "prevB2B": 0,
     "prevB2C": 69863.0
@@ -24,13 +24,13 @@
     "2023": 525698.07,
     "2024": 297043.63,
     "2025": 714429.06,
-    "2026": 421457.93
+    "2026": 421517.94
   },
   "monthly2026": [
     93609.08,
     121296.07,
     180649.88,
-    25902.9,
+    25962.91,
     0,
     0,
     0,
@@ -1052,8 +1052,8 @@
     {
       "name": "GOLD DRY Original Premix (Tray 12x)",
       "sku": "TRAYPREORIG12",
-      "units": 26040,
-      "revenue": 473602.41
+      "units": 26041,
+      "revenue": 473626.64
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1106,22 +1106,22 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 2959,
-      "revenue": 54661.03
+      "units": 2960,
+      "revenue": 54685.26
     }
   ],
   "topProductsYTD": [
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 10117,
-      "revenue": 185138.88
+      "units": 10118,
+      "revenue": 185163.11
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 2959,
-      "revenue": 54661.03
+      "units": 2960,
+      "revenue": 54685.26
     },
     {
       "name": "GOLD DRY Original Premium Soda",
