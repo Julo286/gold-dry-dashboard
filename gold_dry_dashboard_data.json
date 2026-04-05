@@ -1,36 +1,36 @@
 {
-  "lastUpdated": "2026-04-05T14:24:14.554104",
+  "lastUpdated": "2026-04-05T16:02:19.904578",
   "mtd": {
-    "total": 479.24,
-    "b2b": 0,
-    "b2c": 479.24,
-    "b2bOrders": 0,
-    "b2cOrders": 28,
-    "prevTotal": 5360.02,
+    "total": 25902.9,
+    "b2b": 23473.5,
+    "b2c": 2429.4,
+    "b2bOrders": 17,
+    "b2cOrders": 38,
+    "prevTotal": 24641.35,
     "prevB2B": 0,
-    "prevB2C": 5360.02
+    "prevB2C": 24641.35
   },
   "ytd": {
-    "total": 161192.5,
-    "b2b": 151561.32,
-    "b2c": 9631.18,
-    "b2bOrders": 120,
-    "b2cOrders": 523,
-    "prevTotal": 19412.75,
+    "total": 421457.93,
+    "b2b": 383651.91,
+    "b2c": 37806.02,
+    "b2bOrders": 219,
+    "b2cOrders": 534,
+    "prevTotal": 69863.0,
     "prevB2B": 0,
-    "prevB2C": 19412.75
+    "prevB2C": 69863.0
   },
   "years": {
-    "2023": 334058.75,
-    "2024": 98786.74,
-    "2025": 448147.84,
-    "2026": 161192.5
+    "2023": 525698.07,
+    "2024": 297043.63,
+    "2025": 714429.06,
+    "2026": 421457.93
   },
   "monthly2026": [
-    72923.06,
-    69491.44,
-    18298.76,
-    479.24,
+    93609.08,
+    121296.07,
+    180649.88,
+    25902.9,
     0,
     0,
     0,
@@ -41,141 +41,1135 @@
     0
   ],
   "monthly2025": [
-    4007.92,
-    4884.8,
-    5160.01,
-    10718.75,
-    5367.09,
-    11673.13,
-    8522.37,
-    5933.23,
-    4752.64,
-    128161.44,
-    110774.1,
-    148192.36
+    11568.26,
+    15891.29,
+    17762.1,
+    47694.27,
+    24750.77,
+    41940.71,
+    32649.04,
+    19385.5,
+    22836.08,
+    157379.07,
+    140102.39,
+    182469.58
   ],
   "topCustomers": [
     {
       "name": "Jumbo Distributiecentrum B.V.",
       "channel": "B2B",
-      "revenue": 46979.76,
-      "orders": 11
+      "revenue": 273533.76,
+      "orders": 33,
+      "orderList": [
+        {
+          "id": "301486",
+          "date": "2026-03-26",
+          "amount": 21928.32
+        },
+        {
+          "id": "301463",
+          "date": "2026-03-19",
+          "amount": 7879.68
+        },
+        {
+          "id": "301435",
+          "date": "2026-03-11",
+          "amount": 8566.56
+        },
+        {
+          "id": "301419",
+          "date": "2026-03-04",
+          "amount": 8566.56
+        },
+        {
+          "id": "301411",
+          "date": "2026-02-27",
+          "amount": 4795.2
+        },
+        {
+          "id": "301381",
+          "date": "2026-02-18",
+          "amount": 12337.92
+        },
+        {
+          "id": "301366",
+          "date": "2026-02-11",
+          "amount": 5391.36
+        },
+        {
+          "id": "301365",
+          "date": "2026-02-11",
+          "amount": 2397.6
+        },
+        {
+          "id": "301350",
+          "date": "2026-02-04",
+          "amount": 1376.4
+        },
+        {
+          "id": "301349",
+          "date": "2026-02-04",
+          "amount": 2695.68
+        },
+        {
+          "id": "301348",
+          "date": "2026-02-04",
+          "amount": 2397.6
+        },
+        {
+          "id": "301334",
+          "date": "2026-01-28",
+          "amount": 2397.6
+        },
+        {
+          "id": "301332",
+          "date": "2026-01-28",
+          "amount": 1555.2
+        },
+        {
+          "id": "301317",
+          "date": "2026-01-21",
+          "amount": 4795.2
+        },
+        {
+          "id": "301310",
+          "date": "2026-01-15",
+          "amount": 7192.8
+        },
+        {
+          "id": "301301",
+          "date": "2026-01-07",
+          "amount": 14385.6
+        },
+        {
+          "id": "301296",
+          "date": "2025-12-31",
+          "amount": 0
+        },
+        {
+          "id": "301295",
+          "date": "2025-12-31",
+          "amount": 3418.8
+        },
+        {
+          "id": "301290",
+          "date": "2025-12-28",
+          "amount": 14385.6
+        },
+        {
+          "id": "301274",
+          "date": "2025-12-17",
+          "amount": 37013.76
+        },
+        {
+          "id": "301265",
+          "date": "2025-12-10",
+          "amount": 7192.8
+        },
+        {
+          "id": "301247",
+          "date": "2025-12-05",
+          "amount": 10782.72
+        },
+        {
+          "id": "301246",
+          "date": "2025-12-05",
+          "amount": 5391.36
+        },
+        {
+          "id": "301245",
+          "date": "2025-12-05",
+          "amount": 3084.48
+        },
+        {
+          "id": "301224",
+          "date": "2025-11-26",
+          "amount": 14048.64
+        },
+        {
+          "id": "301197",
+          "date": "2025-11-19",
+          "amount": 3084.48
+        },
+        {
+          "id": "301188",
+          "date": "2025-11-13",
+          "amount": 9253.44
+        },
+        {
+          "id": "301176",
+          "date": "2025-11-12",
+          "amount": 13361.76
+        },
+        {
+          "id": "#GD1145",
+          "date": "2025-11-05",
+          "amount": 5482.08
+        },
+        {
+          "id": "#GD1116",
+          "date": "2025-10-29",
+          "amount": 13361.76
+        },
+        {
+          "id": "#GD1096",
+          "date": "2025-10-22",
+          "amount": 5482.08
+        },
+        {
+          "id": "#GD1073",
+          "date": "2025-10-15",
+          "amount": 10277.28
+        },
+        {
+          "id": "#GD1059",
+          "date": "2025-10-08",
+          "amount": 9253.44
+        }
+      ]
     },
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 24960.96,
-      "orders": 6
-    },
-    {
-      "name": "Teejater Events",
-      "channel": "B2B",
-      "revenue": 8670.0,
-      "orders": 3
+      "revenue": 147484.8,
+      "orders": 23,
+      "orderList": [
+        {
+          "id": "301498",
+          "date": "2026-03-31",
+          "amount": 33644.16
+        },
+        {
+          "id": "301488",
+          "date": "2026-03-30",
+          "amount": 9486.72
+        },
+        {
+          "id": "301467",
+          "date": "2026-03-22",
+          "amount": 3162.24
+        },
+        {
+          "id": "301444",
+          "date": "2026-03-13",
+          "amount": 3162.24
+        },
+        {
+          "id": "301427",
+          "date": "2026-03-10",
+          "amount": 3162.24
+        },
+        {
+          "id": "301412",
+          "date": "2026-02-27",
+          "amount": 6324.48
+        },
+        {
+          "id": "301391",
+          "date": "2026-02-20",
+          "amount": 3162.24
+        },
+        {
+          "id": "301372",
+          "date": "2026-02-13",
+          "amount": 6324.48
+        },
+        {
+          "id": "301354",
+          "date": "2026-02-06",
+          "amount": 3162.24
+        },
+        {
+          "id": "301339",
+          "date": "2026-01-30",
+          "amount": 6324.48
+        },
+        {
+          "id": "301324",
+          "date": "2026-01-23",
+          "amount": 6324.48
+        },
+        {
+          "id": "301313",
+          "date": "2026-01-16",
+          "amount": 3162.24
+        },
+        {
+          "id": "301287",
+          "date": "2025-12-24",
+          "amount": 6324.48
+        },
+        {
+          "id": "301279",
+          "date": "2025-12-19",
+          "amount": 9486.72
+        },
+        {
+          "id": "301269",
+          "date": "2025-12-12",
+          "amount": 3162.24
+        },
+        {
+          "id": "301248",
+          "date": "2025-12-05",
+          "amount": 6324.48
+        },
+        {
+          "id": "301231",
+          "date": "2025-11-29",
+          "amount": 3162.24
+        },
+        {
+          "id": "301214",
+          "date": "2025-11-21",
+          "amount": 3162.24
+        },
+        {
+          "id": "301189",
+          "date": "2025-11-14",
+          "amount": 3162.24
+        },
+        {
+          "id": "#GD1155",
+          "date": "2025-11-07",
+          "amount": 6324.48
+        },
+        {
+          "id": "#GD1130",
+          "date": "2025-10-31",
+          "amount": 3162.24
+        },
+        {
+          "id": "#GD1108",
+          "date": "2025-10-27",
+          "amount": 6324.48
+        },
+        {
+          "id": "#GD1083",
+          "date": "2025-10-17",
+          "amount": 9486.72
+        }
+      ]
     },
     {
       "name": "Spar Holding BV",
       "channel": "B2B",
-      "revenue": 7428.24,
-      "orders": 1
+      "revenue": 62513.28,
+      "orders": 13,
+      "orderList": [
+        {
+          "id": "301487",
+          "date": "2026-03-26",
+          "amount": 2617.92
+        },
+        {
+          "id": "301462",
+          "date": "2026-03-18",
+          "amount": 3358.8
+        },
+        {
+          "id": "301443",
+          "date": "2026-03-12",
+          "amount": 6408.24
+        },
+        {
+          "id": "301347",
+          "date": "2026-02-04",
+          "amount": 8594.64
+        },
+        {
+          "id": "301318",
+          "date": "2026-01-21",
+          "amount": 2617.92
+        },
+        {
+          "id": "301294",
+          "date": "2025-12-31",
+          "amount": 5976.72
+        },
+        {
+          "id": "301273",
+          "date": "2025-12-17",
+          "amount": 2617.92
+        },
+        {
+          "id": "301268",
+          "date": "2025-12-11",
+          "amount": 2344.8
+        },
+        {
+          "id": "301242",
+          "date": "2025-12-03",
+          "amount": 0
+        },
+        {
+          "id": "301198",
+          "date": "2025-11-19",
+          "amount": 5235.84
+        },
+        {
+          "id": "#GD1117",
+          "date": "2025-10-29",
+          "amount": 2566.08
+        },
+        {
+          "id": "#GD1075",
+          "date": "2025-10-15",
+          "amount": 16882.56
+        },
+        {
+          "id": "#GD1074",
+          "date": "2025-10-15",
+          "amount": 3291.84
+        }
+      ]
+    },
+    {
+      "name": "Sligro Food Group Nederland BV",
+      "channel": "B2B",
+      "revenue": 26127.36,
+      "orders": 8,
+      "orderList": [
+        {
+          "id": "301515",
+          "date": "2026-04-05",
+          "amount": 3810.24
+        },
+        {
+          "id": "301514",
+          "date": "2026-04-05",
+          "amount": 3188.16
+        },
+        {
+          "id": "301491",
+          "date": "2026-03-30",
+          "amount": 3188.16
+        },
+        {
+          "id": "301452",
+          "date": "2026-03-16",
+          "amount": 3188.16
+        },
+        {
+          "id": "301397",
+          "date": "2026-02-24",
+          "amount": 3188.16
+        },
+        {
+          "id": "301382",
+          "date": "2026-02-19",
+          "amount": 6376.32
+        },
+        {
+          "id": "301252",
+          "date": "2025-12-06",
+          "amount": 3188.16
+        },
+        {
+          "id": "301186",
+          "date": "2025-11-13",
+          "amount": 0
+        }
+      ]
     },
     {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
-      "revenue": 7053.23,
-      "orders": 3
+      "revenue": 23646.75,
+      "orders": 9,
+      "orderList": [
+        {
+          "id": "301505",
+          "date": "2026-04-02",
+          "amount": 202.6
+        },
+        {
+          "id": "301504",
+          "date": "2026-04-02",
+          "amount": 7044.31
+        },
+        {
+          "id": "301416",
+          "date": "2026-03-02",
+          "amount": 2379.86
+        },
+        {
+          "id": "301345",
+          "date": "2026-02-03",
+          "amount": 3019.79
+        },
+        {
+          "id": "301300",
+          "date": "2026-01-05",
+          "amount": 3070.18
+        },
+        {
+          "id": "301238",
+          "date": "2025-12-02",
+          "amount": 3598.5
+        },
+        {
+          "id": "301237",
+          "date": "2025-12-02",
+          "amount": 1064.76
+        },
+        {
+          "id": "#GD1131",
+          "date": "2025-11-02",
+          "amount": 3266.75
+        },
+        {
+          "id": "#GD1107",
+          "date": "2025-10-24",
+          "amount": 0
+        }
+      ]
     },
     {
-      "name": "Groothandel de Kreij",
+      "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 4102.0,
-      "orders": 1
+      "revenue": 20800.0,
+      "orders": 7,
+      "orderList": [
+        {
+          "id": "301426",
+          "date": "2026-03-09",
+          "amount": 3250.0
+        },
+        {
+          "id": "301333",
+          "date": "2026-01-28",
+          "amount": 3250.0
+        },
+        {
+          "id": "301302",
+          "date": "2026-01-07",
+          "amount": 3250.0
+        },
+        {
+          "id": "301280",
+          "date": "2025-12-21",
+          "amount": 3250.0
+        },
+        {
+          "id": "301257",
+          "date": "2025-12-08",
+          "amount": 2600.0
+        },
+        {
+          "id": "#GD1125",
+          "date": "2025-10-30",
+          "amount": 2600.0
+        },
+        {
+          "id": "#GD1041",
+          "date": "2025-10-06",
+          "amount": 2600.0
+        }
+      ]
     },
     {
-      "name": "My Alpenwelt Resort",
+      "name": "Plus Retail",
       "channel": "B2B",
-      "revenue": 3930.6,
-      "orders": 1
-    },
-    {
-      "name": "Quick Boys Katwijk",
-      "channel": "B2B",
-      "revenue": 3801.6,
-      "orders": 2
+      "revenue": 19932.48,
+      "orders": 4,
+      "orderList": [
+        {
+          "id": "301262",
+          "date": "2025-12-10",
+          "amount": 2462.4
+        },
+        {
+          "id": "#GD1147",
+          "date": "2025-11-05",
+          "amount": 4924.8
+        },
+        {
+          "id": "#GD1115",
+          "date": "2025-10-28",
+          "amount": 4924.8
+        },
+        {
+          "id": "#GD1062",
+          "date": "2025-10-09",
+          "amount": 7620.48
+        }
+      ]
     },
     {
       "name": "Casa Cara Dine & Dance",
       "channel": "B2B",
-      "revenue": 2851.2,
-      "orders": 2
+      "revenue": 13307.4,
+      "orders": 7,
+      "orderList": [
+        {
+          "id": "301410",
+          "date": "2026-02-27",
+          "amount": 1665.0
+        },
+        {
+          "id": "301352",
+          "date": "2026-02-05",
+          "amount": 1587.6
+        },
+        {
+          "id": "301305",
+          "date": "2026-01-08",
+          "amount": 1587.6
+        },
+        {
+          "id": "301281",
+          "date": "2025-12-22",
+          "amount": 2116.8
+        },
+        {
+          "id": "301250",
+          "date": "2025-12-05",
+          "amount": 2116.8
+        },
+        {
+          "id": "#GD1154",
+          "date": "2025-11-07",
+          "amount": 2116.8
+        },
+        {
+          "id": "#GD1050",
+          "date": "2025-10-07",
+          "amount": 2116.8
+        }
+      ]
     },
     {
-      "name": "Jumbo Roemer",
+      "name": "S.V. Eemnes",
       "channel": "B2B",
-      "revenue": 2772.36,
-      "orders": 3
+      "revenue": 9673.82,
+      "orders": 4,
+      "orderList": [
+        {
+          "id": "301428",
+          "date": "2026-03-10",
+          "amount": 1764.0
+        },
+        {
+          "id": "301325",
+          "date": "2026-01-24",
+          "amount": 2646.0
+        },
+        {
+          "id": "301285",
+          "date": "2025-12-23",
+          "amount": 2708.16
+        },
+        {
+          "id": "301165",
+          "date": "2025-11-10",
+          "amount": 2555.66
+        }
+      ]
+    },
+    {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 8902.0,
+      "orders": 2,
+      "orderList": [
+        {
+          "id": "301496",
+          "date": "2026-03-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301299",
+          "date": "2026-01-05",
+          "amount": 4678.0
+        }
+      ]
+    }
+  ],
+  "topCustomersYTD": [
+    {
+      "name": "Jumbo Distributiecentrum B.V.",
+      "channel": "B2B",
+      "revenue": 108659.28,
+      "orders": 16,
+      "orderList": [
+        {
+          "id": "301486",
+          "date": "2026-03-26",
+          "amount": 21928.32
+        },
+        {
+          "id": "301463",
+          "date": "2026-03-19",
+          "amount": 7879.68
+        },
+        {
+          "id": "301435",
+          "date": "2026-03-11",
+          "amount": 8566.56
+        },
+        {
+          "id": "301419",
+          "date": "2026-03-04",
+          "amount": 8566.56
+        },
+        {
+          "id": "301411",
+          "date": "2026-02-27",
+          "amount": 4795.2
+        },
+        {
+          "id": "301381",
+          "date": "2026-02-18",
+          "amount": 12337.92
+        },
+        {
+          "id": "301366",
+          "date": "2026-02-11",
+          "amount": 5391.36
+        },
+        {
+          "id": "301365",
+          "date": "2026-02-11",
+          "amount": 2397.6
+        },
+        {
+          "id": "301350",
+          "date": "2026-02-04",
+          "amount": 1376.4
+        },
+        {
+          "id": "301349",
+          "date": "2026-02-04",
+          "amount": 2695.68
+        },
+        {
+          "id": "301348",
+          "date": "2026-02-04",
+          "amount": 2397.6
+        },
+        {
+          "id": "301334",
+          "date": "2026-01-28",
+          "amount": 2397.6
+        },
+        {
+          "id": "301332",
+          "date": "2026-01-28",
+          "amount": 1555.2
+        },
+        {
+          "id": "301317",
+          "date": "2026-01-21",
+          "amount": 4795.2
+        },
+        {
+          "id": "301310",
+          "date": "2026-01-15",
+          "amount": 7192.8
+        },
+        {
+          "id": "301301",
+          "date": "2026-01-07",
+          "amount": 14385.6
+        }
+      ]
+    },
+    {
+      "name": "Albert Heijn Distributiecentrum",
+      "channel": "B2B",
+      "revenue": 87402.24,
+      "orders": 12,
+      "orderList": [
+        {
+          "id": "301498",
+          "date": "2026-03-31",
+          "amount": 33644.16
+        },
+        {
+          "id": "301488",
+          "date": "2026-03-30",
+          "amount": 9486.72
+        },
+        {
+          "id": "301467",
+          "date": "2026-03-22",
+          "amount": 3162.24
+        },
+        {
+          "id": "301444",
+          "date": "2026-03-13",
+          "amount": 3162.24
+        },
+        {
+          "id": "301427",
+          "date": "2026-03-10",
+          "amount": 3162.24
+        },
+        {
+          "id": "301412",
+          "date": "2026-02-27",
+          "amount": 6324.48
+        },
+        {
+          "id": "301391",
+          "date": "2026-02-20",
+          "amount": 3162.24
+        },
+        {
+          "id": "301372",
+          "date": "2026-02-13",
+          "amount": 6324.48
+        },
+        {
+          "id": "301354",
+          "date": "2026-02-06",
+          "amount": 3162.24
+        },
+        {
+          "id": "301339",
+          "date": "2026-01-30",
+          "amount": 6324.48
+        },
+        {
+          "id": "301324",
+          "date": "2026-01-23",
+          "amount": 6324.48
+        },
+        {
+          "id": "301313",
+          "date": "2026-01-16",
+          "amount": 3162.24
+        }
+      ]
+    },
+    {
+      "name": "Spar Holding BV",
+      "channel": "B2B",
+      "revenue": 23597.52,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301487",
+          "date": "2026-03-26",
+          "amount": 2617.92
+        },
+        {
+          "id": "301462",
+          "date": "2026-03-18",
+          "amount": 3358.8
+        },
+        {
+          "id": "301443",
+          "date": "2026-03-12",
+          "amount": 6408.24
+        },
+        {
+          "id": "301347",
+          "date": "2026-02-04",
+          "amount": 8594.64
+        },
+        {
+          "id": "301318",
+          "date": "2026-01-21",
+          "amount": 2617.92
+        }
+      ]
+    },
+    {
+      "name": "Sligro Food Group Nederland BV",
+      "channel": "B2B",
+      "revenue": 22939.2,
+      "orders": 6,
+      "orderList": [
+        {
+          "id": "301515",
+          "date": "2026-04-05",
+          "amount": 3810.24
+        },
+        {
+          "id": "301514",
+          "date": "2026-04-05",
+          "amount": 3188.16
+        },
+        {
+          "id": "301491",
+          "date": "2026-03-30",
+          "amount": 3188.16
+        },
+        {
+          "id": "301452",
+          "date": "2026-03-16",
+          "amount": 3188.16
+        },
+        {
+          "id": "301397",
+          "date": "2026-02-24",
+          "amount": 3188.16
+        },
+        {
+          "id": "301382",
+          "date": "2026-02-19",
+          "amount": 6376.32
+        }
+      ]
+    },
+    {
+      "name": "CN Purchase B.V.",
+      "channel": "B2B",
+      "revenue": 15716.74,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301505",
+          "date": "2026-04-02",
+          "amount": 202.6
+        },
+        {
+          "id": "301504",
+          "date": "2026-04-02",
+          "amount": 7044.31
+        },
+        {
+          "id": "301416",
+          "date": "2026-03-02",
+          "amount": 2379.86
+        },
+        {
+          "id": "301345",
+          "date": "2026-02-03",
+          "amount": 3019.79
+        },
+        {
+          "id": "301300",
+          "date": "2026-01-05",
+          "amount": 3070.18
+        }
+      ]
+    },
+    {
+      "name": "Teejater Events",
+      "channel": "B2B",
+      "revenue": 9750.0,
+      "orders": 3,
+      "orderList": [
+        {
+          "id": "301426",
+          "date": "2026-03-09",
+          "amount": 3250.0
+        },
+        {
+          "id": "301333",
+          "date": "2026-01-28",
+          "amount": 3250.0
+        },
+        {
+          "id": "301302",
+          "date": "2026-01-07",
+          "amount": 3250.0
+        }
+      ]
+    },
+    {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 8902.0,
+      "orders": 2,
+      "orderList": [
+        {
+          "id": "301496",
+          "date": "2026-03-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301299",
+          "date": "2026-01-05",
+          "amount": 4678.0
+        }
+      ]
+    },
+    {
+      "name": "Hoogvliet Supermarkten",
+      "channel": "B2B",
+      "revenue": 6739.2,
+      "orders": 1,
+      "orderList": [
+        {
+          "id": "301436",
+          "date": "2026-03-11",
+          "amount": 6739.2
+        }
+      ]
+    },
+    {
+      "name": "Quick Boys Katwijk",
+      "channel": "B2B",
+      "revenue": 6350.4,
+      "orders": 3,
+      "orderList": [
+        {
+          "id": "301483",
+          "date": "2026-03-24",
+          "amount": 2116.8
+        },
+        {
+          "id": "301389",
+          "date": "2026-02-20",
+          "amount": 2116.8
+        },
+        {
+          "id": "301329",
+          "date": "2026-01-26",
+          "amount": 2116.8
+        }
+      ]
+    },
+    {
+      "name": "Casa Cara Dine & Dance",
+      "channel": "B2B",
+      "revenue": 4840.2,
+      "orders": 3,
+      "orderList": [
+        {
+          "id": "301410",
+          "date": "2026-02-27",
+          "amount": 1665.0
+        },
+        {
+          "id": "301352",
+          "date": "2026-02-05",
+          "amount": 1587.6
+        },
+        {
+          "id": "301305",
+          "date": "2026-01-08",
+          "amount": 1587.6
+        }
+      ]
     }
   ],
   "topProducts": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix (Tray 12x)",
       "sku": "TRAYPREORIG12",
-      "units": 4873,
-      "revenue": 89643.95
+      "units": 26040,
+      "revenue": 473602.41
+    },
+    {
+      "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
+      "sku": "UNKNOWN",
+      "units": 121981,
+      "revenue": 462381.6
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 1701,
-      "revenue": 31416.61
+      "units": 8358,
+      "revenue": 153650.38
     },
     {
-      "name": "GOLD DRY Original Premium Soda",
+      "name": "GOLD DRY Original (Tray 12x)",
       "sku": "TRAYORIG12",
-      "units": 1862,
-      "revenue": 26382.4
+      "units": 11108,
+      "revenue": 140403.09
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda",
-      "sku": "TRAYECLIPSE",
-      "units": 1725,
-      "revenue": 24350.46
+      "name": "Statiegeld (x 12)",
+      "sku": "SKIP_STATIEGELD_12",
+      "units": 57296,
+      "revenue": 103132.8
     },
     {
-      "name": "GOLD DRY Mindset Premium Soda",
-      "sku": "TRAYMIND12",
-      "units": 1148,
-      "revenue": 16011.96
-    },
-    {
-      "name": "GOLD DRY Unite Premix Vodka",
-      "sku": "TRAYPREUNITE",
-      "units": 510,
-      "revenue": 10066.02
+      "name": "GOLD DRY Mindset Premix Vodka",
+      "sku": "TRAYPREMIND12",
+      "units": 4921,
+      "revenue": 92479.39
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 461,
-      "revenue": 8826.44
+      "units": 4699,
+      "revenue": 88495.74
+    },
+    {
+      "name": "GOLD DRY Mindset (Tray 12x)",
+      "sku": "TRAYMIND12",
+      "units": 5346,
+      "revenue": 74174.84
+    },
+    {
+      "name": "GOLD DRY Eclipse Premium Soda",
+      "sku": "TRAYECLIPSE",
+      "units": 4312,
+      "revenue": 61952.75
+    },
+    {
+      "name": "GOLD DRY Unite Premix Vodka",
+      "sku": "TRAYPREUNITE",
+      "units": 2959,
+      "revenue": 54661.03
+    }
+  ],
+  "topProductsYTD": [
+    {
+      "name": "GOLD DRY Original Premix Vodka",
+      "sku": "TRAYPREORIG12",
+      "units": 10117,
+      "revenue": 185138.88
+    },
+    {
+      "name": "GOLD DRY Unite Premix Vodka",
+      "sku": "TRAYPREUNITE",
+      "units": 2959,
+      "revenue": 54661.03
+    },
+    {
+      "name": "GOLD DRY Original Premium Soda",
+      "sku": "TRAYORIG12",
+      "units": 3521,
+      "revenue": 49534.23
+    },
+    {
+      "name": "Statiegeld (x 12)",
+      "sku": "SKIP_STATIEGELD_12",
+      "units": 26599,
+      "revenue": 47878.2
+    },
+    {
+      "name": "GOLD DRY Sky Premix Vodka",
+      "sku": "TRAYPRESKY12",
+      "units": 2572,
+      "revenue": 47274.84
+    },
+    {
+      "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
+      "sku": "CHOCOLATE TOFFEE",
+      "units": 5,
+      "revenue": 42206.4
+    },
+    {
+      "name": "GOLD DRY Mindset Premium Soda",
+      "sku": "TRAYMIND12",
+      "units": 2688,
+      "revenue": 37494.96
+    },
+    {
+      "name": "GOLD DRY Eclipse Premium Soda",
+      "sku": "TRAYECLIPSE",
+      "units": 2251,
+      "revenue": 31688.16
+    },
+    {
+      "name": "GOLD DRY Eclipse Premix Vodka",
+      "sku": "TRAYPREECLIPSE",
+      "units": 1584,
+      "revenue": 29265.04
     },
     {
       "name": "GOLD DRY Sky Premium Soda",
       "sku": "TRAYSKY12",
-      "units": 504,
-      "revenue": 7261.05
-    },
-    {
-      "name": "GOLD DRY Dream Premium Soda",
-      "sku": "TRAYDREAM12",
-      "units": 446,
-      "revenue": 6404.4
-    },
-    {
-      "name": "GOLD DRY Vodka - 700ml",
-      "sku": "VODKA 0,7",
-      "units": 216,
-      "revenue": 5443.2
+      "units": 891,
+      "revenue": 12659.7
     }
   ]
 }
