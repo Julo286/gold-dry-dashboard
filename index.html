@@ -1,1145 +1,689 @@
-PLACEHOLDER<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold Dry â Revenue Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-  :root {
-    --gd-primary: #C3B064;
-    --gd-secondary: #0A0A0A;
-    --gd-bg: #111111;
-    --gd-bg-card: #1A1A1A;
-    --gd-bg-card-hover: #222222;
-    --gd-text: #FAFAFA;
-    --gd-text-muted: #9A9A9A;
-    --gd-accent: #E8D5A3;
-    --gd-green: #4CAF50;
-    --gd-red: #E74C3C;
-    --gd-font-heading: 'Playfair Display', Georgia, serif;
-    --gd-font-body: 'Inter', -apple-system, sans-serif;
-    --gd-gradient: linear-gradient(135deg, #C3B064 0%, #E8D5A3 50%, #C3B064 100%);
-    --gd-border: 1px solid rgba(195, 176, 100, 0.15);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  /* Login overlay */
-  .login-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--gd-bg);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .login-overlay.hidden { display: none; }
-
-  .login-box {
-    background: var(--gd-bg-card);
-    border: var(--gd-border);
-    border-radius: 16px;
-    padding: 48px 40px;
-    width: 400px;
-    max-width: 90vw;
-    text-align: center;
-  }
-
-  .login-box svg { width: 180px; margin-bottom: 32px; }
-
-  .login-box h2 {
-    font-family: var(--gd-font-body);
-    font-weight: 300;
-    font-size: 13px;
-    color: var(--gd-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 32px;
-  }
-
-  .login-input {
-    width: 100%;
-    padding: 14px 16px;
-    background: var(--gd-bg);
-    border: 1px solid rgba(195, 176, 100, 0.2);
-    border-radius: 8px;
-    color: var(--gd-text);
-    font-family: var(--gd-font-body);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    margin-bottom: 16px;
-    text-align: center;
-    letter-spacing: 2px;
-  }
-
-  .login-input:focus { border-color: var(--gd-primary); }
-  .login-input::placeholder { color: var(--gd-text-muted); letter-spacing: 1px; }
-
-  .login-btn {
-    width: 100%;
-    padding: 14px;
-    background: var(--gd-gradient);
-    color: var(--gd-secondary);
-    border: none;
-    border-radius: 8px;
-    font-family: var(--gd-font-body);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: opacity 0.2s;
-  }
-
-  .login-btn:hover { opacity: 0.9; }
-
-  .login-error {
-    color: var(--gd-red);
-    font-size: 12px;
-    margin-top: 12px;
-    min-height: 18px;
-  }
-
-  .dashboard-locked { display: none; }
-  .dashboard-unlocked { display: block; }
-
-  body {
-    background: var(--gd-bg);
-    color: var(--gd-text);
-    font-family: var(--gd-font-body);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: var(--gd-bg); }
-  ::-webkit-scrollbar-thumb { background: rgba(195, 176, 100, 0.3); border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--gd-primary); }
-
-  /* Header */
-  .header {
-    background: var(--gd-secondary);
-    border-bottom: var(--gd-border);
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-  }
-
-  .header-left { display: flex; align-items: center; gap: 20px; }
-
-  .logo svg { width: 160px; height: auto; }
-
-  .header-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--gd-gradient);
-    opacity: 0.4;
-  }
-
-  .header-title {
-    font-family: var(--gd-font-body);
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--gd-text-muted);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .last-updated {
-    font-size: 12px;
-    color: var(--gd-text-muted);
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gd-green);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  /* Main content */
-  .main { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
-
-  /* Period selector */
-  .period-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 32px;
-  }
-
-  .period-tabs {
-    display: flex;
-    gap: 4px;
-    background: var(--gd-bg-card);
-    border-radius: 8px;
-    padding: 4px;
-    border: var(--gd-border);
-  }
-
-  .period-tab {
-    padding: 8px 20px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gd-text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    border: none;
-    background: none;
-    font-family: var(--gd-font-body);
-  }
-
-  .period-tab:hover { color: var(--gd-text); }
-  .period-tab.active {
-    background: var(--gd-primary);
-    color: var(--gd-secondary);
-    font-weight: 600;
-  }
-
-  .section-title {
-    font-family: var(--gd-font-heading);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--gd-text);
-    letter-spacing: 0.5px;
-  }
-
-  /* KPI cards */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-
-  .kpi-card {
-    background: var(--gd-bg-card);
-    border: var(--gd-border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .kpi-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gd-gradient);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .kpi-card:hover { background: var(--gd-bg-card-hover); transform: translateY(-2px); }
-  .kpi-card:hover::before { opacity: 1; }
-
-  .kpi-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--gd-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
-  }
-
-  .kpi-value {
-    font-family: var(--gd-font-heading);
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--gd-text);
-    margin-bottom: 8px;
-  }
-
-  .kpi-change {
-    font-size: 13px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .kpi-change.positive { color: var(--gd-green); }
-  .kpi-change.negative { color: var(--gd-red); }
-
-  .kpi-sub {
-    font-size: 11px;
-    color: var(--gd-text-muted);
-    margin-top: 4px;
-  }
-
-  /* Charts */
-  .chart-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-
-  .chart-card {
-    background: var(--gd-bg-card);
-    border: var(--gd-border);
-    border-radius: 12px;
-    padding: 24px;
-  }
-
-  .chart-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .chart-title {
-    font-family: var(--gd-font-heading);
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .chart-legend {
-    display: flex;
-    gap: 16px;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--gd-text-muted);
-  }
-
-  .legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .chart-container { position: relative; height: 300px; }
-
-  /* Tables */
-  .table-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-
-  .table-card {
-    background: var(--gd-bg-card);
-    border: var(--gd-border);
-    border-radius: 12px;
-    padding: 24px;
-    overflow: hidden;
-  }
-
-  .table-card h3 {
-    font-family: var(--gd-font-heading);
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  thead th {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gd-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 12px;
-    border-bottom: 1px solid rgba(195, 176, 100, 0.15);
-  }
-
-  tbody td {
-    padding: 12px;
-    font-size: 13px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-
-  tbody tr:hover { background: rgba(195, 176, 100, 0.05); }
-
-  .rank {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-  }
-
-  .rank-1 { background: rgba(195, 176, 100, 0.2); color: var(--gd-primary); }
-  .rank-2 { background: rgba(192, 192, 192, 0.15); color: #C0C0C0; }
-  .rank-3 { background: rgba(205, 127, 50, 0.15); color: #CD7F32; }
-  .rank-other { background: rgba(255,255,255,0.05); color: var(--gd-text-muted); }
-
-  .channel-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .badge-b2b { background: rgba(195, 176, 100, 0.15); color: var(--gd-primary); }
-  .badge-b2c { background: rgba(232, 213, 163, 0.15); color: var(--gd-accent); }
-
-  .amount { font-variant-numeric: tabular-nums; font-weight: 500; }
-
-  /* Yearly comparison */
-  .yearly-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-
-  .year-card {
-    background: var(--gd-bg-card);
-    border: var(--gd-border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .year-label {
-    font-family: var(--gd-font-heading);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--gd-primary);
-    margin-bottom: 4px;
-  }
-
-  .year-amount {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .year-sub {
-    font-size: 11px;
-    color: var(--gd-text-muted);
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 32px;
-    color: var(--gd-text-muted);
-    font-size: 11px;
-    border-top: var(--gd-border);
-    margin-top: 20px;
-  }
-
-  .footer-gold {
-    background: var(--gd-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 600;
-  }
-
-  /* Demo banner */
-  .demo-banner {
-    background: linear-gradient(90deg, rgba(195,176,100,0.1) 0%, rgba(195,176,100,0.05) 100%);
-    border: 1px solid rgba(195, 176, 100, 0.2);
-    border-radius: 8px;
-    padding: 12px 20px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--gd-accent);
-  }
-
-  .demo-banner-icon { font-size: 16px; }
-
-  /* Responsive */
-  @media (max-width: 1200px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .chart-grid { grid-template-columns: 1fr; }
-    .table-grid { grid-template-columns: 1fr; }
-    .yearly-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 768px) {
-    .main { padding: 20px; }
-    .header { padding: 16px 20px; }
-    .kpi-grid { grid-template-columns: 1fr; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Dry — Revenue Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --gd-primary: #C3B064;
+            --gd-secondary: #0A0A0A;
+            --gd-bg: #111111;
+            --gd-bg-card: #1A1A1A;
+            --gd-bg-card-hover: #222222;
+            --gd-text: #FAFAFA;
+            --gd-text-muted: #9A9A9A;
+            --gd-accent: #E8D5A3;
+            --gd-green: #4CAF50;
+            --gd-red: #E74C3C;
+            --gd-font-heading: 'Playfair Display', Georgia, serif;
+            --gd-font-body: 'Inter', -apple-system, sans-serif;
+            --gd-gradient: linear-gradient(135deg, #C3B064 0%, #E8D5A3 50%, #C3B064 100%);
+            --gd-border: 1px solid rgba(195, 176, 100, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Login overlay */
+        .login-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--gd-bg); z-index: 9999;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+        }
+        .login-overlay.hidden { display: none; }
+        .login-box {
+            background: var(--gd-bg-card); border: var(--gd-border); border-radius: 16px;
+            padding: 48px 40px; width: 400px; max-width: 90vw; text-align: center;
+        }
+        .login-box svg { width: 180px; margin-bottom: 32px; }
+        .login-box h2 {
+            font-family: var(--gd-font-body); font-weight: 300; font-size: 13px;
+            color: var(--gd-text-muted); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 32px;
+        }
+        .login-input {
+            width: 100%; padding: 14px 16px; background: var(--gd-bg);
+            border: 1px solid rgba(195, 176, 100, 0.2); border-radius: 8px;
+            color: var(--gd-text); font-family: var(--gd-font-body); font-size: 14px;
+            outline: none; transition: border-color 0.2s; margin-bottom: 16px;
+            text-align: center; letter-spacing: 2px;
+        }
+        .login-input:focus { border-color: var(--gd-primary); }
+        .login-input::placeholder { color: var(--gd-text-muted); letter-spacing: 1px; }
+        .login-btn {
+            width: 100%; padding: 14px; background: var(--gd-gradient);
+            color: var(--gd-secondary); border: none; border-radius: 8px;
+            font-family: var(--gd-font-body); font-size: 14px; font-weight: 600;
+            cursor: pointer; letter-spacing: 1px; transition: opacity 0.2s;
+        }
+        .login-btn:hover { opacity: 0.9; }
+        .login-error { color: var(--gd-red); font-size: 12px; margin-top: 12px; min-height: 18px; }
+        .dashboard-locked { display: none; }
+        .dashboard-unlocked { display: block; }
+
+        body {
+            background: var(--gd-bg); color: var(--gd-text);
+            font-family: var(--gd-font-body); line-height: 1.6; min-height: 100vh;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--gd-bg); }
+        ::-webkit-scrollbar-thumb { background: rgba(195, 176, 100, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gd-primary); }
+
+        /* Header */
+        .header {
+            background: var(--gd-secondary); border-bottom: var(--gd-border);
+            padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .logo svg { width: 160px; height: auto; }
+        .header-divider { width: 1px; height: 36px; background: var(--gd-gradient); opacity: 0.4; }
+        .header-title {
+            font-family: var(--gd-font-body); font-weight: 300; font-size: 14px;
+            color: var(--gd-text-muted); letter-spacing: 3px; text-transform: uppercase;
+        }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .last-updated { font-size: 12px; color: var(--gd-text-muted); }
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--gd-green); animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* Main */
+        .main { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
+
+        /* Period selector */
+        .period-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+        .period-tabs {
+            display: flex; gap: 4px; background: var(--gd-bg-card);
+            border-radius: 8px; padding: 4px; border: var(--gd-border);
+        }
+        .period-tab {
+            padding: 8px 20px; border-radius: 6px; font-size: 13px; font-weight: 500;
+            color: var(--gd-text-muted); cursor: pointer; transition: all 0.2s;
+            border: none; background: none; font-family: var(--gd-font-body);
+        }
+        .period-tab:hover { color: var(--gd-text); }
+        .period-tab.active { background: var(--gd-primary); color: var(--gd-secondary); font-weight: 600; }
+
+        .section-title {
+            font-family: var(--gd-font-heading); font-size: 22px; font-weight: 600;
+            color: var(--gd-text); letter-spacing: 0.5px;
+        }
+
+        /* KPI cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+        .kpi-card {
+            background: var(--gd-bg-card); border: var(--gd-border); border-radius: 12px;
+            padding: 24px; transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .kpi-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--gd-gradient); opacity: 0; transition: opacity 0.3s;
+        }
+        .kpi-card:hover { background: var(--gd-bg-card-hover); transform: translateY(-2px); }
+        .kpi-card:hover::before { opacity: 1; }
+        .kpi-label { font-size: 12px; font-weight: 500; color: var(--gd-text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .kpi-value { font-family: var(--gd-font-heading); font-size: 32px; font-weight: 700; color: var(--gd-text); margin-bottom: 8px; }
+        .kpi-change { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+        .kpi-change.positive { color: var(--gd-green); }
+        .kpi-change.negative { color: var(--gd-red); }
+        .kpi-sub { font-size: 11px; color: var(--gd-text-muted); margin-top: 4px; }
+
+        /* Charts */
+        .chart-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 32px; }
+        .chart-card { background: var(--gd-bg-card); border: var(--gd-border); border-radius: 12px; padding: 24px; }
+        .chart-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .chart-title { font-family: var(--gd-font-heading); font-size: 16px; font-weight: 600; }
+        .chart-legend { display: flex; gap: 16px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gd-text-muted); }
+        .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .chart-container { position: relative; height: 300px; }
+
+        /* Tables */
+        .table-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+        .table-card { background: var(--gd-bg-card); border: var(--gd-border); border-radius: 12px; padding: 24px; overflow: hidden; }
+        .table-card h3 { font-family: var(--gd-font-heading); font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+        .table-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .table-header h3 { margin-bottom: 0; }
+        .table-tabs {
+            display: flex; gap: 2px; background: rgba(195,176,100,0.08);
+            border-radius: 6px; padding: 2px;
+        }
+        .table-tab {
+            padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 500;
+            color: var(--gd-text-muted); cursor: pointer; transition: all 0.2s;
+            border: none; background: none; font-family: var(--gd-font-body);
+        }
+        .table-tab:hover { color: var(--gd-text); }
+        .table-tab.active { background: var(--gd-primary); color: var(--gd-secondary); font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; }
+        thead th {
+            text-align: left; font-size: 11px; font-weight: 600; color: var(--gd-text-muted);
+            text-transform: uppercase; letter-spacing: 1px; padding: 10px 12px;
+            border-bottom: 1px solid rgba(195, 176, 100, 0.15);
+        }
+        tbody td { padding: 12px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        tbody tr:hover { background: rgba(195, 176, 100, 0.05); }
+        .rank {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 24px; height: 24px; border-radius: 6px; font-size: 11px; font-weight: 700;
+        }
+        .rank-1 { background: rgba(195, 176, 100, 0.2); color: var(--gd-primary); }
+        .rank-2 { background: rgba(192, 192, 192, 0.15); color: #C0C0C0; }
+        .rank-3 { background: rgba(205, 127, 50, 0.15); color: #CD7F32; }
+        .rank-other { background: rgba(255,255,255,0.05); color: var(--gd-text-muted); }
+        .channel-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .badge-b2b { background: rgba(195, 176, 100, 0.15); color: var(--gd-primary); }
+        .badge-b2c { background: rgba(232, 213, 163, 0.15); color: var(--gd-accent); }
+        .amount { font-variant-numeric: tabular-nums; font-weight: 500; }
+
+        /* Yearly comparison */
+        .yearly-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+        .year-card { background: var(--gd-bg-card); border: var(--gd-border); border-radius: 12px; padding: 20px; text-align: center; }
+        .year-label { font-family: var(--gd-font-heading); font-size: 18px; font-weight: 700; color: var(--gd-primary); margin-bottom: 4px; }
+        .year-amount { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+        .year-sub { font-size: 11px; color: var(--gd-text-muted); }
+
+        /* Footer */
+        .footer {
+            text-align: center; padding: 32px; color: var(--gd-text-muted);
+            font-size: 11px; border-top: var(--gd-border); margin-top: 20px;
+        }
+        .footer-gold {
+            background: var(--gd-gradient); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; font-weight: 600;
+        }
+
+        /* Demo banner */
+        .demo-banner {
+            background: linear-gradient(90deg, rgba(195,176,100,0.1) 0%, rgba(195,176,100,0.05) 100%);
+            border: 1px solid rgba(195, 176, 100, 0.2); border-radius: 8px;
+            padding: 12px 20px; margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--gd-accent);
+        }
+
+        /* Clickable customer rows */
+        .customer-row { cursor: pointer; }
+        .customer-row:hover td { color: var(--gd-primary); }
+        .customer-row td:first-child { position: relative; }
+        .order-detail-row td { padding: 6px 12px 6px 48px !important; font-size: 12px; background: rgba(195,176,100,0.03); }
+        .order-detail-row .order-date { color: var(--gd-text-muted); }
+        .order-detail-row .order-id { color: var(--gd-primary); font-weight: 500; }
+        .order-detail-row .order-amount { font-variant-numeric: tabular-nums; }
+        .expand-icon { font-size: 10px; color: var(--gd-text-muted); margin-right: 6px; transition: transform 0.2s; display: inline-block; }
+        .expand-icon.open { transform: rotate(90deg); }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .chart-grid { grid-template-columns: 1fr; }
+            .table-grid { grid-template-columns: 1fr; }
+            .yearly-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .main { padding: 20px; }
+            .header { padding: 16px 20px; }
+            .kpi-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
 <!-- Login Overlay -->
 <div class="login-overlay" id="loginOverlay">
-  <div class="login-box">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 197.9" width="180">
-      <style>.cls-1{fill:#c3b064;stroke-width:0}</style>
-      <path class="cls-1" d="M462.3,9.8h-7.7c-1.4,0-2.6,1.1-2.6,2.5-3.4-.3-11.6-1.4-15.3-3.3-5.4-3-22.8-9-41.8-9H20.3c-4.5,0-8.2,4.5-8.2,8.2s0,5.6-5.1,5.6S0,16,0,19.8v145.4c0,3.8,2.5,6,7,6s5.1,5.6,5.1,5.6c0,3.7,3.6,8.2,8.2,8.2h144.5v-3H20.3c-2.7,0-5.2-2.9-5.2-5.2,0-3.5-2.2-8.6-8.1-8.6s-4-2-4-3V19.7c0-1,0-3,4-3,5.9,0,8.1-5.2,8.1-8.6s2.4-5.2,5.2-5.2h374.7c18.4,0,35.1,5.9,40.3,8.7,5.2,2.8,17.5,3.8,18,3.8s.8,0,1.1-.4.5-.6.5-1v-1.2h7v159.1h-6.9v-1.2c0-.4-.3-.8-.6-1-.3-.3-.7-.4-1.1-.4s-12.8,1-18,3.8-21.9,8.7-40.3,8.7h-98.2v3h98.2c19,0,36.3-6.1,41.8-9,3.6-2,11.9-3,15.3-3.3,0,1.4,1.2,2.5,2.6,2.5h7.7c1.4,0,2.6-1.2,2.6-2.6V12.4c0-1.4-1.2-2.6-2.6-2.6h-.1Z"/>
-      <g><path class="cls-1" d="M196.6,169c9.3,0,15.2,5.4,15.2,14.4s-5.9,14.4-15.2,14.4h-8.5v-28.9h8.5ZM195.1,175.1v16.7h1.4c4.7,0,7.9-2.8,7.9-8.3s-3.1-8.3-7.9-8.3h-1.4Z"/><path class="cls-1" d="M239.2,185.5l6.6,12.4h-7.8l-5.2-10.7h-2.1v10.7h-7v-28.9h9.4c6.8,0,10.1,3.1,10.1,8.9s-1.4,6.2-4,7.6ZM230.7,175.1v6.2h2.1c1.9,0,3.1-1.2,3.1-3.2s-.9-3.1-3.5-3.1h-1.8,0Z"/><path class="cls-1" d="M261,197.9v-13l-8.8-15.8h7.9l4.4,9.4,4.5-9.4h7.8l-8.8,15.8v13h-7Z"/></g>
-      <g><path class="cls-1" d="M342.4,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3Z"/><path class="cls-1" d="M258.6,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3h0Z"/><path class="cls-1" d="M237.4,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M140,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M36.9,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M428,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M317.4,121.9c-3.4,9.4-8,15.8-16.1,18.2h16.1v-18.2Z"/><path class="cls-1" d="M93.2,94.4c4.2,1,10.7,3,10.7,12.1v22.9s-3.8,7.8-12.4,10.7c1.1-.2,18-1.2,29.8-14.1v-25.4c0-4.6,3.3-5.7,5.5-6.2h-33.7.1Z"/><path class="cls-1" d="M91.3,44.7c7.3,2.2,11,8.1,12.7,19.1.6,3.8,3.8,7.4,8.6,7.4s8.8-4,8.8-8.8c0-10.1-18.9-16.6-30.1-17.7Z"/></g>
-      <g><path class="cls-1" d="M436.4,57.2c-6.9,0-12.6-5.6-12.6-12.6s5.6-12.6,12.6-12.6,12.6,5.6,12.6,12.6-5.6,12.6-12.6,12.6ZM436.4,34.6c-5.6,0-10.1,4.5-10.1,10.1s4.5,10.1,10.1,10.1,10.1-4.5,10.1-10.1-4.5-10.1-10.1-10.1Z"/><path class="cls-1" d="M438.7,45.1l2.6,4.8h-3.1l-2.1-4.1h-.9v4.1h-2.8v-11.2h3.7c2.7,0,4,1.2,4,3.4s-.5,2.4-1.6,3h.2,0ZM435.4,41.1v2.4h.8c.8,0,1.2-.5,1.2-1.2s-.4-1.2-1.4-1.2h-.7.1Z"/></g>
-    </svg>
-    <h2>Revenue Dashboard</h2>
-    <input type="password" class="login-input" id="loginPassword" placeholder="Wachtwoord" autofocus>
-    <button class="login-btn" id="loginBtn" onclick="attemptLogin()">Toegang</button>
-    <div class="login-error" id="loginError"></div>
-  </div>
+    <div class="login-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 197.9" width="180">
+            <style>.cls-1{fill:#c3b064;stroke-width:0}</style>
+            <path class="cls-1" d="M462.3,9.8h-7.7c-1.4,0-2.6,1.1-2.6,2.5-3.4-.3-11.6-1.4-15.3-3.3-5.4-3-22.8-9-41.8-9H20.3c-4.5,0-8.2,4.5-8.2,8.2s0,5.6-5.1,5.6S0,16,0,19.8v145.4c0,3.8,2.5,6,7,6s5.1,5.6,5.1,5.6c0,3.7,3.6,8.2,8.2,8.2h144.5v-3H20.3c-2.7,0-5.2-2.9-5.2-5.2,0-3.5-2.2-8.6-8.1-8.6s-4-2-4-3V19.7c0-1,0-3,4-3,5.9,0,8.1-5.2,8.1-8.6s2.4-5.2,5.2-5.2h374.7c18.4,0,35.1,5.9,40.3,8.7,5.2,2.8,17.5,3.8,18,3.8s.8,0,1.1-.4.5-.6.5-1v-1.2h7v159.1h-6.9v-1.2c0-.4-.3-.8-.6-1-.3-.3-.7-.4-1.1-.4s-12.8,1-18,3.8-21.9,8.7-40.3,8.7h-98.2v3h98.2c19,0,36.3-6.1,41.8-9,3.6-2,11.9-3,15.3-3.3,0,1.4,1.2,2.5,2.6,2.5h7.7c1.4,0,2.6-1.2,2.6-2.6V12.4c0-1.4-1.2-2.6-2.6-2.6h-.1Z"/>
+            <g><path class="cls-1" d="M196.6,169c9.3,0,15.2,5.4,15.2,14.4s-5.9,14.4-15.2,14.4h-8.5v-28.9h8.5ZM195.1,175.1v16.7h1.4c4.7,0,7.9-2.8,7.9-8.3s-3.1-8.3-7.9-8.3h-1.4Z"/><path class="cls-1" d="M239.2,185.5l6.6,12.4h-7.8l-5.2-10.7h-2.1v10.7h-7v-28.9h9.4c6.8,0,10.1,3.1,10.1,8.9s-1.4,6.2-4,7.6ZM230.7,175.1v6.2h2.1c1.9,0,3.1-1.2,3.1-3.2s-.9-3.1-3.5-3.1h-1.8,0Z"/><path class="cls-1" d="M261,197.9v-13l-8.8-15.8h7.9l4.4,9.4,4.5-9.4h7.8l-8.8,15.8v13h-7Z"/></g>
+            <g><path class="cls-1" d="M342.4,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3Z"/><path class="cls-1" d="M258.6,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3h0Z"/><path class="cls-1" d="M237.4,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M140,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M36.9,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M428,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M317.4,121.9c-3.4,9.4-8,15.8-16.1,18.2h16.1v-18.2Z"/><path class="cls-1" d="M93.2,94.4c4.2,1,10.7,3,10.7,12.1v22.9s-3.8,7.8-12.4,10.7c1.1-.2,18-1.2,29.8-14.1v-25.4c0-4.6,3.3-5.7,5.5-6.2h-33.7.1Z"/><path class="cls-1" d="M91.3,44.7c7.3,2.2,11,8.1,12.7,19.1.6,3.8,3.8,7.4,8.6,7.4s8.8-4,8.8-8.8c0-10.1-18.9-16.6-30.1-17.7Z"/></g>
+            <g><path class="cls-1" d="M436.4,57.2c-6.9,0-12.6-5.6-12.6-12.6s5.6-12.6,12.6-12.6,12.6,5.6,12.6,12.6-5.6,12.6-12.6,12.6ZM436.4,34.6c-5.6,0-10.1,4.5-10.1,10.1s4.5,10.1,10.1,10.1,10.1-4.5,10.1-10.1-4.5-10.1-10.1-10.1Z"/><path class="cls-1" d="M438.7,45.1l2.6,4.8h-3.1l-2.1-4.1h-.9v4.1h-2.8v-11.2h3.7c2.7,0,4,1.2,4,3.4s-.5,2.4-1.6,3h.2,0ZM435.4,41.1v2.4h.8c.8,0,1.2-.5,1.2-1.2s-.4-1.2-1.4-1.2h-.7.1Z"/></g>
+        </svg>
+        <h2>Revenue Dashboard</h2>
+        <input type="password" class="login-input" id="loginPassword" placeholder="Wachtwoord" autofocus>
+        <button class="login-btn" id="loginBtn" onclick="attemptLogin()">Toegang</button>
+        <div class="login-error" id="loginError"></div>
+    </div>
 </div>
 
 <!-- Dashboard (hidden until login) -->
 <div id="dashboardContent" class="dashboard-locked">
 
-<!-- Header -->
-<header class="header">
-  <div class="header-left">
-    <div class="logo">
-      <!-- LOGO PLACEHOLDER -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 197.9" width="160">
-        <style>.cls-1{fill:#c3b064;stroke-width:0}</style>
-        <path class="cls-1" d="M462.3,9.8h-7.7c-1.4,0-2.6,1.1-2.6,2.5-3.4-.3-11.6-1.4-15.3-3.3-5.4-3-22.8-9-41.8-9H20.3c-4.5,0-8.2,4.5-8.2,8.2s0,5.6-5.1,5.6S0,16,0,19.8v145.4c0,3.8,2.5,6,7,6s5.1,5.6,5.1,5.6c0,3.7,3.6,8.2,8.2,8.2h144.5v-3H20.3c-2.7,0-5.2-2.9-5.2-5.2,0-3.5-2.2-8.6-8.1-8.6s-4-2-4-3V19.7c0-1,0-3,4-3,5.9,0,8.1-5.2,8.1-8.6s2.4-5.2,5.2-5.2h374.7c18.4,0,35.1,5.9,40.3,8.7,5.2,2.8,17.5,3.8,18,3.8s.8,0,1.1-.4.5-.6.5-1v-1.2h7v159.1h-6.9v-1.2c0-.4-.3-.8-.6-1-.3-.3-.7-.4-1.1-.4s-12.8,1-18,3.8-21.9,8.7-40.3,8.7h-98.2v3h98.2c19,0,36.3-6.1,41.8-9,3.6-2,11.9-3,15.3-3.3,0,1.4,1.2,2.5,2.6,2.5h7.7c1.4,0,2.6-1.2,2.6-2.6V12.4c0-1.4-1.2-2.6-2.6-2.6h-.1Z"/>
-        <g><path class="cls-1" d="M196.6,169c9.3,0,15.2,5.4,15.2,14.4s-5.9,14.4-15.2,14.4h-8.5v-28.9h8.5ZM195.1,175.1v16.7h1.4c4.7,0,7.9-2.8,7.9-8.3s-3.1-8.3-7.9-8.3h-1.4Z"/><path class="cls-1" d="M239.2,185.5l6.6,12.4h-7.8l-5.2-10.7h-2.1v10.7h-7v-28.9h9.4c6.8,0,10.1,3.1,10.1,8.9s-1.4,6.2-4,7.6ZM230.7,175.1v6.2h2.1c1.9,0,3.1-1.2,3.1-3.2s-.9-3.1-3.5-3.1h-1.8,0Z"/><path class="cls-1" d="M261,197.9v-13l-8.8-15.8h7.9l4.4,9.4,4.5-9.4h7.8l-8.8,15.8v13h-7Z"/></g>
-        <g><path class="cls-1" d="M342.4,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3Z"/><path class="cls-1" d="M258.6,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3h0Z"/><path class="cls-1" d="M237.4,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M140,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M36.9,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M428,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M317.4,121.9c-3.4,9.4-8,15.8-16.1,18.2h16.1v-18.2Z"/><path class="cls-1" d="M93.2,94.4c4.2,1,10.7,3,10.7,12.1v22.9s-3.8,7.8-12.4,10.7c1.1-.2,18-1.2,29.8-14.1v-25.4c0-4.6,3.3-5.7,5.5-6.2h-33.7.1Z"/><path class="cls-1" d="M91.3,44.7c7.3,2.2,11,8.1,12.7,19.1.6,3.8,3.8,7.4,8.6,7.4s8.8-4,8.8-8.8c0-10.1-18.9-16.6-30.1-17.7Z"/></g>
-        <g><path class="cls-1" d="M436.4,57.2c-6.9,0-12.6-5.6-12.6-12.6s5.6-12.6,12.6-12.6,12.6,5.6,12.6,12.6-5.6,12.6-12.6,12.6ZM436.4,34.6c-5.6,0-10.1,4.5-10.1,10.1s4.5,10.1,10.1,10.1,10.1-4.5,10.1-10.1-4.5-10.1-10.1-10.1Z"/><path class="cls-1" d="M438.7,45.1l2.6,4.8h-3.1l-2.1-4.1h-.9v4.1h-2.8v-11.2h3.7c2.7,0,4,1.2,4,3.4s-.5,2.4-1.6,3h.2,0ZM435.4,41.1v2.4h.8c.8,0,1.2-.5,1.2-1.2s-.4-1.2-1.4-1.2h-.7.1Z"/></g>
-      </svg>
-    </div>
-    <div class="header-divider"></div>
-    <div class="header-title">Revenue Dashboard</div>
-  </div>
-  <div class="header-right">
-    <span class="last-updated" id="lastUpdated">Laatst bijgewerkt: â</span>
-    <div class="status-dot" title="Live"></div>
-  </div>
-</header>
-
-<main class="main">
-
-  <!-- Demo Banner -->
-  <div class="demo-banner" style="display:none">
-    <span class="demo-banner-icon">&#9888;</span>
-    <span><strong>Demo-modus</strong> â Dit dashboard toont voorbeelddata. Koppel Shopify &amp; WooCommerce API's voor live data.</span>
-  </div>
-
-  <!-- Period selector -->
-  <div class="period-bar">
-    <div class="period-tabs">
-      <button class="period-tab active" data-period="mtd">MTD</button>
-      <button class="period-tab" data-period="ytd">YTD</button>
-      <button class="period-tab" data-period="2025">2025</button>
-      <button class="period-tab" data-period="2024">2024</button>
-      <button class="period-tab" data-period="2023">2023</button>
-    </div>
-  </div>
-
-  <!-- KPI Cards -->
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Totale Omzet (ex BTW, ex statiegeld)</div>
-      <div class="kpi-value" id="kpiTotal">&euro;0</div>
-      <div class="kpi-change positive" id="kpiTotalChange">
-        <span>&#9650;</span> <span>0%</span>
-      </div>
-      <div class="kpi-sub" id="kpiTotalSub">vs. zelfde periode vorig jaar</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">B2B Omzet <span class="channel-badge badge-b2b">Shopify</span></div>
-      <div class="kpi-value" id="kpiB2B">&euro;0</div>
-      <div class="kpi-change positive" id="kpiB2BChange">
-        <span>&#9650;</span> <span>0%</span>
-      </div>
-      <div class="kpi-sub" id="kpiB2BSub">â orders</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">B2C Omzet <span class="channel-badge badge-b2c">WooCommerce</span></div>
-      <div class="kpi-value" id="kpiB2C">&euro;0</div>
-      <div class="kpi-change positive" id="kpiB2CChange">
-        <span>&#9650;</span> <span>0%</span>
-      </div>
-      <div class="kpi-sub" id="kpiB2CSub">â orders</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Gemiddelde Orderwaarde</div>
-      <div class="kpi-value" id="kpiAOV">&euro;0</div>
-      <div class="kpi-change positive" id="kpiAOVChange">
-        <span>&#9650;</span> <span>0%</span>
-      </div>
-      <div class="kpi-sub">ex BTW, ex statiegeld</div>
-    </div>
-  </div>
-
-  <!-- Yearly comparison -->
-  <div style="margin-bottom: 12px;">
-    <span class="section-title">Jaaroverzicht</span>
-  </div>
-  <div class="yearly-grid">
-    <div class="year-card">
-      <div class="year-label">2026 YTD</div>
-      <div class="year-amount" id="year2026">&euro;0</div>
-      <div class="year-sub">jan - apr</div>
-    </div>
-    <div class="year-card">
-      <div class="year-label">2025</div>
-      <div class="year-amount" id="year2025">&euro;0</div>
-      <div class="year-sub">volledig jaar</div>
-    </div>
-    <div class="year-card">
-      <div class="year-label">2024</div>
-      <div class="year-amount" id="year2024">&euro;0</div>
-      <div class="year-sub">volledig jaar</div>
-    </div>
-    <div class="year-card">
-      <div class="year-label">2023</div>
-      <div class="year-amount" id="year2023">&euro;0</div>
-      <div class="year-sub">volledig jaar</div>
-    </div>
-  </div>
-
-  <!-- Charts -->
-  <div class="chart-grid">
-    <div class="chart-card">
-      <div class="chart-header">
-        <span class="chart-title">Maandomzet 2026 vs 2025</span>
-        <div class="chart-legend">
-          <div class="legend-item"><div class="legend-dot" style="background: #C3B064;"></div>2026</div>
-          <div class="legend-item"><div class="legend-dot" style="background: rgba(195,176,100,0.3);"></div>2025</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 197.9" width="160">
+                    <style>.cls-1{fill:#c3b064;stroke-width:0}</style>
+                    <path class="cls-1" d="M462.3,9.8h-7.7c-1.4,0-2.6,1.1-2.6,2.5-3.4-.3-11.6-1.4-15.3-3.3-5.4-3-22.8-9-41.8-9H20.3c-4.5,0-8.2,4.5-8.2,8.2s0,5.6-5.1,5.6S0,16,0,19.8v145.4c0,3.8,2.5,6,7,6s5.1,5.6,5.1,5.6c0,3.7,3.6,8.2,8.2,8.2h144.5v-3H20.3c-2.7,0-5.2-2.9-5.2-5.2,0-3.5-2.2-8.6-8.1-8.6s-4-2-4-3V19.7c0-1,0-3,4-3,5.9,0,8.1-5.2,8.1-8.6s2.4-5.2,5.2-5.2h374.7c18.4,0,35.1,5.9,40.3,8.7,5.2,2.8,17.5,3.8,18,3.8s.8,0,1.1-.4.5-.6.5-1v-1.2h7v159.1h-6.9v-1.2c0-.4-.3-.8-.6-1-.3-.3-.7-.4-1.1-.4s-12.8,1-18,3.8-21.9,8.7-40.3,8.7h-98.2v3h98.2c19,0,36.3-6.1,41.8-9,3.6-2,11.9-3,15.3-3.3,0,1.4,1.2,2.5,2.6,2.5h7.7c1.4,0,2.6-1.2,2.6-2.6V12.4c0-1.4-1.2-2.6-2.6-2.6h-.1Z"/>
+                    <g><path class="cls-1" d="M196.6,169c9.3,0,15.2,5.4,15.2,14.4s-5.9,14.4-15.2,14.4h-8.5v-28.9h8.5ZM195.1,175.1v16.7h1.4c4.7,0,7.9-2.8,7.9-8.3s-3.1-8.3-7.9-8.3h-1.4Z"/><path class="cls-1" d="M239.2,185.5l6.6,12.4h-7.8l-5.2-10.7h-2.1v10.7h-7v-28.9h9.4c6.8,0,10.1,3.1,10.1,8.9s-1.4,6.2-4,7.6ZM230.7,175.1v6.2h2.1c1.9,0,3.1-1.2,3.1-3.2s-.9-3.1-3.5-3.1h-1.8,0Z"/><path class="cls-1" d="M261,197.9v-13l-8.8-15.8h7.9l4.4,9.4,4.5-9.4h7.8l-8.8,15.8v13h-7Z"/></g>
+                    <g><path class="cls-1" d="M342.4,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3Z"/><path class="cls-1" d="M258.6,128c0,9-6.4,11.1-10.7,12.1h41.9c-4.2-1-10.7-3-10.7-12.1V56.7c0-9,6.4-11.1,10.7-12.1h-41.9c4.2,1,10.7,3,10.7,12.1v71.3h0Z"/><path class="cls-1" d="M237.4,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M140,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M36.9,92.4c0-21.6,13.3-44.7,43-47.7-13.1,4-19.9,20.3-19.9,47.7s6.8,43.7,19.9,47.7c-29.7-3-43-26.1-43-47.7Z"/><path class="cls-1" d="M428,92.4c0,21.6-13.3,44.7-43,47.7,13.1-4,19.9-20.3,19.9-47.7s-6.8-43.7-19.9-47.7c29.7,3,43,26.1,43,47.7Z"/><path class="cls-1" d="M317.4,121.9c-3.4,9.4-8,15.8-16.1,18.2h16.1v-18.2Z"/><path class="cls-1" d="M93.2,94.4c4.2,1,10.7,3,10.7,12.1v22.9s-3.8,7.8-12.4,10.7c1.1-.2,18-1.2,29.8-14.1v-25.4c0-4.6,3.3-5.7,5.5-6.2h-33.7.1Z"/><path class="cls-1" d="M91.3,44.7c7.3,2.2,11,8.1,12.7,19.1.6,3.8,3.8,7.4,8.6,7.4s8.8-4,8.8-8.8c0-10.1-18.9-16.6-30.1-17.7Z"/></g>
+                    <g><path class="cls-1" d="M436.4,57.2c-6.9,0-12.6-5.6-12.6-12.6s5.6-12.6,12.6-12.6,12.6,5.6,12.6,12.6-5.6,12.6-12.6,12.6ZM436.4,34.6c-5.6,0-10.1,4.5-10.1,10.1s4.5,10.1,10.1,10.1,10.1-4.5,10.1-10.1-4.5-10.1-10.1-10.1Z"/><path class="cls-1" d="M438.7,45.1l2.6,4.8h-3.1l-2.1-4.1h-.9v4.1h-2.8v-11.2h3.7c2.7,0,4,1.2,4,3.4s-.5,2.4-1.6,3h.2,0ZM435.4,41.1v2.4h.8c.8,0,1.2-.5,1.2-1.2s-.4-1.2-1.4-1.2h-.7.1Z"/></g>
+                </svg>
+            </div>
+            <div class="header-divider"></div>
+            <div class="header-title">Revenue Dashboard</div>
         </div>
-      </div>
-      <div class="chart-container"><canvas id="revenueChart"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-header">
-        <span class="chart-title">B2B vs B2C Verdeling</span>
-      </div>
-      <div class="chart-container"><canvas id="channelChart"></canvas></div>
-    </div>
-  </div>
+        <div class="header-right">
+            <span class="last-updated" id="lastUpdated">Laatst bijgewerkt: ...</span>
+            <div class="status-dot" title="Live"></div>
+        </div>
+    </header>
 
-  <!-- Tables -->
-  <div class="table-grid">
-    <div class="table-card">
-      <h3>Top Klanten</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Klant</th>
-            <th>Kanaal</th>
-            <th style="text-align:right">Omzet</th>
-            <th style="text-align:right">Orders</th>
-          </tr>
-        </thead>
-        <tbody id="topCustomers"></tbody>
-      </table>
-    </div>
-    <div class="table-card">
-      <h3>Best Verkochte Producten</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Product / SKU</th>
-            <th style="text-align:right">Stuks</th>
-            <th style="text-align:right">Omzet</th>
-          </tr>
-        </thead>
-        <tbody id="topProducts"></tbody>
-      </table>
-    </div>
-  </div>
+    <main class="main">
 
-</main>
+        <!-- Demo Banner -->
+        <div class="demo-banner" style="display:none">
+            <span class="demo-banner-icon">&#9888;</span>
+            <span><strong>Demo-modus</strong> &mdash; Dit dashboard toont voorbeelddata. Koppel Shopify &amp; WooCommerce API's voor live data.</span>
+        </div>
 
-<footer class="footer">
-  <span class="footer-gold">GOLD DRY&reg;</span> Revenue Dashboard &mdash; Data wordt dagelijks om 07:00 ververst
-</footer>
+        <!-- Period selector -->
+        <div class="period-bar">
+            <div class="period-tabs">
+                <button class="period-tab active" data-period="mtd">MTD</button>
+                <button class="period-tab" data-period="ytd">YTD</button>
+                <button class="period-tab" data-period="2025">2025</button>
+                <button class="period-tab" data-period="2024">2024</button>
+                <button class="period-tab" data-period="2023">2023</button>
+            </div>
+        </div>
 
-<script>
-// ============================================================
-// GOLD DRY DASHBOARD â DATA & RENDERING
-// ============================================================
-// When connected to real APIs, the scheduled task replaces
-// this demoData object with actual Shopify + WooCommerce data.
-// ============================================================
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">Totale Omzet (ex BTW, ex statiegeld)</div>
+                <div class="kpi-value" id="kpiTotal">&euro;0</div>
+                <div class="kpi-change positive" id="kpiTotalChange"><span>&#9650;</span><span>0%</span></div>
+                <div class="kpi-sub" id="kpiTotalSub">vs. zelfde periode vorig jaar</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">B2B Omzet <span class="channel-badge badge-b2b">Shopify</span></div>
+                <div class="kpi-value" id="kpiB2B">&euro;0</div>
+                <div class="kpi-change positive" id="kpiB2BChange"><span>&#9650;</span><span>0%</span></div>
+                <div class="kpi-sub" id="kpiB2BSub">0 orders</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">B2C Omzet <span class="channel-badge badge-b2c">WooCommerce</span></div>
+                <div class="kpi-value" id="kpiB2C">&euro;0</div>
+                <div class="kpi-change positive" id="kpiB2CChange"><span>&#9650;</span><span>0%</span></div>
+                <div class="kpi-sub" id="kpiB2CSub">0 orders</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Gemiddelde Orderwaarde</div>
+                <div class="kpi-value" id="kpiAOV">&euro;0</div>
+                <div class="kpi-change positive" id="kpiAOVChange"><span>&#9650;</span><span>0%</span></div>
+                <div class="kpi-sub">ex BTW, ex statiegeld</div>
+            </div>
+        </div>
 
-const STATIEGELD_PER_TRAY = 1.80;  // 12 blikken x â¬0.15, BTW-vrijgesteld
-const BTW_RATE = 0.21;
+        <!-- Yearly comparison -->
+        <div style="margin-bottom: 12px;">
+            <span class="section-title">Jaaroverzicht</span>
+        </div>
+        <div class="yearly-grid">
+            <div class="year-card">
+                <div class="year-label">2026 YTD</div>
+                <div class="year-amount" id="year2026">&euro;0</div>
+                <div class="year-sub">jan - apr</div>
+            </div>
+            <div class="year-card">
+                <div class="year-label">2025</div>
+                <div class="year-amount" id="year2025">&euro;0</div>
+                <div class="year-sub">volledig jaar</div>
+            </div>
+            <div class="year-card">
+                <div class="year-label">2024</div>
+                <div class="year-amount" id="year2024">&euro;0</div>
+                <div class="year-sub">volledig jaar</div>
+            </div>
+            <div class="year-card">
+                <div class="year-label">2023</div>
+                <div class="year-amount" id="year2023">&euro;0</div>
+                <div class="year-sub">volledig jaar</div>
+            </div>
+        </div>
 
-const demoData = {
-  "lastUpdated": "2026-04-05T14:24:14.554104",
-  "mtd": {
-    "total": 479.24,
-    "b2b": 0,
-    "b2c": 479.24,
-    "b2bOrders": 0,
-    "b2cOrders": 28,
-    "prevTotal": 5360.02,
-    "prevB2B": 0,
-    "prevB2C": 5360.02
-  },
-  "ytd": {
-    "total": 161192.5,
-    "b2b": 151561.32,
-    "b2c": 9631.18,
-    "b2bOrders": 120,
-    "b2cOrders": 523,
-    "prevTotal": 19412.75,
-    "prevB2B": 0,
-    "prevB2C": 19412.75
-  },
-  "years": {
-    "2023": 334058.75,
-    "2024": 98786.74,
-    "2025": 448147.84,
-    "2026": 161192.5
-  },
-  "monthly2026": [
-    72923.06,
-    69491.44,
-    18298.76,
-    479.24,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
-  "monthly2025": [
-    4007.92,
-    4884.8,
-    5160.01,
-    10718.75,
-    5367.09,
-    11673.13,
-    8522.37,
-    5933.23,
-    4752.64,
-    128161.44,
-    110774.1,
-    148192.36
-  ],
-  "topCustomers": [
-    {
-      "name": "Jumbo Distributiecentrum B.V.",
-      "channel": "B2B",
-      "revenue": 46979.76,
-      "orders": 11
-    },
-    {
-      "name": "Albert Heijn Distributiecentrum",
-      "channel": "B2B",
-      "revenue": 24960.96,
-      "orders": 6
-    },
-    {
-      "name": "Teejater Events",
-      "channel": "B2B",
-      "revenue": 8670.0,
-      "orders": 3
-    },
-    {
-      "name": "Spar Holding BV",
-      "channel": "B2B",
-      "revenue": 7428.24,
-      "orders": 1
-    },
-    {
-      "name": "CN Purchase B.V.",
-      "channel": "B2B",
-      "revenue": 7053.23,
-      "orders": 3
-    },
-    {
-      "name": "Groothandel de Kreij",
-      "channel": "B2B",
-      "revenue": 4102.0,
-      "orders": 1
-    },
-    {
-      "name": "My Alpenwelt Resort",
-      "channel": "B2B",
-      "revenue": 3930.6,
-      "orders": 1
-    },
-    {
-      "name": "Quick Boys Katwijk",
-      "channel": "B2B",
-      "revenue": 3801.6,
-      "orders": 2
-    },
-    {
-      "name": "Casa Cara Dine & Dance",
-      "channel": "B2B",
-      "revenue": 2851.2,
-      "orders": 2
-    },
-    {
-      "name": "Jumbo Roemer",
-      "channel": "B2B",
-      "revenue": 2772.36,
-      "orders": 3
+        <!-- Charts -->
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <span class="chart-title">Maandomzet 2026 vs 2025</span>
+                    <div class="chart-legend">
+                        <div class="legend-item"><div class="legend-dot" style="background: #C3B064;"></div>2026</div>
+                        <div class="legend-item"><div class="legend-dot" style="background: rgba(195,176,100,0.3);"></div>2025</div>
+                    </div>
+                </div>
+                <div class="chart-container"><canvas id="revenueChart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-header">
+                    <span class="chart-title">B2B vs B2C Verdeling</span>
+                </div>
+                <div class="chart-container"><canvas id="channelChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- Tables -->
+        <div class="table-grid">
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Top Klanten</h3>
+                    <div class="table-tabs">
+                        <button class="table-tab active" data-customer-period="alltime" onclick="switchCustomerPeriod('alltime', this)">All Time</button>
+                        <button class="table-tab" data-customer-period="ytd" onclick="switchCustomerPeriod('ytd', this)">YTD</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Klant</th><th>Kanaal</th><th style="text-align:right">Omzet</th><th style="text-align:right">Orders</th></tr>
+                    </thead>
+                    <tbody id="topCustomers"></tbody>
+                </table>
+            </div>
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Best Verkochte Producten</h3>
+                    <div class="table-tabs">
+                        <button class="table-tab active" data-product-period="alltime" onclick="switchProductPeriod('alltime', this)">All Time</button>
+                        <button class="table-tab" data-product-period="ytd" onclick="switchProductPeriod('ytd', this)">YTD</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Product / SKU</th><th style="text-align:right">Stuks</th><th style="text-align:right">Omzet</th></tr>
+                    </thead>
+                    <tbody id="topProducts"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <span class="footer-gold">GOLD DRY&reg;</span> Revenue Dashboard &mdash; Data wordt dagelijks om 07:00 ververst
+    </footer>
+
+    <script>
+    // ============================================================
+    // GOLD DRY DASHBOARD - DATA & RENDERING
+    // ============================================================
+    const EURO = '\u20AC';
+    const STATIEGELD_PER_TRAY = 1.80; // 12 blikken x 0.15, BTW-vrijgesteld
+    const BTW_RATE = 0.21;
+
+    const demoData = {"lastUpdated":"2026-04-05T14:24:14.554104","mtd":{"total":479.24,"b2b":0,"b2c":479.24,"b2bOrders":0,"b2cOrders":28,"prevTotal":5360.02,"prevB2B":0,"prevB2C":5360.02},"ytd":{"total":161192.5,"b2b":151561.32,"b2c":9631.18,"b2bOrders":120,"b2cOrders":523,"prevTotal":19412.75,"prevB2B":0,"prevB2C":19412.75},"years":{"2023":334058.75,"2024":98786.74,"2025":448147.84,"2026":161192.5},"monthly2026":[72923.06,69491.44,18298.76,479.24,0,0,0,0,0,0,0,0],"monthly2025":[4007.92,4884.8,5160.01,10718.75,5367.09,11673.13,8522.37,5933.23,4752.64,128161.44,110774.1,148192.36],"topCustomers":[{"name":"Jumbo Distributiecentrum B.V.","channel":"B2B","revenue":46979.76,"orders":11},{"name":"Albert Heijn Distributiecentrum","channel":"B2B","revenue":24960.96,"orders":6},{"name":"Teejater Events","channel":"B2B","revenue":8670.0,"orders":3},{"name":"Spar Holding BV","channel":"B2B","revenue":7428.24,"orders":1},{"name":"CN Purchase B.V.","channel":"B2B","revenue":7053.23,"orders":3},{"name":"Groothandel de Kreij","channel":"B2B","revenue":4102.0,"orders":1},{"name":"My Alpenwelt Resort","channel":"B2B","revenue":3930.6,"orders":1},{"name":"Quick Boys Katwijk","channel":"B2B","revenue":3801.6,"orders":2},{"name":"Casa Cara Dine & Dance","channel":"B2B","revenue":2851.2,"orders":2},{"name":"Jumbo Roemer","channel":"B2B","revenue":2772.36,"orders":3}],"topProducts":[{"name":"GOLD DRY Original Premix Vodka","sku":"TRAYPREORIG12","units":4873,"revenue":89643.95},{"name":"GOLD DRY Sky Premix Vodka","sku":"TRAYPRESKY12","units":1701,"revenue":31416.61},{"name":"GOLD DRY Original Premium Soda","sku":"TRAYORIG12","units":1862,"revenue":26382.4},{"name":"GOLD DRY Eclipse Premium Soda","sku":"TRAYECLIPSE","units":1725,"revenue":24350.46},{"name":"GOLD DRY Mindset Premium Soda","sku":"TRAYMIND12","units":1148,"revenue":16011.96},{"name":"GOLD DRY Unite Premix Vodka","sku":"TRAYPREUNITE","units":510,"revenue":10066.02},{"name":"GOLD DRY Eclipse Premix Vodka","sku":"TRAYPREECLIPSE","units":461,"revenue":8826.44},{"name":"GOLD DRY Sky Premium Soda","sku":"TRAYSKY12","units":504,"revenue":7261.05},{"name":"GOLD DRY Dream Premium Soda","sku":"TRAYDREAM12","units":446,"revenue":6404.4},{"name":"GOLD DRY Vodka - 700ml","sku":"VODKA 0,7","units":216,"revenue":5443.2}],"topCustomersYTD":[{"name":"Jumbo Distributiecentrum B.V.","channel":"B2B","revenue":46979.76,"orders":11},{"name":"Albert Heijn Distributiecentrum","channel":"B2B","revenue":24960.96,"orders":6},{"name":"Teejater Events","channel":"B2B","revenue":8670.0,"orders":3},{"name":"Spar Holding BV","channel":"B2B","revenue":7428.24,"orders":1},{"name":"CN Purchase B.V.","channel":"B2B","revenue":7053.23,"orders":3},{"name":"Groothandel de Kreij","channel":"B2B","revenue":4102.0,"orders":1},{"name":"My Alpenwelt Resort","channel":"B2B","revenue":3930.6,"orders":1},{"name":"Quick Boys Katwijk","channel":"B2B","revenue":3801.6,"orders":2},{"name":"Casa Cara Dine & Dance","channel":"B2B","revenue":2851.2,"orders":2},{"name":"Jumbo Roemer","channel":"B2B","revenue":2772.36,"orders":3}],"topProductsYTD":[{"name":"GOLD DRY Original Premix Vodka","sku":"TRAYPREORIG12","units":4873,"revenue":89643.95},{"name":"GOLD DRY Sky Premix Vodka","sku":"TRAYPRESKY12","units":1701,"revenue":31416.61},{"name":"GOLD DRY Original Premium Soda","sku":"TRAYORIG12","units":1862,"revenue":26382.4},{"name":"GOLD DRY Eclipse Premium Soda","sku":"TRAYECLIPSE","units":1725,"revenue":24350.46},{"name":"GOLD DRY Mindset Premium Soda","sku":"TRAYMIND12","units":1148,"revenue":16011.96},{"name":"GOLD DRY Unite Premix Vodka","sku":"TRAYPREUNITE","units":510,"revenue":10066.02},{"name":"GOLD DRY Eclipse Premix Vodka","sku":"TRAYPREECLIPSE","units":461,"revenue":8826.44},{"name":"GOLD DRY Sky Premium Soda","sku":"TRAYSKY12","units":504,"revenue":7261.05},{"name":"GOLD DRY Dream Premium Soda","sku":"TRAYDREAM12","units":446,"revenue":6404.4},{"name":"GOLD DRY Vodka - 700ml","sku":"VODKA 0,7","units":216,"revenue":5443.2}]};
+
+    // ============================================================
+    // RENDERING
+    // ============================================================
+    function formatCurrency(n) {
+        return EURO + n.toLocaleString('nl-NL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
-  ],
-  "topProducts": [
-    {
-      "name": "GOLD DRY Original Premix Vodka",
-      "sku": "TRAYPREORIG12",
-      "units": 4873,
-      "revenue": 89643.95
-    },
-    {
-      "name": "GOLD DRY Sky Premix Vodka",
-      "sku": "TRAYPRESKY12",
-      "units": 1701,
-      "revenue": 31416.61
-    },
-    {
-      "name": "GOLD DRY Original Premium Soda",
-      "sku": "TRAYORIG12",
-      "units": 1862,
-      "revenue": 26382.4
-    },
-    {
-      "name": "GOLD DRY Eclipse Premium Soda",
-      "sku": "TRAYECLIPSE",
-      "units": 1725,
-      "revenue": 24350.46
-    },
-    {
-      "name": "GOLD DRY Mindset Premium Soda",
-      "sku": "TRAYMIND12",
-      "units": 1148,
-      "revenue": 16011.96
-    },
-    {
-      "name": "GOLD DRY Unite Premix Vodka",
-      "sku": "TRAYPREUNITE",
-      "units": 510,
-      "revenue": 10066.02
-    },
-    {
-      "name": "GOLD DRY Eclipse Premix Vodka",
-      "sku": "TRAYPREECLIPSE",
-      "units": 461,
-      "revenue": 8826.44
-    },
-    {
-      "name": "GOLD DRY Sky Premium Soda",
-      "sku": "TRAYSKY12",
-      "units": 504,
-      "revenue": 7261.05
-    },
-    {
-      "name": "GOLD DRY Dream Premium Soda",
-      "sku": "TRAYDREAM12",
-      "units": 446,
-      "revenue": 6404.4
-    },
-    {
-      "name": "GOLD DRY Vodka - 700ml",
-      "sku": "VODKA 0,7",
-      "units": 216,
-      "revenue": 5443.2
+
+    function calcChange(current, previous) {
+        if (!previous) return 0;
+        return ((current - previous) / previous * 100).toFixed(1);
     }
-  ]
-};
 
-// ============================================================
-// RENDERING
-// ============================================================
+    function renderKPIs(period) {
+        const d = demoData[period] || demoData.mtd;
+        const totalOrders = d.b2bOrders + d.b2cOrders;
+        const aov = totalOrders > 0 ? Math.round(d.total / totalOrders) : 0;
+        const prevAov = (d.prevTotal && totalOrders) ? Math.round(d.prevTotal / (totalOrders * 0.85)) : 0;
 
-function formatCurrency(n) {
-  return 'â¬' + n.toLocaleString('nl-NL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
+        document.getElementById('kpiTotal').textContent = formatCurrency(d.total);
+        setChange('kpiTotalChange', calcChange(d.total, d.prevTotal));
 
-function calcChange(current, previous) {
-  if (!previous) return 0;
-  return ((current - previous) / previous * 100).toFixed(1);
-}
+        document.getElementById('kpiB2B').textContent = formatCurrency(d.b2b);
+        setChange('kpiB2BChange', calcChange(d.b2b, d.prevB2B));
+        document.getElementById('kpiB2BSub').textContent = d.b2bOrders + ' orders';
 
-function renderKPIs(period) {
-  const d = demoData[period] || demoData.mtd;
-  const totalOrders = d.b2bOrders + d.b2cOrders;
-  const aov = totalOrders > 0 ? Math.round(d.total / totalOrders) : 0;
-  const prevAov = (d.prevTotal && (d.b2bOrders + d.b2cOrders)) ? Math.round(d.prevTotal / (totalOrders * 0.85)) : 0;
+        document.getElementById('kpiB2C').textContent = formatCurrency(d.b2c);
+        setChange('kpiB2CChange', calcChange(d.b2c, d.prevB2C));
+        document.getElementById('kpiB2CSub').textContent = d.b2cOrders + ' orders';
 
-  document.getElementById('kpiTotal').textContent = formatCurrency(d.total);
-  setChange('kpiTotalChange', calcChange(d.total, d.prevTotal));
-
-  document.getElementById('kpiB2B').textContent = formatCurrency(d.b2b);
-  setChange('kpiB2BChange', calcChange(d.b2b, d.prevB2B));
-  document.getElementById('kpiB2BSub').textContent = d.b2bOrders + ' orders';
-
-  document.getElementById('kpiB2C').textContent = formatCurrency(d.b2c);
-  setChange('kpiB2CChange', calcChange(d.b2c, d.prevB2C));
-  document.getElementById('kpiB2CSub').textContent = d.b2cOrders + ' orders';
-
-  document.getElementById('kpiAOV').textContent = formatCurrency(aov);
-  setChange('kpiAOVChange', calcChange(aov, prevAov));
-}
-
-function setChange(id, pct) {
-  const el = document.getElementById(id);
-  const num = parseFloat(pct);
-  el.className = 'kpi-change ' + (num >= 0 ? 'positive' : 'negative');
-  el.innerHTML = '<span>' + (num >= 0 ? '&#9650;' : '&#9660;') + '</span><span>' + Math.abs(num) + '%</span>';
-}
-
-function renderYears() {
-  Object.entries(demoData.years).forEach(([year, amount]) => {
-    const el = document.getElementById('year' + year);
-    if (el) el.textContent = formatCurrency(amount);
-  });
-}
-
-function renderTopCustomers() {
-  const tbody = document.getElementById('topCustomers');
-  tbody.innerHTML = demoData.topCustomers.map((c, i) => {
-    const rankClass = i < 3 ? 'rank-' + (i + 1) : 'rank-other';
-    const badgeClass = c.channel === 'B2B' ? 'badge-b2b' : 'badge-b2c';
-    return `<tr>
-      <td><span class="rank ${rankClass}">${i + 1}</span></td>
-      <td>${c.name}</td>
-      <td><span class="channel-badge ${badgeClass}">${c.channel}</span></td>
-      <td class="amount" style="text-align:right">${formatCurrency(c.revenue)}</td>
-      <td style="text-align:right;color:var(--gd-text-muted)">${c.orders}</td>
-    </tr>`;
-  }).join('');
-}
-
-function renderTopProducts() {
-  const tbody = document.getElementById('topProducts');
-  tbody.innerHTML = demoData.topProducts.map((p, i) => {
-    const rankClass = i < 3 ? 'rank-' + (i + 1) : 'rank-other';
-    return `<tr>
-      <td><span class="rank ${rankClass}">${i + 1}</span></td>
-      <td>${p.name}<br><span style="font-size:11px;color:var(--gd-text-muted)">${p.sku}</span></td>
-      <td style="text-align:right">${p.units.toLocaleString('nl-NL')}</td>
-      <td class="amount" style="text-align:right">${formatCurrency(p.revenue)}</td>
-    </tr>`;
-  }).join('');
-}
-
-// Charts
-const months = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
-
-function renderRevenueChart() {
-  const ctx = document.getElementById('revenueChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: months,
-      datasets: [
-        {
-          label: '2026',
-          data: demoData.monthly2026,
-          backgroundColor: 'rgba(195, 176, 100, 0.8)',
-          borderColor: '#C3B064',
-          borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.7
-        },
-        {
-          label: '2025',
-          data: demoData.monthly2025,
-          backgroundColor: 'rgba(195, 176, 100, 0.2)',
-          borderColor: 'rgba(195, 176, 100, 0.4)',
-          borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.7
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#1A1A1A',
-          titleColor: '#C3B064',
-          bodyColor: '#FAFAFA',
-          borderColor: 'rgba(195, 176, 100, 0.3)',
-          borderWidth: 1,
-          padding: 12,
-          callbacks: {
-            label: (ctx) => ctx.dataset.label + ': ' + formatCurrency(ctx.raw)
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          ticks: { color: '#9A9A9A', font: { family: 'Inter', size: 11 } }
-        },
-        y: {
-          grid: { color: 'rgba(255,255,255,0.04)' },
-          ticks: {
-            color: '#9A9A9A',
-            font: { family: 'Inter', size: 11 },
-            callback: (v) => 'â¬' + (v / 1000) + 'k'
-          }
-        }
-      }
+        document.getElementById('kpiAOV').textContent = formatCurrency(aov);
+        setChange('kpiAOVChange', calcChange(aov, prevAov));
     }
-  });
-}
 
-function renderChannelChart() {
-  const ctx = document.getElementById('channelChart').getContext('2d');
-  const d = demoData.ytd;
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['B2B (Shopify)', 'B2C (WooCommerce)'],
-      datasets: [{
-        data: [d.b2b, d.b2c],
-        backgroundColor: ['#C3B064', 'rgba(232, 213, 163, 0.5)'],
-        borderColor: ['#C3B064', '#E8D5A3'],
-        borderWidth: 2,
-        hoverOffset: 8
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '65%',
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: {
-            color: '#9A9A9A',
-            font: { family: 'Inter', size: 12 },
-            padding: 20,
-            usePointStyle: true,
-            pointStyleWidth: 10
-          }
-        },
-        tooltip: {
-          backgroundColor: '#1A1A1A',
-          titleColor: '#C3B064',
-          bodyColor: '#FAFAFA',
-          borderColor: 'rgba(195, 176, 100, 0.3)',
-          borderWidth: 1,
-          padding: 12,
-          callbacks: {
-            label: (ctx) => {
-              const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-              const pct = ((ctx.raw / total) * 100).toFixed(1);
-              return ctx.label + ': ' + formatCurrency(ctx.raw) + ' (' + pct + '%)';
+    function setChange(id, pct) {
+        const el = document.getElementById(id);
+        const num = parseFloat(pct);
+        el.className = 'kpi-change ' + (num >= 0 ? 'positive' : 'negative');
+        el.innerHTML = '<span>' + (num >= 0 ? '&#9650;' : '&#9660;') + '</span><span>' + Math.abs(num) + '%</span>';
+    }
+
+    function renderYears() {
+        Object.entries(demoData.years).forEach(function(entry) {
+            var year = entry[0], amount = entry[1];
+            var el = document.getElementById('year' + year);
+            if (el) el.textContent = formatCurrency(amount);
+        });
+    }
+
+    function renderTopCustomers(period) {
+        var data = (period === 'ytd' && demoData.topCustomersYTD) ? demoData.topCustomersYTD : demoData.topCustomers;
+        var tbody = document.getElementById('topCustomers');
+        var html = '';
+        data.forEach(function(c, i) {
+            var rankClass = i < 3 ? 'rank-' + (i + 1) : 'rank-other';
+            var badgeClass = c.channel === 'B2B' ? 'badge-b2b' : 'badge-b2c';
+            var hasOrders = c.orderList && c.orderList.length > 0;
+            html += '<tr class="customer-row" onclick="toggleOrders(this, ' + i + ', \'' + period + '\')">' +
+                '<td><span class="rank ' + rankClass + '">' + (i + 1) + '</span></td>' +
+                '<td><span class="expand-icon" id="expand-' + i + '">&#9654;</span>' + c.name + '</td>' +
+                '<td><span class="channel-badge ' + badgeClass + '">' + c.channel + '</span></td>' +
+                '<td class="amount" style="text-align:right">' + formatCurrency(c.revenue) + '</td>' +
+                '<td style="text-align:right;color:var(--gd-text-muted)">' + c.orders + '</td></tr>';
+        });
+        tbody.innerHTML = html;
+    }
+
+    function toggleOrders(row, idx, period) {
+        var data = (period === 'ytd' && demoData.topCustomersYTD) ? demoData.topCustomersYTD : demoData.topCustomers;
+        var customer = data[idx];
+        var icon = document.getElementById('expand-' + idx);
+        var nextRow = row.nextElementSibling;
+
+        // If already expanded, collapse
+        if (nextRow && nextRow.classList.contains('order-detail-header')) {
+            while (nextRow && (nextRow.classList.contains('order-detail-header') || nextRow.classList.contains('order-detail-row'))) {
+                var toRemove = nextRow;
+                nextRow = nextRow.nextElementSibling;
+                toRemove.remove();
             }
-          }
+            icon.classList.remove('open');
+            return;
         }
-      }
-    }
-  });
-}
 
-// Period switching
-document.querySelectorAll('.period-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.period-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const period = tab.dataset.period;
-    if (demoData[period]) {
-      renderKPIs(period);
-    }
-  });
-});
+        icon.classList.add('open');
+        if (!customer.orderList || customer.orderList.length === 0) return;
 
-// Init
-function init() {
-  document.getElementById('lastUpdated').textContent =
-    'Laatst bijgewerkt: ' + new Date(demoData.lastUpdated).toLocaleString('nl-NL', {
-      day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+        var fragment = '';
+        customer.orderList.forEach(function(o) {
+            var dateStr = new Date(o.date).toLocaleDateString('nl-NL', {day: 'numeric', month: 'short', year: 'numeric'});
+            fragment += '<tr class="order-detail-row">' +
+                '<td></td>' +
+                '<td><span class="order-id">' + o.id + '</span></td>' +
+                '<td><span class="order-date">' + dateStr + '</span></td>' +
+                '<td class="amount order-amount" style="text-align:right">' + formatCurrency(o.amount) + '</td>' +
+                '<td></td></tr>';
+        });
+        row.insertAdjacentHTML('afterend', fragment);
+    }
+
+    function renderTopProducts(period) {
+        var data = (period === 'ytd' && demoData.topProductsYTD) ? demoData.topProductsYTD : demoData.topProducts;
+        var tbody = document.getElementById('topProducts');
+        tbody.innerHTML = data.map(function(p, i) {
+            var rankClass = i < 3 ? 'rank-' + (i + 1) : 'rank-other';
+            return '<tr><td><span class="rank ' + rankClass + '">' + (i + 1) + '</span></td>' +
+                '<td>' + p.name + '<br><span style="font-size:11px;color:var(--gd-text-muted)">' + p.sku + '</span></td>' +
+                '<td style="text-align:right">' + p.units.toLocaleString('nl-NL') + '</td>' +
+                '<td class="amount" style="text-align:right">' + formatCurrency(p.revenue) + '</td></tr>';
+        }).join('');
+    }
+
+    function switchCustomerPeriod(period, btn) {
+        document.querySelectorAll('[data-customer-period]').forEach(function(t) { t.classList.remove('active'); });
+        btn.classList.add('active');
+        renderTopCustomers(period);
+    }
+
+    function switchProductPeriod(period, btn) {
+        document.querySelectorAll('[data-product-period]').forEach(function(t) { t.classList.remove('active'); });
+        btn.classList.add('active');
+        renderTopProducts(period);
+    }
+
+    // Charts
+    var months = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+
+    function renderRevenueChart() {
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: '2026', data: demoData.monthly2026,
+                        backgroundColor: 'rgba(195, 176, 100, 0.8)', borderColor: '#C3B064',
+                        borderWidth: 1, borderRadius: 4, barPercentage: 0.7
+                    },
+                    {
+                        label: '2025', data: demoData.monthly2025,
+                        backgroundColor: 'rgba(195, 176, 100, 0.2)', borderColor: 'rgba(195, 176, 100, 0.4)',
+                        borderWidth: 1, borderRadius: 4, barPercentage: 0.7
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1A1A1A', titleColor: '#C3B064', bodyColor: '#FAFAFA',
+                        borderColor: 'rgba(195, 176, 100, 0.3)', borderWidth: 1, padding: 12,
+                        callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + formatCurrency(ctx.raw); } }
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#9A9A9A', font: { family: 'Inter', size: 11 } } },
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: {
+                            color: '#9A9A9A', font: { family: 'Inter', size: 11 },
+                            callback: function(v) { return EURO + (v / 1000) + 'k'; }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function renderChannelChart() {
+        var ctx = document.getElementById('channelChart').getContext('2d');
+        var d = demoData.ytd;
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['B2B (Shopify)', 'B2C (WooCommerce)'],
+                datasets: [{
+                    data: [d.b2b, d.b2c],
+                    backgroundColor: ['#C3B064', 'rgba(232, 213, 163, 0.5)'],
+                    borderColor: ['#C3B064', '#E8D5A3'], borderWidth: 2, hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#9A9A9A', font: { family: 'Inter', size: 12 }, padding: 20, usePointStyle: true, pointStyleWidth: 10 }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1A1A1A', titleColor: '#C3B064', bodyColor: '#FAFAFA',
+                        borderColor: 'rgba(195, 176, 100, 0.3)', borderWidth: 1, padding: 12,
+                        callbacks: {
+                            label: function(ctx) {
+                                var total = ctx.dataset.data.reduce(function(a, b) { return a + b; }, 0);
+                                var pct = ((ctx.raw / total) * 100).toFixed(1);
+                                return ctx.label + ': ' + formatCurrency(ctx.raw) + ' (' + pct + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Period switching
+    document.querySelectorAll('.period-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.period-tab').forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            var period = tab.dataset.period;
+            if (demoData[period]) { renderKPIs(period); }
+        });
     });
-  renderKPIs('mtd');
-  renderYears();
-  renderTopCustomers();
-  renderTopProducts();
-  renderRevenueChart();
-  renderChannelChart();
-}
 
-init();
+    // Init
+    function init() {
+        document.getElementById('lastUpdated').textContent = 'Laatst bijgewerkt: ' +
+            new Date(demoData.lastUpdated).toLocaleString('nl-NL', {
+                day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+        renderKPIs('mtd');
+        renderYears();
+        renderTopCustomers('alltime');
+        renderTopProducts('alltime');
+        renderRevenueChart();
+        renderChannelChart();
+    }
+    init();
 
-// ============================================================
-// PASSWORD PROTECTION
-// ============================================================
-// SHA-256 hash van het wachtwoord. Wijzig dit door een nieuwe
-// hash te genereren: crypto.subtle.digest('SHA-256', new TextEncoder().encode('jouwwachtwoord'))
-// Standaard wachtwoord: "GoldDry2026"
-const PASS_HASH = '8a5edab282632443219e051e4ade2d1d5bbc671c781051bf1437897cbdfea0f1';
+    // ============================================================
+    // PASSWORD PROTECTION
+    // ============================================================
+    const PASS_HASH = '8a5edab282632443219e051e4ade2d1d5bbc671c781051bf1437897cbdfea0f1';
 
-async function sha256(text) {
-  const data = new TextEncoder().encode(text);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
+    async function sha256(text) {
+        var data = new TextEncoder().encode(text);
+        var hash = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hash)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
 
-async function attemptLogin() {
-  const pw = document.getElementById('loginPassword').value;
-  const hash = await sha256(pw);
-  // Accept if hash matches OR if the plain password is correct (fallback)
-  if (hash === PASS_HASH || pw === 'GoldDry2026') {
-    document.getElementById('loginOverlay').classList.add('hidden');
-    document.getElementById('dashboardContent').classList.remove('dashboard-locked');
-    document.getElementById('dashboardContent').classList.add('dashboard-unlocked');
-  } else {
-    document.getElementById('loginError').textContent = 'Onjuist wachtwoord';
-    document.getElementById('loginPassword').value = '';
-    document.getElementById('loginPassword').focus();
-  }
-}
+    async function attemptLogin() {
+        var pw = document.getElementById('loginPassword').value;
+        var hash = await sha256(pw);
+        if (hash === PASS_HASH || pw === 'GoldDry2026') {
+            document.getElementById('loginOverlay').classList.add('hidden');
+            document.getElementById('dashboardContent').classList.remove('dashboard-locked');
+            document.getElentById('dashboardContent').classList.add('dashboard-unlocked');
+        } else {
+            document.getElementById('loginError').textContent = 'Onjuist wachtwoord';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginPassword').focus();
+        }
+    }
 
-// Enter key support
-document.getElementById('loginPassword').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') attemptLogin();
-});
-</script>
+    document.getElementById('loginPassword').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') attemptLogin();
+    });
+    </script>
 
-<!-- Close dashboard wrapper -->
 </div>
-
 </body>
 </html>
