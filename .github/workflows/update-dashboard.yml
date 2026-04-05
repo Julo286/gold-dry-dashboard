@@ -1,0 +1,46 @@
+name: Gold Dry — Daily Revenue Update
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch data and update dashboard
+        env:
+          SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STORE_URL }}
+          SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+          SHOPIFY_API_KEY: ${{ secrets.SHOPIFY_API_KEY }}
+          WOO_SITE_URL: ${{ secrets.WOO_SITE_URL }}
+          WOO_CONSUMER_KEY: ${{ secrets.WOO_CONSUMER_KEY }}
+          WOO_CONSUMER_SECRET: ${{ secrets.WOO_CONSUMER_SECRET }}
+        run: python gold_dry_data_collector.py
+
+      - name: Commit and push updated dashboard
+        run: |
+          git config user.name "Gold Dry Bot"
+          git config user.email "bot@golddry.nl"
+          git add index.html gold_dry_dashboard_data.json
+          if git diff --staged --quiet; then
+            echo "Geen wijzigingen — niets te committen."
+          else
+            git commit -m "📊 Dashboard update $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
