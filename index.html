@@ -553,7 +553,7 @@ PLACEHOLDER<!DOCTYPE html>
 <main class="main">
 
   <!-- Demo Banner -->
-  <div class="demo-banner">
+  <div class="demo-banner" style="display:none">
     <span class="demo-banner-icon">&#9888;</span>
     <span><strong>Demo-modus</strong> â Dit dashboard toont voorbeelddata. Koppel Shopify &amp; WooCommerce API's voor live data.</span>
   </div>
@@ -703,60 +703,184 @@ const STATIEGELD_PER_TRAY = 1.80;  // 12 blikken x â¬0.15, BTW-vrijgesteld
 const BTW_RATE = 0.21;
 
 const demoData = {
-  lastUpdated: "2026-04-05T07:00:00",
-  // Current period (MTD April 2026)
-  mtd: {
-    total: 28450,
-    b2b: 21800,
-    b2c: 6650,
-    b2bOrders: 34,
-    b2cOrders: 189,
-    prevTotal: 24200,
-    prevB2B: 18500,
-    prevB2C: 5700
+  "lastUpdated": "2026-04-05T14:24:14.554104",
+  "mtd": {
+    "total": 479.24,
+    "b2b": 0,
+    "b2c": 479.24,
+    "b2bOrders": 0,
+    "b2cOrders": 28,
+    "prevTotal": 5360.02,
+    "prevB2B": 0,
+    "prevB2C": 5360.02
   },
-  // YTD 2026
-  ytd: {
-    total: 142600,
-    b2b: 108200,
-    b2c: 34400,
-    b2bOrders: 178,
-    b2cOrders: 982,
-    prevTotal: 118400,
-    prevB2B: 89600,
-    prevB2C: 28800
+  "ytd": {
+    "total": 161192.5,
+    "b2b": 151561.32,
+    "b2c": 9631.18,
+    "b2bOrders": 120,
+    "b2cOrders": 523,
+    "prevTotal": 19412.75,
+    "prevB2B": 0,
+    "prevB2C": 19412.75
   },
-  // Yearly totals
-  years: {
-    2026: 142600,
-    2025: 385200,
-    2024: 312800,
-    2023: 198500
+  "years": {
+    "2023": 334058.75,
+    "2024": 98786.74,
+    "2025": 448147.84,
+    "2026": 161192.5
   },
-  // Monthly revenue for chart
-  monthly2026: [38200, 35800, 40150, 28450, 0, 0, 0, 0, 0, 0, 0, 0],
-  monthly2025: [28900, 30200, 32400, 29800, 34100, 36500, 38200, 35600, 33400, 31200, 28700, 26200],
-  // Top customers
-  topCustomers: [
-    { name: "CafÃ© De Gouden Leeuw", channel: "B2B", revenue: 18420, orders: 24 },
-    { name: "Nachtclub BLVD", channel: "B2B", revenue: 15800, orders: 18 },
-    { name: "Restaurant Het Goud", channel: "B2B", revenue: 12350, orders: 15 },
-    { name: "Slijterij Van Dijk", channel: "B2B", revenue: 9800, orders: 12 },
-    { name: "Hotel Krasnapolsky", channel: "B2B", revenue: 8900, orders: 11 },
-    { name: "Bar Lounge Premium", channel: "B2B", revenue: 7200, orders: 9 },
-    { name: "Jan de Vries", channel: "B2C", revenue: 890, orders: 8 },
-    { name: "Lisa Bakker", channel: "B2C", revenue: 720, orders: 6 },
-    { name: "Club Neon", channel: "B2B", revenue: 6100, orders: 8 },
-    { name: "Mike van den Berg", channel: "B2C", revenue: 540, orders: 5 }
+  "monthly2026": [
+    72923.06,
+    69491.44,
+    18298.76,
+    479.24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
   ],
-  // Top products
-  topProducts: [
-    { name: "Gold Dry Vodka 700ml", sku: "GD-VOD-700", units: 1842, revenue: 64470 },
-    { name: "Gold Dry Vodka 350ml", sku: "GD-VOD-350", units: 1256, revenue: 31400 },
-    { name: "Gold Dry Vodka 1L", sku: "GD-VOD-1000", units: 624, revenue: 28080 },
-    { name: "Gold Dry Gift Set", sku: "GD-GIFT-01", units: 312, revenue: 12480 },
-    { name: "Gold Dry Miniatures 6-pack", sku: "GD-MINI-6P", units: 486, revenue: 7290 },
-    { name: "Gold Dry Vodka 200ml", sku: "GD-VOD-200", units: 398, revenue: 5572 }
+  "monthly2025": [
+    4007.92,
+    4884.8,
+    5160.01,
+    10718.75,
+    5367.09,
+    11673.13,
+    8522.37,
+    5933.23,
+    4752.64,
+    128161.44,
+    110774.1,
+    148192.36
+  ],
+  "topCustomers": [
+    {
+      "name": "Jumbo Distributiecentrum B.V.",
+      "channel": "B2B",
+      "revenue": 46979.76,
+      "orders": 11
+    },
+    {
+      "name": "Albert Heijn Distributiecentrum",
+      "channel": "B2B",
+      "revenue": 24960.96,
+      "orders": 6
+    },
+    {
+      "name": "Teejater Events",
+      "channel": "B2B",
+      "revenue": 8670.0,
+      "orders": 3
+    },
+    {
+      "name": "Spar Holding BV",
+      "channel": "B2B",
+      "revenue": 7428.24,
+      "orders": 1
+    },
+    {
+      "name": "CN Purchase B.V.",
+      "channel": "B2B",
+      "revenue": 7053.23,
+      "orders": 3
+    },
+    {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 4102.0,
+      "orders": 1
+    },
+    {
+      "name": "My Alpenwelt Resort",
+      "channel": "B2B",
+      "revenue": 3930.6,
+      "orders": 1
+    },
+    {
+      "name": "Quick Boys Katwijk",
+      "channel": "B2B",
+      "revenue": 3801.6,
+      "orders": 2
+    },
+    {
+      "name": "Casa Cara Dine & Dance",
+      "channel": "B2B",
+      "revenue": 2851.2,
+      "orders": 2
+    },
+    {
+      "name": "Jumbo Roemer",
+      "channel": "B2B",
+      "revenue": 2772.36,
+      "orders": 3
+    }
+  ],
+  "topProducts": [
+    {
+      "name": "GOLD DRY Original Premix Vodka",
+      "sku": "TRAYPREORIG12",
+      "units": 4873,
+      "revenue": 89643.95
+    },
+    {
+      "name": "GOLD DRY Sky Premix Vodka",
+      "sku": "TRAYPRESKY12",
+      "units": 1701,
+      "revenue": 31416.61
+    },
+    {
+      "name": "GOLD DRY Original Premium Soda",
+      "sku": "TRAYORIG12",
+      "units": 1862,
+      "revenue": 26382.4
+    },
+    {
+      "name": "GOLD DRY Eclipse Premium Soda",
+      "sku": "TRAYECLIPSE",
+      "units": 1725,
+      "revenue": 24350.46
+    },
+    {
+      "name": "GOLD DRY Mindset Premium Soda",
+      "sku": "TRAYMIND12",
+      "units": 1148,
+      "revenue": 16011.96
+    },
+    {
+      "name": "GOLD DRY Unite Premix Vodka",
+      "sku": "TRAYPREUNITE",
+      "units": 510,
+      "revenue": 10066.02
+    },
+    {
+      "name": "GOLD DRY Eclipse Premix Vodka",
+      "sku": "TRAYPREECLIPSE",
+      "units": 461,
+      "revenue": 8826.44
+    },
+    {
+      "name": "GOLD DRY Sky Premium Soda",
+      "sku": "TRAYSKY12",
+      "units": 504,
+      "revenue": 7261.05
+    },
+    {
+      "name": "GOLD DRY Dream Premium Soda",
+      "sku": "TRAYDREAM12",
+      "units": 446,
+      "revenue": 6404.4
+    },
+    {
+      "name": "GOLD DRY Vodka - 700ml",
+      "sku": "VODKA 0,7",
+      "units": 216,
+      "revenue": 5443.2
+    }
   ]
 };
 
