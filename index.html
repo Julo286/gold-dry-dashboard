@@ -1699,6 +1699,7 @@
 
     function renderTopProducts(period) {
         var data = (period === 'ytd' && demoData.topProductsYTD) ? demoData.topProductsYTD : demoData.topProducts;
+        data = data.filter(function(p) { var n = (p.name || '').toLowerCase(); var s = (p.sku || '').toLowerCase(); return n.indexOf('statiegeld') === -1 && s.indexOf('statiegeld') === -1; });
         var tbody = document.getElementById('topProducts');
         tbody.innerHTML = data.map(function(p, i) {
             var rankClass = i < 3 ? 'rank-' + (i + 1) : 'rank-other';
@@ -1831,7 +1832,7 @@
     // ============================================================
     // PASSWORD PROTECTION
     // ============================================================
-    const PASS_HASH = '8a5edab282632443219e051e4ade2d1d5bbc671c781051bf1437897cbdfea0f1';
+    const PASS_HASH = 'd0038edb947ffae2aa3db5a2c2c57ac7182597623c9243b03cf0e50b0be34068';
 
     async function sha256(text) {
         var data = new TextEncoder().encode(text);
@@ -1842,7 +1843,7 @@
     async function attemptLogin() {
         var pw = document.getElementById('loginPassword').value;
         var hash = await sha256(pw);
-        if (hash === PASS_HASH || pw === 'GoldDry2026') {
+        if (hash === PASS_HASH || pw === 'f1J7BrQvc0qo2whpf709') {
             document.getElementById('loginOverlay').classList.add('hidden');
             document.getElementById('dashboardContent').classList.remove('dashboard-locked');
             document.getElentById('dashboardContent').classList.add('dashboard-unlocked');
