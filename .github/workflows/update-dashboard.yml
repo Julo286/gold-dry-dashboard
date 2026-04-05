@@ -1,10 +1,10 @@
-name: Gold Dry â Daily Revenue Update
+name: Gold Dry - Daily Revenue Update
 
 on:
   schedule:
-    # Dagelijks om 07:00 NL (05:00 UTC) â incremental run (ma t/m za)
+    # Dagelijks om 07:00 NL (05:00 UTC) - incremental run (ma t/m za)
     - cron: '0 5 * * 1-6'
-    # Wekelijks zondag 07:00 NL (05:00 UTC) â volledige refresh
+    # Wekelijks zondag 07:00 NL (05:00 UTC) - volledige refresh
     - cron: '0 5 * * 0'
   workflow_dispatch:
     inputs:
@@ -65,7 +65,7 @@ jobs:
           git config user.email "bot@golddry.nl"
           git add index.html gold_dry_dashboard_data.json gold_dry_orders_cache.json
           if git diff --staged --quiet; then
-            echo "Geen wijzigingen â niets te committen."
+            echo "Geen wijzigingen - niets te committen."
           else
             MODE="${{ steps.mode.outputs.mode }}"
             if [ "$MODE" = "full" ]; then
@@ -73,6 +73,6 @@ jobs:
             else
               LABEL="incremental update"
             fi
-            git commit -m "ð Dashboard ${LABEL} $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Dashboard ${LABEL} $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
