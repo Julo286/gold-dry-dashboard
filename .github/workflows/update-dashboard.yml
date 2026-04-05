@@ -1,9 +1,21 @@
-name: Gold Dry — Daily Revenue Update
+name: Gold Dry â Daily Revenue Update
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    # Dagelijks om 07:00 NL (05:00 UTC) â incremental run (ma t/m za)
+    - cron: '0 5 * * 1-6'
+    # Wekelijks zondag 07:00 NL (05:00 UTC) â volledige refresh
+    - cron: '0 5 * * 0'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode: full (alles ophalen) of incremental (alleen nieuw)'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - incremental
 
 permissions:
   contents: write
@@ -11,6 +23,7 @@ permissions:
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -23,6 +36,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Determine run mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
+          elif [ "$(date -u +%u)" = "7" ]; then
+            # Zondag = dag 7 = full refresh
+            echo "mode=full" >> $GITHUB_OUTPUT
+          else
+            echo "mode=incremental" >> $GITHUB_OUTPUT
+          fi
+          echo "Selected mode: $(cat $GITHUB_OUTPUT | grep mode | cut -d= -f2)"
+
       - name: Fetch data and update dashboard
         env:
           SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STORE_URL }}
@@ -31,16 +57,22 @@ jobs:
           WOO_SITE_URL: ${{ secrets.WOO_SITE_URL }}
           WOO_CONSUMER_KEY: ${{ secrets.WOO_CONSUMER_KEY }}
           WOO_CONSUMER_SECRET: ${{ secrets.WOO_CONSUMER_SECRET }}
-        run: python gold_dry_data_collector.py
+        run: python gold_dry_data_collector.py --mode ${{ steps.mode.outputs.mode }}
 
       - name: Commit and push updated dashboard
         run: |
           git config user.name "Gold Dry Bot"
           git config user.email "bot@golddry.nl"
-          git add index.html gold_dry_dashboard_data.json
+          git add index.html gold_dry_dashboard_data.json gold_dry_orders_cache.json
           if git diff --staged --quiet; then
-            echo "Geen wijzigingen — niets te committen."
+            echo "Geen wijzigingen â niets te committen."
           else
-            git commit -m "📊 Dashboard update $(date -u +'%Y-%m-%d %H:%M UTC')"
+            MODE="${{ steps.mode.outputs.mode }}"
+            if [ "$MODE" = "full" ]; then
+              LABEL="volledige refresh"
+            else
+              LABEL="incremental update"
+            fi
+            git commit -m "ð Dashboard ${LABEL} $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
