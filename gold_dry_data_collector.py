@@ -113,7 +113,7 @@ def process_shopify_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku") || "UNKNOWN"
+            sku = item.get("sku") or "UNKNOWN"
             name = item.get("title", item.get("name", ""))
             price_ex_tax = float(item.get("price", 0)) * qty
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
@@ -126,7 +126,7 @@ def process_shopify_orders(orders):
             })
 
         revenue_ex = total_price - tax - total_statiegeld - total_refund
-        company = (order.get("customer", {}).get("default_address", {}) || {}).get("company", "")
+        company = (order.get("customer", {}).get("default_address", {}) or {}).get("company", "")
         customer_name = (order.get("customer", {}).get("first_name", "") + " " +
                          order.get("customer", {}).get("last_name", "")).strip()
 
@@ -208,7 +208,7 @@ def process_woo_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku") || "UNKNOWN"
+            sku = item.get("sku") or "UNKNOWN"
             name = item.get("name", "")
             price = float(item.get("total", 0))
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
