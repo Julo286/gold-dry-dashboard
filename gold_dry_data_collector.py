@@ -11,6 +11,7 @@ Gebruik:      python3 gold_dry_data_collector.py
 Output:       gold_dry_dashboard_data.json + update index.html
 """
 
+import argparse
 import json
 import os
 import re
@@ -112,7 +113,7 @@ def process_shopify_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku") or "UNKNOWN"
+            sku = item.get("sku") || "UNKNOWN"
             name = item.get("title", item.get("name", ""))
             price_ex_tax = float(item.get("price", 0)) * qty
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
@@ -125,7 +126,7 @@ def process_shopify_orders(orders):
             })
 
         revenue_ex = total_price - tax - total_statiegeld - total_refund
-        company = (order.get("customer", {}).get("default_address", {}) or {}).get("company", "")
+        company = (order.get("customer", {}).get("default_address", {}) || {}).get("company", "")
         customer_name = (order.get("customer", {}).get("first_name", "") + " " +
                          order.get("customer", {}).get("last_name", "")).strip()
 
@@ -207,7 +208,7 @@ def process_woo_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku") or "UNKNOWN"
+            sku = item.get("sku") || "UNKNOWN"
             name = item.get("name", "")
             price = float(item.get("total", 0))
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
@@ -375,21 +376,70 @@ def update_dashboard_html(data):
 
 
 # ============================================================
-# MAIN
+# ORDER CACHE (voor incremental runs)
 # ============================================================
-def main():
-    print("=" * 60)
-    print("  GOLD DRY - Revenue Data Collector")
-    print(f"  {datetime.now().strftime('%d %B %Y, %H:%M')}")
-    print("=" * 60)
+ORDER_CACHE = os.path.join(OUTPUT_DIR, "gold_dry_orders_cache.json")
 
-    now = datetime.now()
-    since = datetime(now.year - 3, 1, 1)
+
+def load_cached_orders():
+    """Laad eerder opgeslagen orders uit de cache."""
+    if not os.path.exists(ORDER_CACHE):
+        return []
+    with open(ORDER_CACHE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_orders_cache(orders):
+    """Sla alle orders op in de cache voor volgende incremental run."""
+    with open(ORDER_CACHE, "w", encoding="utf-8") as f:
+        json.dump(orders, f, ensure_ascii=True)
+    size_kb = os.path.getsize(ORDER_CACHE) / 1024
+    print(f"  -> Orders cache opgeslagen: {ORDER_CACHE} ({size_kb:.0f} KB)")
+
+
+def merge_orders(existing, new_orders):
+    """Merge nieuwe orders met bestaande. Dedupliceer op order_id + channel."""
+    order_map = {}
+    for o in existing:
+        key = f"{o['channel']}_{o['order_id']}"
+        order_map[key] = o
+    updated = 0
+    added = 0
+    for o in new_orders:
+        key = f"{o['channel']}_{o['order_id']}"
+        if key in order_map:
+            order_map[key] = o  # Update bestaande order (bijv. status wijziging)
+            updated += 1
+        else:
+            order_map[key] = o
+            added += 1
+    print(f"  -> Merge: {added} nieuwe orders, {updated} bijgewerkt, {len(order_map)} totaal")
+    return list(order_map.values())
+
+
+def get_last_updated():
+    """Haal lastUpdated op uit bestaande JSON data."""
+    if not os.path.exists(OUTPUT_JSON):
+        return None
+    try:
+        with open(OUTPUT_JSON, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("lastUpdated")
+    except (json.JSONDecodeError, KeyError):
+        return None
+
+
+# ============================================================
+# FETCH ORDERS (shared logic)
+# ============================================================
+def fetch_all_orders(since_date, label=""):
+    """Haal orders op van beide platforms vanaf since_date."""
     all_orders = []
+    prefix = f" ({label})" if label else ""
 
     # Shopify (B2B)
-    print("\n[1/4] Shopify orders ophalen (B2B)...")
-    shopify_orders = shopify_fetch_orders(since)
+    print(f"\n[1/2] Shopify orders ophalen (B2B){prefix}...")
+    shopify_orders = shopify_fetch_orders(since_date)
     if shopify_orders is not None:
         processed = process_shopify_orders(shopify_orders)
         refunded = [o for o in processed if o.get("refund", 0) > 0]
@@ -402,8 +452,8 @@ def main():
         print("  -> Shopify overgeslagen (geen credentials)")
 
     # WooCommerce (B2C)
-    print("\n[2/4] WooCommerce orders ophalen (B2C)...")
-    woo_orders = woo_fetch_orders(since)
+    print(f"\n[2/2] WooCommerce orders ophalen (B2C){prefix}...")
+    woo_orders = woo_fetch_orders(since_date)
     if woo_orders is not None:
         raw_count = len(woo_orders)
         processed = process_woo_orders(woo_orders)
@@ -415,12 +465,79 @@ def main():
     else:
         print("  -> WooCommerce overgeslagen (geen credentials)")
 
+    return all_orders
+
+
+# ============================================================
+# MAIN
+# ============================================================
+def main():
+    parser = argparse.ArgumentParser(description="Gold Dry Revenue Data Collector")
+    parser.add_argument(
+        "--mode", choices=["full", "incremental"], default="full",
+        help="full = alle orders ophalen (3 jaar), incremental = alleen nieuwe orders sinds laatste run"
+    )
+    args = parser.parse_args()
+
+    mode = args.mode
+    now = datetime.now()
+
+    print("=" * 60)
+    print("  GOLD DRY - Revenue Data Collector")
+    print(f"  {now.strftime('%d %B %Y, %H:%M')}")
+    print(f"  Mode: {mode.upper()}")
+    print("=" * 60)
+
+    if mode == "incremental":
+        # --- INCREMENTAL: alleen nieuwe orders sinds lastUpdated - 1 dag ---
+        last_updated = get_last_updated()
+        if last_updated:
+            try:
+                last_dt = datetime.fromisoformat(last_updated)
+                since = last_dt - timedelta(days=1)
+                print(f"\n  Laatste update: {last_dt.strftime('%d-%m-%Y %H:%M')}")
+                print(f"  Ophalen vanaf:  {since.strftime('%d-%m-%Y %H:%M')}")
+            except ValueError:
+                print("  WARN: lastUpdated kon niet worden geparsed, fallback naar full run")
+                since = datetime(now.year - 3, 1, 1)
+                mode = "full"
+        else:
+            print("  WARN: Geen bestaande data gevonden, fallback naar full run")
+            since = datetime(now.year - 3, 1, 1)
+            mode = "full"
+
+        if mode == "incremental":
+            new_orders = fetch_all_orders(since, label=f"sinds {since.strftime('%d-%m-%Y')}")
+            if not new_orders:
+                print("\nGeen nieuwe orders gevonden.")
+                # Gebruik bestaande cache om dashboard toch te updaten
+                all_orders = load_cached_orders()
+                if not all_orders:
+                    print("Geen cached orders beschikbaar. Run opnieuw met --mode full")
+                    return
+                print(f"  -> {len(all_orders)} orders uit cache geladen")
+            else:
+                existing = load_cached_orders()
+                print(f"\n  Cache bevat {len(existing)} bestaande orders")
+                all_orders = merge_orders(existing, new_orders)
+        else:
+            # Fallback naar full
+            all_orders = fetch_all_orders(datetime(now.year - 3, 1, 1), label="volledige refresh")
+    else:
+        # --- FULL: alles ophalen ---
+        since = datetime(now.year - 3, 1, 1)
+        all_orders = fetch_all_orders(since, label="volledige refresh")
+
     if not all_orders:
         print("\nGeen orders opgehaald. Controleer je API credentials.")
         return
 
+    # Orders cache opslaan
+    print("\nOrders cache bijwerken...")
+    save_orders_cache(all_orders)
+
     # Aggregeer
-    print("\n[3/4] Data aggregeren...")
+    print("\nData aggregeren...")
     dashboard_data = aggregate_dashboard_data(all_orders)
 
     # JSON opslaan
@@ -429,14 +546,14 @@ def main():
     print(f"  -> Data opgeslagen: {OUTPUT_JSON}")
 
     # HTML bijwerken
-    print("\n[4/4] Dashboard HTML bijwerken...")
+    print("\nDashboard HTML bijwerken...")
     update_dashboard_html(dashboard_data)
 
     # Samenvatting
     ytd = dashboard_data["ytd"]
     mtd = dashboard_data["mtd"]
     print("\n" + "=" * 60)
-    print("  SAMENVATTING")
+    print(f"  SAMENVATTING ({mode.upper()} RUN)")
     print("=" * 60)
     print(f"  Totaal orders: {len(all_orders)}")
     print(f"  YTD omzet:  EUR {ytd['total']:,.2f}")
