@@ -361,7 +361,7 @@ def update_dashboard_html(data):
     data_json = json.dumps(data, indent=2, ensure_ascii=True)
     pattern = r'const demoData = \{.*?\};'
     replacement = f'const demoData = {data_json};'
-    new_html = re.sub(pattern, replacement, html, flags=re.DOTALL)
+    new_html = re.sub(pattern, lambda m: replacement, html, flags=re.DOTALL)
 
     # Verberg demo banner
     new_html = new_html.replace(
