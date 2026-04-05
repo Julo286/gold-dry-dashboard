@@ -112,7 +112,7 @@ def process_shopify_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku", "UNKNOWN")
+            sku = item.get("sku") or "UNKNOWN"
             name = item.get("title", item.get("name", ""))
             price_ex_tax = float(item.get("price", 0)) * qty
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
@@ -207,7 +207,7 @@ def process_woo_orders(orders):
         items = []
         for item in order.get("line_items", []):
             qty = item.get("quantity", 0)
-            sku = item.get("sku", "UNKNOWN")
+            sku = item.get("sku") or "UNKNOWN"
             name = item.get("name", "")
             price = float(item.get("total", 0))
             # Statiegeld alleen voor tray-producten (blikken), niet voor flessen
