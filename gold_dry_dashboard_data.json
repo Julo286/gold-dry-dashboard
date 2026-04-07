@@ -1,36 +1,36 @@
 {
-  "lastUpdated": "2026-04-06T06:28:38.695074",
+  "lastUpdated": "2026-04-07T06:17:16.327742",
   "mtd": {
-    "total": 26246.37,
-    "b2b": 23473.5,
-    "b2c": 2772.87,
-    "b2bOrders": 17,
-    "b2cOrders": 42,
-    "prevTotal": 27730.95,
+    "total": 34701.23,
+    "b2b": 31365.58,
+    "b2c": 3335.65,
+    "b2bOrders": 23,
+    "b2cOrders": 49,
+    "prevTotal": 29542.57,
     "prevB2B": 0,
-    "prevB2C": 27730.95
+    "prevB2C": 29542.57
   },
   "ytd": {
-    "total": 421801.4,
-    "b2b": 383651.91,
-    "b2c": 38149.49,
-    "b2bOrders": 219,
-    "b2cOrders": 538,
-    "prevTotal": 72952.6,
+    "total": 430256.26,
+    "b2b": 391543.99,
+    "b2c": 38712.27,
+    "b2bOrders": 225,
+    "b2cOrders": 545,
+    "prevTotal": 74764.22,
     "prevB2B": 0,
-    "prevB2C": 72952.6
+    "prevB2C": 74764.22
   },
   "years": {
     "2023": 525698.07,
     "2024": 297043.63,
     "2025": 714429.06,
-    "2026": 421801.4
+    "2026": 430256.26
   },
   "monthly2026": [
     93609.08,
     121296.07,
     180649.88,
-    26246.37,
+    34701.23,
     0,
     0,
     0,
@@ -427,9 +427,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 26127.36,
-      "orders": 8,
+      "revenue": 29937.6,
+      "orders": 9,
       "orderList": [
+        {
+          "id": "301516",
+          "date": "2026-04-06",
+          "amount": 3810.24
+        },
         {
           "id": "301515",
           "date": "2026-04-05",
@@ -469,6 +474,54 @@
           "id": "301186",
           "date": "2025-11-13",
           "amount": 0
+        }
+      ]
+    },
+    {
+      "name": "Teejater Events",
+      "channel": "B2B",
+      "revenue": 24050.0,
+      "orders": 8,
+      "orderList": [
+        {
+          "id": "301517",
+          "date": "2026-04-06",
+          "amount": 3250.0
+        },
+        {
+          "id": "301426",
+          "date": "2026-03-09",
+          "amount": 3250.0
+        },
+        {
+          "id": "301333",
+          "date": "2026-01-28",
+          "amount": 3250.0
+        },
+        {
+          "id": "301302",
+          "date": "2026-01-07",
+          "amount": 3250.0
+        },
+        {
+          "id": "301280",
+          "date": "2025-12-21",
+          "amount": 3250.0
+        },
+        {
+          "id": "301257",
+          "date": "2025-12-08",
+          "amount": 2600.0
+        },
+        {
+          "id": "#GD1125",
+          "date": "2025-10-30",
+          "amount": 2600.0
+        },
+        {
+          "id": "#GD1041",
+          "date": "2025-10-06",
+          "amount": 2600.0
         }
       ]
     },
@@ -522,49 +575,6 @@
           "id": "#GD1107",
           "date": "2025-10-24",
           "amount": 0
-        }
-      ]
-    },
-    {
-      "name": "Teejater Events",
-      "channel": "B2B",
-      "revenue": 20800.0,
-      "orders": 7,
-      "orderList": [
-        {
-          "id": "301426",
-          "date": "2026-03-09",
-          "amount": 3250.0
-        },
-        {
-          "id": "301333",
-          "date": "2026-01-28",
-          "amount": 3250.0
-        },
-        {
-          "id": "301302",
-          "date": "2026-01-07",
-          "amount": 3250.0
-        },
-        {
-          "id": "301280",
-          "date": "2025-12-21",
-          "amount": 3250.0
-        },
-        {
-          "id": "301257",
-          "date": "2025-12-08",
-          "amount": 2600.0
-        },
-        {
-          "id": "#GD1125",
-          "date": "2025-10-30",
-          "amount": 2600.0
-        },
-        {
-          "id": "#GD1041",
-          "date": "2025-10-06",
-          "amount": 2600.0
         }
       ]
     },
@@ -844,44 +854,16 @@
       ]
     },
     {
-      "name": "Spar Holding BV",
-      "channel": "B2B",
-      "revenue": 23597.52,
-      "orders": 5,
-      "orderList": [
-        {
-          "id": "301487",
-          "date": "2026-03-26",
-          "amount": 2617.92
-        },
-        {
-          "id": "301462",
-          "date": "2026-03-18",
-          "amount": 3358.8
-        },
-        {
-          "id": "301443",
-          "date": "2026-03-12",
-          "amount": 6408.24
-        },
-        {
-          "id": "301347",
-          "date": "2026-02-04",
-          "amount": 8594.64
-        },
-        {
-          "id": "301318",
-          "date": "2026-01-21",
-          "amount": 2617.92
-        }
-      ]
-    },
-    {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 22939.2,
-      "orders": 6,
+      "revenue": 26749.44,
+      "orders": 7,
       "orderList": [
+        {
+          "id": "301516",
+          "date": "2026-04-06",
+          "amount": 3810.24
+        },
         {
           "id": "301515",
           "date": "2026-04-05",
@@ -911,6 +893,39 @@
           "id": "301382",
           "date": "2026-02-19",
           "amount": 6376.32
+        }
+      ]
+    },
+    {
+      "name": "Spar Holding BV",
+      "channel": "B2B",
+      "revenue": 23597.52,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301487",
+          "date": "2026-03-26",
+          "amount": 2617.92
+        },
+        {
+          "id": "301462",
+          "date": "2026-03-18",
+          "amount": 3358.8
+        },
+        {
+          "id": "301443",
+          "date": "2026-03-12",
+          "amount": 6408.24
+        },
+        {
+          "id": "301347",
+          "date": "2026-02-04",
+          "amount": 8594.64
+        },
+        {
+          "id": "301318",
+          "date": "2026-01-21",
+          "amount": 2617.92
         }
       ]
     },
@@ -950,9 +965,14 @@
     {
       "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 9750.0,
-      "orders": 3,
+      "revenue": 13000.0,
+      "orders": 4,
       "orderList": [
+        {
+          "id": "301517",
+          "date": "2026-04-06",
+          "amount": 3250.0
+        },
         {
           "id": "301426",
           "date": "2026-03-09",
@@ -1052,8 +1072,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 26044,
-      "revenue": 473691.9
+      "units": 26264,
+      "revenue": 477726.48
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1082,8 +1102,8 @@
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 4700,
-      "revenue": 88517.37
+      "units": 4713,
+      "revenue": 88776.94
     },
     {
       "name": "GOLD DRY Mindset (Tray 12x)",
@@ -1100,8 +1120,8 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 2962,
-      "revenue": 54728.52
+      "units": 3208,
+      "revenue": 59225.97
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1114,14 +1134,14 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 10121,
-      "revenue": 185228.37
+      "units": 10341,
+      "revenue": 189262.95
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 2962,
-      "revenue": 54728.52
+      "units": 3208,
+      "revenue": 59225.97
     },
     {
       "name": "GOLD DRY Original Premium Soda",
@@ -1156,8 +1176,8 @@
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 1585,
-      "revenue": 29286.67
+      "units": 1598,
+      "revenue": 29546.24
     },
     {
       "name": "GOLD DRY Sky Premium Soda",
