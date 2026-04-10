@@ -1,36 +1,36 @@
 {
-  "lastUpdated": "2026-04-09T06:18:10.418638",
+  "lastUpdated": "2026-04-10T06:51:32.526984",
   "mtd": {
-    "total": 67396.75,
-    "b2b": 62807.24,
-    "b2c": 4589.51,
-    "b2bOrders": 33,
-    "b2cOrders": 69,
-    "prevTotal": 31124.87,
+    "total": 71383.06,
+    "b2b": 66439.4,
+    "b2c": 4943.66,
+    "b2bOrders": 36,
+    "b2cOrders": 75,
+    "prevTotal": 32174.8,
     "prevB2B": 0,
-    "prevB2C": 31124.87
+    "prevB2C": 32174.8
   },
   "ytd": {
-    "total": 462951.78,
-    "b2b": 422985.65,
-    "b2c": 39966.13,
-    "b2bOrders": 235,
-    "b2cOrders": 565,
-    "prevTotal": 76346.52,
+    "total": 466938.09,
+    "b2b": 426617.81,
+    "b2c": 40320.28,
+    "b2bOrders": 238,
+    "b2cOrders": 571,
+    "prevTotal": 77396.45,
     "prevB2B": 0,
-    "prevB2C": 76346.52
+    "prevB2C": 77396.45
   },
   "years": {
     "2023": 525698.07,
     "2024": 297043.63,
     "2025": 714429.06,
-    "2026": 462951.78
+    "2026": 466938.09
   },
   "monthly2026": [
     93609.08,
     121296.07,
     180649.88,
-    67396.75,
+    71383.06,
     0,
     0,
     0,
@@ -437,9 +437,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 29937.6,
-      "orders": 9,
+      "revenue": 33125.76,
+      "orders": 10,
       "orderList": [
+        {
+          "id": "301532",
+          "date": "2026-04-09",
+          "amount": 3188.16
+        },
         {
           "id": "301516",
           "date": "2026-04-06",
@@ -871,9 +876,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 26749.44,
-      "orders": 7,
+      "revenue": 29937.6,
+      "orders": 8,
       "orderList": [
+        {
+          "id": "301532",
+          "date": "2026-04-09",
+          "amount": 3188.16
+        },
         {
           "id": "301516",
           "date": "2026-04-06",
@@ -1092,8 +1102,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 27825,
-      "revenue": 506161.8
+      "units": 28058,
+      "revenue": 510410.25
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1104,8 +1114,8 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 8607,
-      "revenue": 158200.27
+      "units": 8611,
+      "revenue": 158274.89
     },
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
@@ -1140,8 +1150,8 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 3312,
-      "revenue": 61151.12
+      "units": 3326,
+      "revenue": 61417.98
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1154,20 +1164,20 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 11902,
-      "revenue": 217698.27
+      "units": 12135,
+      "revenue": 221946.72
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 3312,
-      "revenue": 61151.12
+      "units": 3326,
+      "revenue": 61417.98
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 2821,
-      "revenue": 51824.73
+      "units": 2825,
+      "revenue": 51899.35
     },
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
