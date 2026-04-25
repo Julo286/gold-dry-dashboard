@@ -1,36 +1,36 @@
 {
-  "lastUpdated": "2026-04-24T07:02:39.052883",
+  "lastUpdated": "2026-04-25T06:18:14.812338",
   "mtd": {
-    "total": 225263.06,
-    "b2b": 147434.43,
-    "b2c": 77828.63,
-    "b2bOrders": 67,
-    "b2cOrders": 1038,
-    "prevTotal": 45108.44,
+    "total": 238112.36,
+    "b2b": 158911.95,
+    "b2c": 79200.41,
+    "b2bOrders": 69,
+    "b2cOrders": 1059,
+    "prevTotal": 45665.9,
     "prevB2B": 0,
-    "prevB2C": 45108.44
+    "prevB2C": 45665.9
   },
   "ytd": {
-    "total": 620429.63,
-    "b2b": 507224.38,
-    "b2c": 113205.25,
-    "b2bOrders": 269,
-    "b2cOrders": 1534,
-    "prevTotal": 90330.09,
+    "total": 633278.93,
+    "b2b": 518701.9,
+    "b2c": 114577.03,
+    "b2bOrders": 271,
+    "b2cOrders": 1555,
+    "prevTotal": 90887.55,
     "prevB2B": 0,
-    "prevB2C": 90330.09
+    "prevB2C": 90887.55
   },
   "years": {
     "2023": 525698.07,
     "2024": 297043.63,
     "2025": 714429.06,
-    "2026": 620429.63
+    "2026": 633278.93
   },
   "monthly2026": [
     93609.08,
     120907.61,
     180649.88,
-    225263.06,
+    238112.36,
     0,
     0,
     0,
@@ -261,9 +261,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 156971.52,
-      "orders": 24,
+      "revenue": 166458.24,
+      "orders": 25,
       "orderList": [
+        {
+          "id": "301566",
+          "date": "2026-04-24",
+          "amount": 9486.72
+        },
         {
           "id": "301551",
           "date": "2026-04-17",
@@ -888,9 +893,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 96888.96,
-      "orders": 13,
+      "revenue": 106375.68,
+      "orders": 14,
       "orderList": [
+        {
+          "id": "301566",
+          "date": "2026-04-24",
+          "amount": 9486.72
+        },
         {
           "id": "301551",
           "date": "2026-04-17",
@@ -1207,8 +1217,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 31516,
-      "revenue": 573328.28
+      "units": 32230,
+      "revenue": 586373.32
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1219,20 +1229,20 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 10240,
-      "revenue": 187915.64
+      "units": 10242,
+      "revenue": 187964.1
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 12090,
-      "revenue": 153439.74
+      "units": 12113,
+      "revenue": 153773.76
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 5374,
-      "revenue": 100780.07
+      "units": 5395,
+      "revenue": 101168.3
     },
     {
       "name": "GOLD DRY Mindset Premix Vodka",
@@ -1243,20 +1253,20 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 4507,
-      "revenue": 82866.33
+      "units": 4546,
+      "revenue": 83645.67
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 5960,
-      "revenue": 80720.46
+      "units": 5965,
+      "revenue": 80770.67
     },
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 4688,
-      "revenue": 67132.96
+      "units": 4695,
+      "revenue": 67239.39
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1269,32 +1279,32 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 15593,
-      "revenue": 284864.75
+      "units": 16307,
+      "revenue": 297909.79
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 4507,
-      "revenue": 82866.33
+      "units": 4546,
+      "revenue": 83645.67
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 4454,
-      "revenue": 81540.1
+      "units": 4456,
+      "revenue": 81588.56
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 4503,
-      "revenue": 62570.88
+      "units": 4526,
+      "revenue": 62904.9
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 3302,
-      "revenue": 44040.58
+      "units": 3307,
+      "revenue": 44090.79
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1305,20 +1315,20 @@
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 2259,
-      "revenue": 41549.37
+      "units": 2280,
+      "revenue": 41937.6
     },
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 2627,
-      "revenue": 36868.37
+      "units": 2634,
+      "revenue": 36974.8
     },
     {
       "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 1391,
-      "revenue": 19648.73
+      "units": 1399,
+      "revenue": 19771.48
     },
     {
       "name": "GOLD DRY Sky Premium Soda",
