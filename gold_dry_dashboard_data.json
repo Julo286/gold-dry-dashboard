@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-05-04T07:44:45.716307",
+  "lastUpdated": "2026-05-05T07:13:14.321390",
   "mtd": {
-    "total": 3521.61,
-    "b2b": 2131.48,
-    "b2c": 1390.13,
-    "b2bOrders": 6,
-    "b2cOrders": 17,
-    "prevTotal": 2430.84,
+    "total": 14955.86,
+    "b2b": 12947.88,
+    "b2c": 2007.98,
+    "b2bOrders": 16,
+    "b2cOrders": 29,
+    "prevTotal": 3133.42,
     "prevB2B": 0,
-    "prevB2C": 2430.84
+    "prevB2C": 3133.42
   },
   "ytd": {
-    "total": 657974.41,
-    "b2b": 539958.76,
-    "b2c": 118015.65,
-    "b2bOrders": 287,
-    "b2cOrders": 1601,
-    "prevTotal": 95346.76,
+    "total": 669408.66,
+    "b2b": 550775.16,
+    "b2c": 118633.5,
+    "b2bOrders": 297,
+    "b2cOrders": 1613,
+    "prevTotal": 96049.34,
     "prevB2B": 0,
-    "prevB2C": 95346.76
+    "prevB2C": 96049.34
   },
   "years": {
     "2023": 525698.07,
     "2024": 297043.63,
     "2025": 713942.7,
-    "2026": 657974.41
+    "2026": 669408.66
   },
   "monthly2026": [
     93609.08,
     115412.43,
     180649.88,
     264781.41,
-    3521.61,
+    14955.86,
     0,
     0,
     0,
@@ -565,9 +565,14 @@
     {
       "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 24050.0,
-      "orders": 8,
+      "revenue": 27300.0,
+      "orders": 9,
       "orderList": [
+        {
+          "id": "301584",
+          "date": "2026-05-04",
+          "amount": 3250.0
+        },
         {
           "id": "301517",
           "date": "2026-04-06",
@@ -613,9 +618,19 @@
     {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
-      "revenue": 23646.75,
-      "orders": 9,
+      "revenue": 26924.04,
+      "orders": 11,
       "orderList": [
+        {
+          "id": "301593",
+          "date": "2026-05-04",
+          "amount": 522.02
+        },
+        {
+          "id": "301592",
+          "date": "2026-05-04",
+          "amount": 2755.27
+        },
         {
           "id": "301505",
           "date": "2026-04-02",
@@ -1112,9 +1127,19 @@
     {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
-      "revenue": 15716.74,
-      "orders": 5,
+      "revenue": 18994.03,
+      "orders": 7,
       "orderList": [
+        {
+          "id": "301593",
+          "date": "2026-05-04",
+          "amount": 522.02
+        },
+        {
+          "id": "301592",
+          "date": "2026-05-04",
+          "amount": 2755.27
+        },
         {
           "id": "301505",
           "date": "2026-04-02",
@@ -1143,34 +1168,16 @@
       ]
     },
     {
-      "name": "Groothandel de Kreij",
-      "channel": "B2B",
-      "revenue": 13126.0,
-      "orders": 3,
-      "orderList": [
-        {
-          "id": "301574",
-          "date": "2026-04-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301496",
-          "date": "2026-03-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301299",
-          "date": "2026-01-05",
-          "amount": 4678.0
-        }
-      ]
-    },
-    {
       "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 13000.0,
-      "orders": 4,
+      "revenue": 16250.0,
+      "orders": 5,
       "orderList": [
+        {
+          "id": "301584",
+          "date": "2026-05-04",
+          "amount": 3250.0
+        },
         {
           "id": "301517",
           "date": "2026-04-06",
@@ -1190,6 +1197,29 @@
           "id": "301302",
           "date": "2026-01-07",
           "amount": 3250.0
+        }
+      ]
+    },
+    {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 13126.0,
+      "orders": 3,
+      "orderList": [
+        {
+          "id": "301574",
+          "date": "2026-04-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301496",
+          "date": "2026-03-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301299",
+          "date": "2026-01-05",
+          "amount": 4678.0
         }
       ]
     },
@@ -1262,8 +1292,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 33402,
-      "revenue": 607775.78
+      "units": 33701,
+      "revenue": 613223.61
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1274,44 +1304,44 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 10540,
-      "revenue": 193429.77
+      "units": 10552,
+      "revenue": 193654.2
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 12145,
-      "revenue": 154238.73
+      "units": 12237,
+      "revenue": 155524.5
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 5422,
-      "revenue": 101704.07
+      "units": 5449,
+      "revenue": 102207.53
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka",
+      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
       "sku": "TRAYPREMIND12",
-      "units": 5203,
-      "revenue": 97611.53
+      "units": 5213,
+      "revenue": 97793.53
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 4614,
-      "revenue": 84966.9
+      "units": 4667,
+      "revenue": 85943.56
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 5998,
-      "revenue": 81095.5
+      "units": 6102,
+      "revenue": 82521.88
     },
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 4921,
-      "revenue": 70409.25
+      "units": 4961,
+      "revenue": 70974.83
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1324,38 +1354,38 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 17479,
-      "revenue": 319312.25
+      "units": 17778,
+      "revenue": 324760.08
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 4754,
-      "revenue": 87054.23
+      "units": 4766,
+      "revenue": 87278.66
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 4614,
-      "revenue": 84966.9
+      "units": 4667,
+      "revenue": 85943.56
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 4558,
-      "revenue": 63369.87
+      "units": 4650,
+      "revenue": 64655.64
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 3340,
-      "revenue": 44415.62
+      "units": 3444,
+      "revenue": 45842.0
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 2307,
-      "revenue": 42473.37
+      "units": 2334,
+      "revenue": 42976.83
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1366,20 +1396,20 @@
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 2860,
-      "revenue": 40144.66
+      "units": 2900,
+      "revenue": 40710.24
     },
     {
       "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 1425,
-      "revenue": 20157.33
+      "units": 1514,
+      "revenue": 21403.27
     },
     {
       "name": "GOLD DRY Sky Premium Soda",
       "sku": "TRAYSKY12",
-      "units": 1141,
-      "revenue": 15499.2
+      "units": 1169,
+      "revenue": 15892.17
     }
   ]
 }
