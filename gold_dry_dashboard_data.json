@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-05-11T08:21:34.357448",
+  "lastUpdated": "2026-05-12T07:39:40.396850",
   "mtd": {
-    "total": 55858.11,
-    "b2b": 51711.88,
-    "b2c": 4146.23,
-    "b2bOrders": 32,
-    "b2cOrders": 58,
-    "prevTotal": 7038.26,
+    "total": 65742.47,
+    "b2b": 61057.28,
+    "b2c": 4685.19,
+    "b2bOrders": 37,
+    "b2cOrders": 66,
+    "prevTotal": 8035.23,
     "prevB2B": 0,
-    "prevB2C": 7038.26
+    "prevB2C": 8035.23
   },
   "ytd": {
-    "total": 710310.91,
-    "b2b": 589539.16,
-    "b2c": 120771.75,
-    "b2bOrders": 313,
-    "b2cOrders": 1642,
-    "prevTotal": 100231.38,
+    "total": 720195.27,
+    "b2b": 598884.56,
+    "b2c": 121310.71,
+    "b2bOrders": 318,
+    "b2cOrders": 1650,
+    "prevTotal": 101228.35,
     "prevB2B": 0,
-    "prevB2C": 100231.38
+    "prevB2C": 101228.35
   },
   "years": {
     "2023": 525698.07,
     "2024": 299216.23,
     "2025": 714599.7,
-    "2026": 710310.91
+    "2026": 720195.27
   },
   "monthly2026": [
     93609.08,
     115412.43,
     180649.88,
     264781.41,
-    55858.11,
+    65742.47,
     0,
     0,
     0,
@@ -712,6 +712,39 @@
       ]
     },
     {
+      "name": "Quick Boys Katwijk",
+      "channel": "B2B",
+      "revenue": 13639.2,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301612",
+          "date": "2026-05-11",
+          "amount": 5292.0
+        },
+        {
+          "id": "301483",
+          "date": "2026-03-24",
+          "amount": 2116.8
+        },
+        {
+          "id": "301389",
+          "date": "2026-02-20",
+          "amount": 2116.8
+        },
+        {
+          "id": "301329",
+          "date": "2026-01-26",
+          "amount": 2116.8
+        },
+        {
+          "id": "301191",
+          "date": "2025-11-17",
+          "amount": 1996.8
+        }
+      ]
+    },
+    {
       "name": "Casa Cara Dine & Dance",
       "channel": "B2B",
       "revenue": 13307.4,
@@ -774,39 +807,6 @@
           "id": "301299",
           "date": "2026-01-05",
           "amount": 4678.0
-        }
-      ]
-    },
-    {
-      "name": "S.V. Eemnes",
-      "channel": "B2B",
-      "revenue": 12170.3,
-      "orders": 5,
-      "orderList": [
-        {
-          "id": "301537",
-          "date": "2026-04-13",
-          "amount": 2496.48
-        },
-        {
-          "id": "301428",
-          "date": "2026-03-10",
-          "amount": 1764.0
-        },
-        {
-          "id": "301325",
-          "date": "2026-01-24",
-          "amount": 2646.0
-        },
-        {
-          "id": "301285",
-          "date": "2025-12-23",
-          "amount": 2708.16
-        },
-        {
-          "id": "301165",
-          "date": "2025-11-10",
-          "amount": 2555.66
         }
       ]
     }
@@ -1247,6 +1247,34 @@
       ]
     },
     {
+      "name": "Quick Boys Katwijk",
+      "channel": "B2B",
+      "revenue": 11642.4,
+      "orders": 4,
+      "orderList": [
+        {
+          "id": "301612",
+          "date": "2026-05-11",
+          "amount": 5292.0
+        },
+        {
+          "id": "301483",
+          "date": "2026-03-24",
+          "amount": 2116.8
+        },
+        {
+          "id": "301389",
+          "date": "2026-02-20",
+          "amount": 2116.8
+        },
+        {
+          "id": "301329",
+          "date": "2026-01-26",
+          "amount": 2116.8
+        }
+      ]
+    },
+    {
       "name": "Stadsfestival BV",
       "channel": "B2B",
       "revenue": 10648.05,
@@ -1278,32 +1306,14 @@
           "amount": 0
         }
       ]
-    },
-    {
-      "name": "Hoogvliet Supermarkten",
-      "channel": "B2B",
-      "revenue": 10108.8,
-      "orders": 2,
-      "orderList": [
-        {
-          "id": "301572",
-          "date": "2026-04-29",
-          "amount": 3369.6
-        },
-        {
-          "id": "301436",
-          "date": "2026-03-11",
-          "amount": 6739.2
-        }
-      ]
     }
   ],
   "topProducts": [
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 35226,
-      "revenue": 641037.37
+      "units": 35701,
+      "revenue": 649699.31
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1312,46 +1322,46 @@
       "revenue": 576214.41
     },
     {
-      "name": "GOLD DRY Sky Premix Vodka - Tray 12",
+      "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 10797,
-      "revenue": 198145.63
+      "units": 10811,
+      "revenue": 198414.89
     },
     {
-      "name": "GOLD DRY Original Premium Soda - Tray 12",
+      "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 12466,
-      "revenue": 158689.36
+      "units": 12472,
+      "revenue": 158777.45
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka - Tray 12",
       "sku": "TRAYPREECLIPSE",
-      "units": 5707,
-      "revenue": 106936.64
+      "units": 5722,
+      "revenue": 107209.64
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
+      "name": "GOLD DRY Mindset Premix Vodka",
       "sku": "TRAYPREMIND12",
-      "units": 5238,
-      "revenue": 98265.1
+      "units": 5244,
+      "revenue": 98380.33
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 5029,
-      "revenue": 92562.99
+      "units": 5057,
+      "revenue": 93081.02
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 6124,
-      "revenue": 82754.23
+      "units": 6128,
+      "revenue": 82795.36
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
+      "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 4965,
-      "revenue": 71039.41
+      "units": 4966,
+      "revenue": 71057.75
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1364,38 +1374,38 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 19303,
-      "revenue": 352573.84
+      "units": 19778,
+      "revenue": 361235.78
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 5029,
-      "revenue": 92562.99
+      "units": 5057,
+      "revenue": 93081.02
     },
     {
-      "name": "GOLD DRY Sky Premix Vodka - Tray 12",
+      "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 5011,
-      "revenue": 91770.09
+      "units": 5025,
+      "revenue": 92039.35
     },
     {
-      "name": "GOLD DRY Original Premium Soda - Tray 12",
+      "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 4879,
-      "revenue": 67820.5
+      "units": 4885,
+      "revenue": 67908.59
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka - Tray 12",
       "sku": "TRAYPREECLIPSE",
-      "units": 2592,
-      "revenue": 47705.94
+      "units": 2607,
+      "revenue": 47978.94
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
       "sku": "TRAYMIND12",
-      "units": 3466,
-      "revenue": 46074.35
+      "units": 3470,
+      "revenue": 46115.48
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1404,22 +1414,22 @@
       "revenue": 42206.4
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
+      "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 2904,
-      "revenue": 40774.82
+      "units": 2905,
+      "revenue": 40793.16
     },
     {
-      "name": "GOLD DRY Unite Premium Soda - Tray 12",
+      "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 1527,
-      "revenue": 21591.38
+      "units": 1528,
+      "revenue": 21609.72
     },
     {
-      "name": "GOLD DRY Sky Premium Soda - Tray 12",
+      "name": "GOLD DRY Sky Premium Soda",
       "sku": "TRAYSKY12",
-      "units": 1174,
-      "revenue": 15975.09
+      "units": 1175,
+      "revenue": 15993.43
     }
   ]
 }
