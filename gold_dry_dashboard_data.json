@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-05-28T08:39:06.858906",
+  "lastUpdated": "2026-05-29T08:38:49.690524",
   "mtd": {
-    "total": 176727.36,
-    "b2b": 162948.73,
-    "b2c": 13778.63,
-    "b2bOrders": 77,
-    "b2cOrders": 179,
-    "prevTotal": 21738.1,
+    "total": 190308.97,
+    "b2b": 175945.28,
+    "b2c": 14363.69,
+    "b2bOrders": 83,
+    "b2cOrders": 188,
+    "prevTotal": 23130.3,
     "prevB2B": 0,
-    "prevB2C": 21738.1
+    "prevB2C": 23130.3
   },
   "ytd": {
-    "total": 822874.72,
-    "b2b": 692470.57,
-    "b2c": 130404.15,
-    "b2bOrders": 358,
-    "b2cOrders": 1763,
-    "prevTotal": 114931.22,
+    "total": 836456.33,
+    "b2b": 705467.12,
+    "b2c": 130989.21,
+    "b2bOrders": 364,
+    "b2cOrders": 1772,
+    "prevTotal": 116323.42,
     "prevB2B": 0,
-    "prevB2C": 114931.22
+    "prevB2C": 116323.42
   },
   "years": {
     "2023": 525698.07,
     "2024": 299216.23,
     "2025": 714599.7,
-    "2026": 822874.72
+    "2026": 836456.33
   },
   "monthly2026": [
     93609.08,
     113379.63,
     174377.24,
     264781.41,
-    176727.36,
+    190308.97,
     0,
     0,
     0,
@@ -437,6 +437,99 @@
       ]
     },
     {
+      "name": "Sligro Food Group Nederland BV",
+      "channel": "B2B",
+      "revenue": 84372.48,
+      "orders": 17,
+      "orderList": [
+        {
+          "id": "301659",
+          "date": "2026-05-28",
+          "amount": 6376.32
+        },
+        {
+          "id": "301634",
+          "date": "2026-05-20",
+          "amount": 9564.48
+        },
+        {
+          "id": "301629",
+          "date": "2026-05-18",
+          "amount": 12988.8
+        },
+        {
+          "id": "301625",
+          "date": "2026-05-18",
+          "amount": 3188.16
+        },
+        {
+          "id": "301576",
+          "date": "2026-04-30",
+          "amount": 6376.32
+        },
+        {
+          "id": "301558",
+          "date": "2026-04-22",
+          "amount": 3188.16
+        },
+        {
+          "id": "301545",
+          "date": "2026-04-15",
+          "amount": 9564.48
+        },
+        {
+          "id": "301532",
+          "date": "2026-04-09",
+          "amount": 3188.16
+        },
+        {
+          "id": "301516",
+          "date": "2026-04-06",
+          "amount": 3810.24
+        },
+        {
+          "id": "301515",
+          "date": "2026-04-05",
+          "amount": 3810.24
+        },
+        {
+          "id": "301514",
+          "date": "2026-04-05",
+          "amount": 3188.16
+        },
+        {
+          "id": "301491",
+          "date": "2026-03-30",
+          "amount": 3188.16
+        },
+        {
+          "id": "301452",
+          "date": "2026-03-16",
+          "amount": 3188.16
+        },
+        {
+          "id": "301397",
+          "date": "2026-02-24",
+          "amount": 3188.16
+        },
+        {
+          "id": "301382",
+          "date": "2026-02-19",
+          "amount": 6376.32
+        },
+        {
+          "id": "301252",
+          "date": "2025-12-06",
+          "amount": 3188.16
+        },
+        {
+          "id": "301186",
+          "date": "2025-11-13",
+          "amount": 0
+        }
+      ]
+    },
+    {
       "name": "Spar Holding BV",
       "channel": "B2B",
       "revenue": 80443.44,
@@ -526,94 +619,6 @@
           "id": "#GD1074",
           "date": "2025-10-15",
           "amount": 3291.84
-        }
-      ]
-    },
-    {
-      "name": "Sligro Food Group Nederland BV",
-      "channel": "B2B",
-      "revenue": 77996.16,
-      "orders": 16,
-      "orderList": [
-        {
-          "id": "301634",
-          "date": "2026-05-20",
-          "amount": 9564.48
-        },
-        {
-          "id": "301629",
-          "date": "2026-05-18",
-          "amount": 12988.8
-        },
-        {
-          "id": "301625",
-          "date": "2026-05-18",
-          "amount": 3188.16
-        },
-        {
-          "id": "301576",
-          "date": "2026-04-30",
-          "amount": 6376.32
-        },
-        {
-          "id": "301558",
-          "date": "2026-04-22",
-          "amount": 3188.16
-        },
-        {
-          "id": "301545",
-          "date": "2026-04-15",
-          "amount": 9564.48
-        },
-        {
-          "id": "301532",
-          "date": "2026-04-09",
-          "amount": 3188.16
-        },
-        {
-          "id": "301516",
-          "date": "2026-04-06",
-          "amount": 3810.24
-        },
-        {
-          "id": "301515",
-          "date": "2026-04-05",
-          "amount": 3810.24
-        },
-        {
-          "id": "301514",
-          "date": "2026-04-05",
-          "amount": 3188.16
-        },
-        {
-          "id": "301491",
-          "date": "2026-03-30",
-          "amount": 3188.16
-        },
-        {
-          "id": "301452",
-          "date": "2026-03-16",
-          "amount": 3188.16
-        },
-        {
-          "id": "301397",
-          "date": "2026-02-24",
-          "amount": 3188.16
-        },
-        {
-          "id": "301382",
-          "date": "2026-02-19",
-          "amount": 6376.32
-        },
-        {
-          "id": "301252",
-          "date": "2025-12-06",
-          "amount": 3188.16
-        },
-        {
-          "id": "301186",
-          "date": "2025-11-13",
-          "amount": 0
         }
       ]
     },
@@ -762,6 +767,39 @@
       ]
     },
     {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 19396.25,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301658",
+          "date": "2026-05-28",
+          "amount": 3888.25
+        },
+        {
+          "id": "301636",
+          "date": "2026-05-20",
+          "amount": 2382.0
+        },
+        {
+          "id": "301574",
+          "date": "2026-04-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301496",
+          "date": "2026-03-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301299",
+          "date": "2026-01-05",
+          "amount": 4678.0
+        }
+      ]
+    },
+    {
       "name": "Quick Boys Katwijk",
       "channel": "B2B",
       "revenue": 16694.4,
@@ -801,34 +839,6 @@
           "id": "301191",
           "date": "2025-11-17",
           "amount": 1996.8
-        }
-      ]
-    },
-    {
-      "name": "Groothandel de Kreij",
-      "channel": "B2B",
-      "revenue": 15508.0,
-      "orders": 4,
-      "orderList": [
-        {
-          "id": "301636",
-          "date": "2026-05-20",
-          "amount": 2382.0
-        },
-        {
-          "id": "301574",
-          "date": "2026-04-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301496",
-          "date": "2026-03-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301299",
-          "date": "2026-01-05",
-          "amount": 4678.0
         }
       ]
     },
@@ -1121,9 +1131,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 74808.0,
-      "orders": 14,
+      "revenue": 81184.32,
+      "orders": 15,
       "orderList": [
+        {
+          "id": "301659",
+          "date": "2026-05-28",
+          "amount": 6376.32
+        },
         {
           "id": "301634",
           "date": "2026-05-20",
@@ -1250,6 +1265,39 @@
       ]
     },
     {
+      "name": "Groothandel de Kreij",
+      "channel": "B2B",
+      "revenue": 19396.25,
+      "orders": 5,
+      "orderList": [
+        {
+          "id": "301658",
+          "date": "2026-05-28",
+          "amount": 3888.25
+        },
+        {
+          "id": "301636",
+          "date": "2026-05-20",
+          "amount": 2382.0
+        },
+        {
+          "id": "301574",
+          "date": "2026-04-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301496",
+          "date": "2026-03-30",
+          "amount": 4224.0
+        },
+        {
+          "id": "301299",
+          "date": "2026-01-05",
+          "amount": 4678.0
+        }
+      ]
+    },
+    {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
       "revenue": 18994.03,
@@ -1322,34 +1370,6 @@
           "id": "301302",
           "date": "2026-01-07",
           "amount": 3250.0
-        }
-      ]
-    },
-    {
-      "name": "Groothandel de Kreij",
-      "channel": "B2B",
-      "revenue": 15508.0,
-      "orders": 4,
-      "orderList": [
-        {
-          "id": "301636",
-          "date": "2026-05-20",
-          "amount": 2382.0
-        },
-        {
-          "id": "301574",
-          "date": "2026-04-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301496",
-          "date": "2026-03-30",
-          "amount": 4224.0
-        },
-        {
-          "id": "301299",
-          "date": "2026-01-05",
-          "amount": 4678.0
         }
       ]
     },
@@ -1442,8 +1462,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 39196,
-      "revenue": 713579.41
+      "units": 39633,
+      "revenue": 721562.64
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1454,32 +1474,32 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 11521,
-      "revenue": 211493.06
+      "units": 11572,
+      "revenue": 212430.72
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 12995,
-      "revenue": 166083.5
+      "units": 13000,
+      "revenue": 166162.84
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 6776,
-      "revenue": 126537.2
+      "units": 6812,
+      "revenue": 127198.43
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 5959,
-      "revenue": 109746.34
+      "units": 6012,
+      "revenue": 110726.43
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
+      "name": "GOLD DRY Mindset Premix Vodka",
       "sku": "TRAYPREMIND12",
-      "units": 5303,
-      "revenue": 99503.37
+      "units": 5545,
+      "revenue": 103913.8
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
@@ -1496,40 +1516,40 @@
     {
       "name": "GOLD DRY Sky Premium Soda",
       "sku": "TRAYSKY12",
-      "units": 3581,
-      "revenue": 51550.17
+      "units": 3583,
+      "revenue": 51586.85
     }
   ],
   "topProductsYTD": [
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 23273,
-      "revenue": 425115.88
+      "units": 23710,
+      "revenue": 433099.11
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 5959,
-      "revenue": 109746.34
+      "units": 6012,
+      "revenue": 110726.43
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 5735,
-      "revenue": 105117.52
+      "units": 5786,
+      "revenue": 106055.18
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 5408,
-      "revenue": 75214.64
+      "units": 5413,
+      "revenue": 75293.98
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 3661,
-      "revenue": 67306.5
+      "units": 3697,
+      "revenue": 67967.73
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
@@ -1550,16 +1570,16 @@
       "revenue": 42206.4
     },
     {
-      "name": "GOLD DRY Unite Premium Soda - Tray 12",
+      "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 1597,
-      "revenue": 22662.6
+      "units": 1631,
+      "revenue": 23141.29
     },
     {
-      "name": "GOLD DRY Sky Premium Soda",
-      "sku": "TRAYSKY12",
-      "units": 1417,
-      "revenue": 19433.59
+      "name": "GOLD DRY Mindset Premix Vodka",
+      "sku": "TRAYPREMIND12",
+      "units": 1101,
+      "revenue": 20423.22
     }
   ]
 }
