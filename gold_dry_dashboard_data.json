@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-06-08T09:19:38.687291",
+  "lastUpdated": "2026-06-09T08:28:02.316269",
   "mtd": {
-    "total": 81094.21,
-    "b2b": 77064.35,
-    "b2c": 4029.86,
-    "b2bOrders": 23,
-    "b2cOrders": 53,
-    "prevTotal": 3902.88,
+    "total": 94280.59,
+    "b2b": 89878.83,
+    "b2c": 4401.76,
+    "b2bOrders": 25,
+    "b2cOrders": 62,
+    "prevTotal": 4463.17,
     "prevB2B": 0,
-    "prevB2C": 3902.88
+    "prevB2C": 4463.17
   },
   "ytd": {
-    "total": 934972.65,
-    "b2b": 798273.51,
-    "b2c": 136699.14,
-    "b2bOrders": 389,
-    "b2cOrders": 1849,
-    "prevTotal": 121911.57,
+    "total": 948159.03,
+    "b2b": 811087.99,
+    "b2c": 137071.04,
+    "b2bOrders": 391,
+    "b2cOrders": 1858,
+    "prevTotal": 122471.86,
     "prevB2B": 0,
-    "prevB2C": 121911.57
+    "prevB2C": 122471.86
   },
   "years": {
     "2023": 525698.07,
     "2024": 299216.23,
     "2025": 714599.7,
-    "2026": 934972.65
+    "2026": 948159.03
   },
   "monthly2026": [
     93609.08,
@@ -32,7 +32,7 @@
     174377.24,
     261671.01,
     210841.48,
-    81094.21,
+    94280.59,
     0,
     0,
     0,
@@ -459,9 +459,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 84372.48,
-      "orders": 17,
+      "revenue": 93936.96,
+      "orders": 18,
       "orderList": [
+        {
+          "id": "301686",
+          "date": "2026-06-08",
+          "amount": 9564.48
+        },
         {
           "id": "301659",
           "date": "2026-05-28",
@@ -756,9 +761,14 @@
     {
       "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 27300.0,
-      "orders": 9,
+      "revenue": 30550.0,
+      "orders": 10,
       "orderList": [
+        {
+          "id": "301687",
+          "date": "2026-06-08",
+          "amount": 3250.0
+        },
         {
           "id": "301584",
           "date": "2026-05-04",
@@ -1201,9 +1211,14 @@
     {
       "name": "Sligro Food Group Nederland BV",
       "channel": "B2B",
-      "revenue": 81184.32,
-      "orders": 15,
+      "revenue": 90748.8,
+      "orders": 16,
       "orderList": [
+        {
+          "id": "301686",
+          "date": "2026-06-08",
+          "amount": 9564.48
+        },
         {
           "id": "301659",
           "date": "2026-05-28",
@@ -1438,9 +1453,14 @@
     {
       "name": "Teejater Events",
       "channel": "B2B",
-      "revenue": 16250.0,
-      "orders": 5,
+      "revenue": 19500.0,
+      "orders": 6,
       "orderList": [
+        {
+          "id": "301687",
+          "date": "2026-06-08",
+          "amount": 3250.0
+        },
         {
           "id": "301584",
           "date": "2026-05-04",
@@ -1537,8 +1557,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 42594,
-      "revenue": 775719.28
+      "units": 43011,
+      "revenue": 783314.71
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1549,26 +1569,26 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 12500,
-      "revenue": 229418.89
+      "units": 12717,
+      "revenue": 233374.32
     },
     {
-      "name": "GOLD DRY Original (Tray 12x)",
+      "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 13444,
-      "revenue": 172376.82
+      "units": 13446,
+      "revenue": 172393.36
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 7072,
-      "revenue": 132013.33
+      "units": 7289,
+      "revenue": 135968.76
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 7025,
-      "revenue": 129323.65
+      "units": 7028,
+      "revenue": 129393.74
     },
     {
       "name": "GOLD DRY Mindset Premix Vodka",
@@ -1599,32 +1619,32 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 26671,
-      "revenue": 487255.75
+      "units": 27088,
+      "revenue": 494851.18
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 7025,
-      "revenue": 129323.65
+      "units": 7028,
+      "revenue": 129393.74
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 6714,
-      "revenue": 123043.35
+      "units": 6931,
+      "revenue": 126998.78
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 5857,
-      "revenue": 81507.96
+      "units": 5859,
+      "revenue": 81524.5
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 3957,
-      "revenue": 72782.63
+      "units": 4174,
+      "revenue": 76738.06
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
