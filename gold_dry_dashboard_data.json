@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-06-12T08:54:27.818763",
+  "lastUpdated": "2026-06-13T08:17:51.030020",
   "mtd": {
-    "total": 122835.47,
-    "b2b": 117131.08,
-    "b2c": 5704.39,
-    "b2bOrders": 38,
-    "b2cOrders": 81,
-    "prevTotal": 7081.23,
+    "total": 139893.89,
+    "b2b": 133578.13,
+    "b2c": 6315.76,
+    "b2bOrders": 41,
+    "b2cOrders": 88,
+    "prevTotal": 7634.26,
     "prevB2B": 0,
-    "prevB2C": 7081.23
+    "prevB2C": 7634.26
   },
   "ytd": {
-    "total": 976713.91,
-    "b2b": 838340.24,
-    "b2c": 138373.67,
-    "b2bOrders": 404,
-    "b2cOrders": 1877,
-    "prevTotal": 125089.92,
+    "total": 993772.33,
+    "b2b": 854787.29,
+    "b2c": 138985.04,
+    "b2bOrders": 407,
+    "b2cOrders": 1884,
+    "prevTotal": 125642.95,
     "prevB2B": 0,
-    "prevB2C": 125089.92
+    "prevB2C": 125642.95
   },
   "years": {
     "2023": 525698.07,
     "2024": 299216.23,
     "2025": 714599.7,
-    "2026": 976713.91
+    "2026": 993772.33
   },
   "monthly2026": [
     93609.08,
@@ -32,7 +32,7 @@
     174377.24,
     261671.01,
     210841.48,
-    122835.47,
+    139893.89,
     0,
     0,
     0,
@@ -311,9 +311,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 210781.44,
-      "orders": 30,
+      "revenue": 226592.64,
+      "orders": 31,
       "orderList": [
+        {
+          "id": "301703",
+          "date": "2026-06-13",
+          "amount": 15811.2
+        },
         {
           "id": "301685",
           "date": "2026-06-05",
@@ -1133,9 +1138,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 150698.88,
-      "orders": 19,
+      "revenue": 166510.08,
+      "orders": 20,
       "orderList": [
+        {
+          "id": "301703",
+          "date": "2026-06-13",
+          "amount": 15811.2
+        },
         {
           "id": "301685",
           "date": "2026-06-05",
@@ -1585,10 +1595,10 @@
   ],
   "topProducts": [
     {
-      "name": "GOLD DRY Original Premix Vodka - Tray 12",
+      "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 43903,
-      "revenue": 799616.18
+      "units": 44558,
+      "revenue": 811569.49
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1599,32 +1609,32 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 13162,
-      "revenue": 241489.94
+      "units": 13163,
+      "revenue": 241514.17
     },
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
       "sku": "TRAYORIG12",
-      "units": 13675,
-      "revenue": 175576.55
-    },
-    {
-      "name": "GOLD DRY Eclipse Premix Vodka",
-      "sku": "TRAYPREECLIPSE",
-      "units": 7304,
-      "revenue": 136253.82
+      "units": 13679,
+      "revenue": 175632.35
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 7102,
-      "revenue": 130771.77
+      "units": 7546,
+      "revenue": 138871.74
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
+      "name": "GOLD DRY Eclipse Premix Vodka",
+      "sku": "TRAYPREECLIPSE",
+      "units": 7311,
+      "revenue": 136387.25
+    },
+    {
+      "name": "GOLD DRY Mindset Premix Vodka",
       "sku": "TRAYPREMIND12",
-      "units": 5648,
-      "revenue": 105815.95
+      "units": 5655,
+      "revenue": 105949.38
     },
     {
       "name": "GOLD DRY Mindset (Tray 12x)",
@@ -1633,48 +1643,48 @@
       "revenue": 96912.74
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
+      "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 5804,
-      "revenue": 82813.88
+      "units": 5809,
+      "revenue": 82888.02
     },
     {
       "name": "GOLD DRY Sky Premium Soda",
       "sku": "TRAYSKY12",
-      "units": 3776,
-      "revenue": 54318.54
+      "units": 3782,
+      "revenue": 54407.44
     }
   ],
   "topProductsYTD": [
     {
-      "name": "GOLD DRY Original Premix Vodka - Tray 12",
+      "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 27980,
-      "revenue": 511152.65
-    },
-    {
-      "name": "GOLD DRY Sky Premix Vodka",
-      "sku": "TRAYPRESKY12",
-      "units": 7376,
-      "revenue": 135114.4
+      "units": 28635,
+      "revenue": 523105.96
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 7102,
-      "revenue": 130771.77
+      "units": 7546,
+      "revenue": 138871.74
+    },
+    {
+      "name": "GOLD DRY Sky Premix Vodka",
+      "sku": "TRAYPRESKY12",
+      "units": 7377,
+      "revenue": 135138.63
     },
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
       "sku": "TRAYORIG12",
-      "units": 6088,
-      "revenue": 84707.69
+      "units": 6092,
+      "revenue": 84763.49
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 4189,
-      "revenue": 77023.12
+      "units": 4196,
+      "revenue": 77156.55
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
@@ -1683,10 +1693,10 @@
       "revenue": 60232.86
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
+      "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 3743,
-      "revenue": 52549.29
+      "units": 3748,
+      "revenue": 52623.43
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1695,16 +1705,16 @@
       "revenue": 42206.4
     },
     {
-      "name": "GOLD DRY Unite Premium Soda - Tray 12",
+      "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 1826,
-      "revenue": 25890.22
+      "units": 1832,
+      "revenue": 25978.31
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
+      "name": "GOLD DRY Mindset Premix Vodka",
       "sku": "TRAYPREMIND12",
-      "units": 1204,
-      "revenue": 22325.37
+      "units": 1211,
+      "revenue": 22458.8
     }
   ]
 }
