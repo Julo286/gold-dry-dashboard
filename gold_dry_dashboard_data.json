@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-07-08T07:24:34.030926",
+  "lastUpdated": "2026-07-09T08:22:42.530042",
   "mtd": {
-    "total": 62877.4,
-    "b2b": 59248.8,
-    "b2c": 3628.6,
-    "b2bOrders": 14,
-    "b2cOrders": 48,
-    "prevTotal": 11755.85,
+    "total": 79037.75,
+    "b2b": 74630.28,
+    "b2c": 4407.47,
+    "b2bOrders": 17,
+    "b2cOrders": 55,
+    "prevTotal": 13306.44,
     "prevB2B": 0,
-    "prevB2C": 11755.85
+    "prevB2C": 13306.44
   },
   "ytd": {
-    "total": 1127868.98,
-    "b2b": 972681.13,
-    "b2c": 155187.85,
-    "b2bOrders": 446,
-    "b2cOrders": 2100,
-    "prevTotal": 171825.85,
+    "total": 1144029.33,
+    "b2b": 988062.61,
+    "b2c": 155966.72,
+    "b2bOrders": 449,
+    "b2cOrders": 2107,
+    "prevTotal": 173376.44,
     "prevB2B": 0,
-    "prevB2C": 171825.85
+    "prevB2C": 173376.44
   },
   "years": {
     "2023": 525698.07,
     "2024": 299216.23,
     "2025": 714570.18,
-    "2026": 1127868.98
+    "2026": 1144029.33
   },
   "monthly2026": [
     93609.08,
@@ -33,7 +33,7 @@
     261174.79,
     210025.2,
     216945.89,
-    62877.4,
+    79037.75,
     0,
     0,
     0,
@@ -58,9 +58,14 @@
     {
       "name": "Jumbo Distributiecentrum B.V.",
       "channel": "B2B",
-      "revenue": 441834.18,
-      "orders": 52,
+      "revenue": 456569.7,
+      "orders": 53,
       "orderList": [
+        {
+          "id": "301754",
+          "date": "2026-07-08",
+          "amount": 14735.52
+        },
         {
           "id": "301734",
           "date": "2026-07-02",
@@ -1035,9 +1040,14 @@
     {
       "name": "Jumbo Distributiecentrum B.V.",
       "channel": "B2B",
-      "revenue": 276959.7,
-      "orders": 35,
+      "revenue": 291695.22,
+      "orders": 36,
       "orderList": [
+        {
+          "id": "301754",
+          "date": "2026-07-08",
+          "amount": 14735.52
+        },
         {
           "id": "301734",
           "date": "2026-07-02",
@@ -1755,10 +1765,10 @@
   ],
   "topProducts": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix Vodka - Tray 12",
       "sku": "TRAYPREORIG12",
-      "units": 48029,
-      "revenue": 875296.04
+      "units": 48251,
+      "revenue": 879336.44
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -1769,8 +1779,8 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 14065,
-      "revenue": 258208.74
+      "units": 14069,
+      "revenue": 258292.45
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1781,20 +1791,20 @@
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 14715,
-      "revenue": 190048.88
+      "units": 14939,
+      "revenue": 193171.1
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 8329,
-      "revenue": 153466.46
+      "units": 8992,
+      "revenue": 165551.08
     },
     {
-      "name": "GOLD DRY Eclipse Premix Vodka",
+      "name": "GOLD DRY Eclipse Premix Vodka - Tray 12",
       "sku": "TRAYPREECLIPSE",
-      "units": 7776,
-      "revenue": 145102.09
+      "units": 7781,
+      "revenue": 145193.09
     },
     {
       "name": "Golden Prote\u00efne - Salty Peanut - (36 omdozen - 12 stuks per doos)",
@@ -1803,10 +1813,10 @@
       "revenue": 126619.2
     },
     {
-      "name": "GOLD DRY Mindset Premix Vodka",
+      "name": "GOLD DRY Mindset Premix Vodka - Tray 12",
       "sku": "TRAYPREMIND12",
-      "units": 5710,
-      "revenue": 107124.92
+      "units": 5719,
+      "revenue": 107288.72
     },
     {
       "name": "GOLD DRY Mindset (Tray 12x)",
@@ -1817,10 +1827,10 @@
   ],
   "topProductsYTD": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix Vodka - Tray 12",
       "sku": "TRAYPREORIG12",
-      "units": 32106,
-      "revenue": 586832.51
+      "units": 32328,
+      "revenue": 590872.91
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -1831,14 +1841,14 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 8329,
-      "revenue": 153466.46
+      "units": 8992,
+      "revenue": 165551.08
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 8279,
-      "revenue": 151833.2
+      "units": 8283,
+      "revenue": 151916.91
     },
     {
       "name": "Golden Prote\u00efne - Salty Peanut - (36 omdozen - 12 stuks per doos)",
@@ -1849,14 +1859,14 @@
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 7128,
-      "revenue": 99180.02
+      "units": 7352,
+      "revenue": 102302.24
     },
     {
-      "name": "GOLD DRY Eclipse Premix Vodka",
+      "name": "GOLD DRY Eclipse Premix Vodka - Tray 12",
       "sku": "TRAYPREECLIPSE",
-      "units": 4661,
-      "revenue": 85871.39
+      "units": 4666,
+      "revenue": 85962.39
     },
     {
       "name": "GOLD DRY Mindset Premium Soda",
@@ -1873,8 +1883,8 @@
     {
       "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 3027,
-      "revenue": 42751.78
+      "units": 3031,
+      "revenue": 42811.97
     }
   ]
 }
