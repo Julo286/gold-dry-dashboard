@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-08-18T05:22:23.370052",
+  "lastUpdated": "2026-08-19T05:23:07.617363",
   "mtd": {
-    "total": 95602.18,
+    "total": 95856.79,
     "b2b": 90102.13,
-    "b2c": 5500.05,
+    "b2c": 5754.66,
     "b2bOrders": 31,
-    "b2cOrders": 67,
-    "prevTotal": 11991.47,
+    "b2cOrders": 72,
+    "prevTotal": 12454.83,
     "prevB2B": 0,
-    "prevB2C": 11991.47
+    "prevB2C": 12454.83
   },
   "ytd": {
-    "total": 1348761.1,
+    "total": 1349015.71,
     "b2b": 1175704.11,
-    "b2c": 173056.99,
+    "b2c": 173311.6,
     "b2bOrders": 515,
-    "b2cOrders": 2319,
-    "prevTotal": 205538.51,
+    "b2cOrders": 2324,
+    "prevTotal": 206001.87,
     "prevB2B": 0,
-    "prevB2C": 205538.51
+    "prevB2C": 206001.87
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1348761.1
+    "2026": 1349015.71
   },
   "monthly2026": [
     93164.0,
@@ -34,7 +34,7 @@
     210185.4,
     214316.45,
     189792.86,
-    95602.18,
+    95856.79,
     0,
     0,
     0,
@@ -2001,8 +2001,8 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 14532,
-      "revenue": 266934.91
+      "units": 14534,
+      "revenue": 266978.42
     },
     {
       "name": "GOLD DRY Original Premium Soda",
@@ -2031,8 +2031,8 @@
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 7098,
-      "revenue": 101005.92
+      "units": 7100,
+      "revenue": 101042.6
     }
   ],
   "topProductsYTD": [
@@ -2063,8 +2063,8 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 8746,
-      "revenue": 160559.37
+      "units": 8748,
+      "revenue": 160602.88
     },
     {
       "name": "GOLD DRY Original Premium Soda",
@@ -2087,8 +2087,8 @@
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 5037,
-      "revenue": 70741.33
+      "units": 5039,
+      "revenue": 70778.01
     },
     {
       "name": "GOLD DRY Mindset Premium Soda - Tray 12",
