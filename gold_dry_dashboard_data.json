@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-08-28T17:06:25.187223",
+  "lastUpdated": "2026-08-29T11:26:40.975565",
   "mtd": {
     "total": 134166.9,
     "b2b": 125753.05,
     "b2c": 8413.85,
     "b2bOrders": 43,
     "b2cOrders": 109,
-    "prevTotal": 18333.64,
+    "prevTotal": 19005.09,
     "prevB2B": 0,
-    "prevB2C": 18333.64
+    "prevB2C": 19005.09
   },
   "ytd": {
     "total": 1378713.95,
@@ -16,9 +16,9 @@
     "b2c": 175970.79,
     "b2bOrders": 527,
     "b2cOrders": 2361,
-    "prevTotal": 211880.68,
+    "prevTotal": 212552.13,
     "prevB2B": 0,
-    "prevB2C": 211880.68
+    "prevB2C": 212552.13
   },
   "years": {
     "2023": 525698.07,
