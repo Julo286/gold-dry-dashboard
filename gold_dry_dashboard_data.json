@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-09-16T09:37:35.467384",
+  "lastUpdated": "2026-09-17T09:46:21.416177",
   "mtd": {
-    "total": 53617.53,
+    "total": 55683.41,
     "b2b": 40695.92,
-    "b2c": 12921.61,
+    "b2c": 14987.49,
     "b2bOrders": 29,
-    "b2cOrders": 161,
-    "prevTotal": 13758.68,
+    "b2cOrders": 191,
+    "prevTotal": 15221.89,
     "prevB2B": 0,
-    "prevB2C": 13758.68
+    "prevB2C": 15221.89
   },
   "ytd": {
-    "total": 1437701.76,
+    "total": 1439767.64,
     "b2b": 1248251.33,
-    "b2c": 189450.43,
+    "b2c": 191516.31,
     "b2bOrders": 560,
-    "b2cOrders": 2530,
-    "prevTotal": 226783.02,
+    "b2cOrders": 2560,
+    "prevTotal": 228246.23,
     "prevB2B": 0,
-    "prevB2C": 226783.02
+    "prevB2C": 228246.23
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1437701.76
+    "2026": 1439767.64
   },
   "monthly2026": [
     93164.0,
@@ -35,7 +35,7 @@
     205704.58,
     189792.86,
     139537.18,
-    53617.53,
+    55683.41,
     0,
     0,
     0
@@ -2107,8 +2107,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 57409,
-      "revenue": 1046568.11
+      "units": 57428,
+      "revenue": 1046900.88
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -2131,46 +2131,46 @@
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 14658,
-      "revenue": 269291.59
+      "units": 14666,
+      "revenue": 269433.35
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 17015,
-      "revenue": 222430.65
+      "units": 17028,
+      "revenue": 222600.53
     },
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 11442,
-      "revenue": 210472.42
+      "units": 11455,
+      "revenue": 210698.87
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 8351,
-      "revenue": 155814.74
+      "units": 8357,
+      "revenue": 155921.06
     },
     {
       "name": "GOLD DRY Mindset Premix Vodka",
       "sku": "TRAYPREMIND12",
-      "units": 6521,
-      "revenue": 122071.78
+      "units": 6530,
+      "revenue": 122227.36
     },
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 7457,
-      "revenue": 106045.45
+      "units": 7467,
+      "revenue": 106175.43
     }
   ],
   "topProductsYTD": [
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 41486,
-      "revenue": 758104.58
+      "units": 41505,
+      "revenue": 758437.35
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
@@ -2187,38 +2187,38 @@
     {
       "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 11442,
-      "revenue": 210472.42
+      "units": 11455,
+      "revenue": 210698.87
     },
     {
       "name": "GOLD DRY Sky Premix Vodka",
       "sku": "TRAYPRESKY12",
-      "units": 8872,
-      "revenue": 162916.05
+      "units": 8880,
+      "revenue": 163057.81
     },
     {
       "name": "GOLD DRY Original Premium Soda",
       "sku": "TRAYORIG12",
-      "units": 9428,
-      "revenue": 131561.79
+      "units": 9441,
+      "revenue": 131731.67
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
       "sku": "TRAYPREECLIPSE",
-      "units": 5236,
-      "revenue": 96584.04
+      "units": 5242,
+      "revenue": 96690.36
     },
     {
       "name": "GOLD DRY Eclipse Premium Soda",
       "sku": "TRAYECLIPSE",
-      "units": 5396,
-      "revenue": 75780.86
+      "units": 5406,
+      "revenue": 75910.84
     },
     {
       "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 5306,
-      "revenue": 74676.38
+      "units": 5312,
+      "revenue": 74753.16
     },
     {
       "name": "GOLD DRY Mindset Premium Soda - Tray 12",
