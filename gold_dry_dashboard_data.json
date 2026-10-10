@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-10-09T11:36:42.682289",
+  "lastUpdated": "2026-10-10T10:54:25.725745",
   "mtd": {
-    "total": 35285.48,
-    "b2b": 33739.88,
+    "total": 38447.72,
+    "b2b": 36902.12,
     "b2c": 1545.6,
-    "b2bOrders": 21,
+    "b2bOrders": 22,
     "b2cOrders": 23,
-    "prevTotal": 39586.07,
+    "prevTotal": 39739.77,
     "prevB2B": 36361.28,
-    "prevB2C": 3224.79
+    "prevB2C": 3378.49
   },
   "ytd": {
-    "total": 1528981.91,
-    "b2b": 1324419.87,
+    "total": 1532144.15,
+    "b2b": 1327582.11,
     "b2c": 204562.04,
-    "b2bOrders": 599,
+    "b2bOrders": 600,
     "b2cOrders": 2729,
-    "prevTotal": 275615.69,
+    "prevTotal": 275769.39,
     "prevB2B": 36361.28,
-    "prevB2C": 239254.41
+    "prevB2C": 239408.11
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1528981.91
+    "2026": 1532144.15
   },
   "monthly2026": [
     93164.0,
@@ -36,7 +36,7 @@
     189792.86,
     139537.18,
     109612.2,
-    35285.48,
+    38447.72,
     0,
     0
   ],
@@ -401,9 +401,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 326843.42,
-      "orders": 46,
+      "revenue": 330005.66,
+      "orders": 47,
       "orderList": [
+        {
+          "id": "301908",
+          "date": "2026-10-09",
+          "amount": 3162.24
+        },
         {
           "id": "301895",
           "date": "2026-10-05",
@@ -1533,9 +1538,14 @@
     {
       "name": "Albert Heijn Distributiecentrum",
       "channel": "B2B",
-      "revenue": 266760.86,
-      "orders": 35,
+      "revenue": 269923.1,
+      "orders": 36,
       "orderList": [
+        {
+          "id": "301908",
+          "date": "2026-10-09",
+          "amount": 3162.24
+        },
         {
           "id": "301895",
           "date": "2026-10-05",
@@ -2235,10 +2245,10 @@
   ],
   "topProducts": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix Vodka - Tray 12",
       "sku": "TRAYPREORIG12",
-      "units": 60324,
-      "revenue": 1099630.52
+      "units": 60540,
+      "revenue": 1103561.72
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -2297,10 +2307,10 @@
   ],
   "topProductsYTD": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix Vodka - Tray 12",
       "sku": "TRAYPREORIG12",
-      "units": 44401,
-      "revenue": 811166.99
+      "units": 44617,
+      "revenue": 815098.19
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
