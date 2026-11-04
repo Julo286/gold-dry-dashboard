@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-11-03T12:33:42.841231",
+  "lastUpdated": "2026-11-04T12:43:28.888636",
   "mtd": {
-    "total": 23867.9,
-    "b2b": 23491.16,
+    "total": 26232.87,
+    "b2b": 25856.13,
     "b2c": 376.74,
-    "b2bOrders": 10,
+    "b2bOrders": 12,
     "b2cOrders": 5,
-    "prevTotal": 4816.16,
-    "prevB2B": 4230.55,
-    "prevB2C": 585.61
+    "prevTotal": 8002.97,
+    "prevB2B": 6727.95,
+    "prevB2C": 1275.02
   },
   "ytd": {
-    "total": 1626314.25,
-    "b2b": 1413636.3,
+    "total": 1628679.22,
+    "b2b": 1416001.27,
     "b2c": 212677.95,
-    "b2bOrders": 649,
+    "b2bOrders": 651,
     "b2cOrders": 2838,
-    "prevTotal": 398094.49,
-    "prevB2B": 151945.77,
-    "prevB2C": 246148.72
+    "prevTotal": 401281.3,
+    "prevB2B": 154443.17,
+    "prevB2C": 246838.13
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1626314.25
+    "2026": 1628679.22
   },
   "monthly2026": [
     93164.0,
@@ -37,7 +37,7 @@
     139537.18,
     109612.2,
     108749.92,
-    23867.9,
+    26232.87,
     0
   ],
   "monthly2025": [
@@ -950,9 +950,19 @@
     {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
-      "revenue": 66156.08,
-      "orders": 20,
+      "revenue": 68521.05,
+      "orders": 22,
       "orderList": [
+        {
+          "id": "301959",
+          "date": "2026-11-03",
+          "amount": 1087.09
+        },
+        {
+          "id": "301958",
+          "date": "2026-11-03",
+          "amount": 1277.88
+        },
         {
           "id": "301888",
           "date": "2026-10-01",
@@ -2047,9 +2057,19 @@
     {
       "name": "CN Purchase B.V.",
       "channel": "B2B",
-      "revenue": 58226.07,
-      "orders": 16,
+      "revenue": 60591.04,
+      "orders": 18,
       "orderList": [
+        {
+          "id": "301959",
+          "date": "2026-11-03",
+          "amount": 1087.09
+        },
+        {
+          "id": "301958",
+          "date": "2026-11-03",
+          "amount": 1277.88
+        },
         {
           "id": "301888",
           "date": "2026-10-01",
@@ -2407,8 +2427,8 @@
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
       "sku": "TRAYORIG12",
-      "units": 18547,
-      "revenue": 243666.37
+      "units": 18596,
+      "revenue": 244349.92
     },
     {
       "name": "GOLD DRY Unite Premix Vodka - Tray 12",
@@ -2429,10 +2449,10 @@
       "revenue": 124585.75
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda",
+      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
       "sku": "TRAYECLIPSE",
-      "units": 8445,
-      "revenue": 119808.57
+      "units": 8483,
+      "revenue": 120338.67
     }
   ],
   "topProductsYTD": [
@@ -2469,8 +2489,8 @@
     {
       "name": "GOLD DRY Original Premium Soda - Tray 12",
       "sku": "TRAYORIG12",
-      "units": 10960,
-      "revenue": 152797.51
+      "units": 11009,
+      "revenue": 153481.06
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka",
@@ -2479,16 +2499,16 @@
       "revenue": 100751.6
     },
     {
-      "name": "GOLD DRY Eclipse Premium Soda",
+      "name": "GOLD DRY Eclipse Premium Soda - Tray 12",
       "sku": "TRAYECLIPSE",
-      "units": 6384,
-      "revenue": 89543.98
+      "units": 6422,
+      "revenue": 90074.08
     },
     {
       "name": "GOLD DRY Unite Premium Soda - Tray 12",
       "sku": "TRAYUNITE",
-      "units": 5649,
-      "revenue": 79424.6
+      "units": 5677,
+      "revenue": 79815.2
     },
     {
       "name": "GOLD DRY Mindset Premium Soda - Tray 12",
