@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-11-10T13:11:19.761544",
+  "lastUpdated": "2026-11-11T12:20:15.339344",
   "mtd": {
-    "total": 48682.36,
+    "total": 48731.11,
     "b2b": 47459.46,
-    "b2c": 1222.9,
+    "b2c": 1271.65,
     "b2bOrders": 22,
-    "b2cOrders": 15,
-    "prevTotal": 39512.42,
-    "prevB2B": 37139.91,
-    "prevB2C": 2372.51
+    "b2cOrders": 16,
+    "prevTotal": 43145.28,
+    "prevB2B": 40387.99,
+    "prevB2C": 2757.29
   },
   "ytd": {
-    "total": 1647966.47,
+    "total": 1648015.22,
     "b2b": 1434442.36,
-    "b2c": 213524.11,
+    "b2c": 213572.86,
     "b2bOrders": 661,
-    "b2cOrders": 2848,
-    "prevTotal": 432790.75,
-    "prevB2B": 184855.13,
-    "prevB2C": 247935.62
+    "b2cOrders": 2849,
+    "prevTotal": 436423.61,
+    "prevB2B": 188103.21,
+    "prevB2C": 248320.4
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1647966.47
+    "2026": 1648015.22
   },
   "monthly2026": [
     93164.0,
@@ -37,7 +37,7 @@
     139537.18,
     109612.2,
     105587.68,
-    48682.36,
+    48731.11,
     0
   ],
   "monthly2025": [
@@ -2517,8 +2517,8 @@
     {
       "name": "GOLD DRY Unite Premium Soda",
       "sku": "TRAYUNITE",
-      "units": 5682,
-      "revenue": 79889.34
+      "units": 5683,
+      "revenue": 79907.68
     },
     {
       "name": "GOLD DRY Mindset Premium Soda - Tray 12",
