@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-11-12T13:29:07.738395",
+  "lastUpdated": "2026-11-13T12:46:24.416160",
   "mtd": {
-    "total": 60370.86,
-    "b2b": 58982.12,
-    "b2c": 1388.74,
-    "b2bOrders": 25,
-    "b2cOrders": 19,
-    "prevTotal": 58950.67,
-    "prevB2B": 55955.87,
-    "prevB2C": 2994.8
+    "total": 60794.4,
+    "b2b": 59273.96,
+    "b2c": 1520.44,
+    "b2bOrders": 26,
+    "b2cOrders": 22,
+    "prevTotal": 72443.1,
+    "prevB2B": 69176.21,
+    "prevB2C": 3266.89
   },
   "ytd": {
-    "total": 1659654.97,
-    "b2b": 1445965.02,
-    "b2c": 213689.95,
-    "b2bOrders": 664,
-    "b2cOrders": 2852,
-    "prevTotal": 452229.0,
-    "prevB2B": 203671.09,
-    "prevB2C": 248557.91
+    "total": 1660078.51,
+    "b2b": 1446256.86,
+    "b2c": 213821.65,
+    "b2bOrders": 665,
+    "b2cOrders": 2855,
+    "prevTotal": 465721.43,
+    "prevB2B": 216891.43,
+    "prevB2C": 248830.0
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1659654.97
+    "2026": 1660078.51
   },
   "monthly2026": [
     93164.0,
@@ -37,7 +37,7 @@
     139537.18,
     109612.2,
     105587.68,
-    60370.86,
+    60794.4,
     0
   ],
   "monthly2025": [
@@ -2461,10 +2461,10 @@
       "revenue": 251671.9
     },
     {
-      "name": "GOLD DRY Unite Premix Vodka - Tray 12",
+      "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 13266,
-      "revenue": 243696.95
+      "units": 13267,
+      "revenue": 243721.18
     },
     {
       "name": "GOLD DRY Eclipse Premix Vodka - Tray 12",
@@ -2505,10 +2505,10 @@
       "revenue": 320768.64
     },
     {
-      "name": "GOLD DRY Unite Premix Vodka - Tray 12",
+      "name": "GOLD DRY Unite Premix Vodka",
       "sku": "TRAYPREUNITE",
-      "units": 13266,
-      "revenue": 243696.95
+      "units": 13267,
+      "revenue": 243721.18
     },
     {
       "name": "GOLD DRY Sky Premix Vodka - Tray 12",
