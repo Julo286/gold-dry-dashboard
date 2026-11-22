@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-11-21T13:11:02.546724",
+  "lastUpdated": "2026-11-22T13:16:25.905116",
   "mtd": {
-    "total": 106830.63,
+    "total": 106997.41,
     "b2b": 101530.74,
-    "b2c": 5299.89,
+    "b2c": 5466.67,
     "b2bOrders": 37,
-    "b2cOrders": 80,
-    "prevTotal": 101548.97,
+    "b2cOrders": 84,
+    "prevTotal": 101878.03,
     "prevB2B": 96866.06,
-    "prevB2C": 4682.91
+    "prevB2C": 5011.97
   },
   "ytd": {
-    "total": 1695532.9,
-    "b2b": 1477931.8,
-    "b2c": 217601.1,
+    "total": 1689728.77,
+    "b2b": 1471960.89,
+    "b2c": 217767.88,
     "b2bOrders": 676,
-    "b2cOrders": 2913,
-    "prevTotal": 494827.3,
+    "b2cOrders": 2917,
+    "prevTotal": 495156.36,
     "prevB2B": 244581.28,
-    "prevB2C": 250246.02
+    "prevB2C": 250575.08
   },
   "years": {
     "2023": 525698.07,
     "2024": 300154.03,
     "2025": 715608.78,
-    "2026": 1695532.9
+    "2026": 1689728.77
   },
   "monthly2026": [
     93164.0,
@@ -33,11 +33,11 @@
     262315.99,
     210185.4,
     205704.58,
-    179211.02,
+    173240.11,
     139537.18,
     109612.2,
     105587.68,
-    106830.63,
+    106997.41,
     0
   ],
   "monthly2025": [
@@ -2430,10 +2430,10 @@
   ],
   "topProducts": [
     {
-      "name": "GOLD DRY Original Premix Vodka",
+      "name": "GOLD DRY Original Premix (Tray 12x)",
       "sku": "TRAYPREORIG12",
-      "units": 68299,
-      "revenue": 1244815.25
+      "units": 68301,
+      "revenue": 1244850.71
     },
     {
       "name": "Gold Dry Mindset Tray 6 Blikken - 500ml",
@@ -2460,7 +2460,7 @@
       "revenue": 279099.37
     },
     {
-      "name": "GOLD DRY Original Premium Soda",
+      "name": "GOLD DRY Original (Tray 12x)",
       "sku": "TRAYORIG12",
       "units": 19375,
       "revenue": 255164.85
@@ -2494,8 +2494,8 @@
     {
       "name": "GOLD DRY Original Premix Vodka",
       "sku": "TRAYPREORIG12",
-      "units": 52376,
-      "revenue": 956351.72
+      "units": 52378,
+      "revenue": 956387.18
     },
     {
       "name": "Golden Prote\u00efne - Chocolate Toffee - (36 omdozen - 12 stuks per doos)",
